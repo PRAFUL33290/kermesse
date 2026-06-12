@@ -6,6 +6,11 @@
 /* Projets d'école — ne comptent PAS dans la limite de 2 scènes */
 const SCHOOL_PROJECTS = [
   {
+    name: "Maternelles de Virginie",
+    note: "Les pouvoirs des fleurs — Les Kids United",
+    kids: []
+  },
+  {
     name: "Capoeira",
     note: "",
     kids: ["Clara", "Anna", "Lydia", "Ryma", "Calie", "Divine", "Keren",
@@ -58,7 +63,8 @@ const FREE_CATEGORIES = [
       { who: ["Lina S.","Maïssa"], scene: "Duo (Brésil) — musique à confirmer" },
       { who: ["Giulia","Heloise"], scene: "Gabriela" },
       { who: ["Stella","Giulia"], scene: "21 Reasons" },
-      { who: ["Heloise","Juliette","Loicia"], scene: "Danse" }
+      { who: ["Heloise","Juliette","Loicia"], scene: "Danse" },
+      { who: ["Mamy Kadiatou"], scene: "Solo afro" }
     ]
   },
   {
@@ -77,7 +83,6 @@ const FREE_CATEGORIES = [
     scenes: [
       { who: ["Lilly","Shine","Divine"], scene: "Théâtre" },
       { who: ["Ryma","Divine","Clara"], scene: "Mortelle Adèle" },
-      { who: ["Nayana"], scene: "Théâtre" },
       { who: ["Charlotte"], scene: "Théâtre" },
       { who: ["Eileen","Leana","Lina M."], scene: "Théâtre" },
       { who: ["Souleyman","Juliette","Timéo","Loïcia"], scene: "Théâtre" }
