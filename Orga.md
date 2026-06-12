@@ -7,9 +7,9 @@
 
 | | Nombre |
 |---|---|
-| **Scènes / passages** | 31 |
-| **Projets d'école** | 3 |
-| **Total** | 34 |
+| **Scènes / passages libres** | 33 |
+| **Projets d'école** | 4 |
+| **Total des passages** | 37 |
 | **Catégories** | 7 (Danse, Gym, Théâtre, Chant, Roller, Jonglage, Magie) |
 
 ---
@@ -19,10 +19,13 @@
 ### 1. Capoeira — 13 enfants
 Clara, Anna, Lydia, Ryma, Calie, Divine, Keren, Charlotte, Orianne, Shine, Maimouna, Grace, Tania
 
-### 2. Oh Mama Tetema + Freestyle (Chorégraphie) — 6 enfants
+### 2. Carnaval de Deborah — 1 enfant
+Deborah
+
+### 3. Oh Mama Tetema + Freestyle (Chorégraphie) — 6 enfants
 Keren, Divine, Grace, Maimouna, Tania, Orianne
 
-### 3. Quinzaine de l'égalité — 13 langues
+### 4. Quinzaine de l'égalité — 13 langues
 
 | Drapeau | Pays | Langue | Enfants |
 |---|---|---|---|
@@ -44,7 +47,7 @@ Keren, Divine, Grace, Maimouna, Tania, Orianne
 
 ## 🎪 Scènes libres — Détail par catégorie
 
-### 💃 Danse — 8 scènes
+### 💃 Danse — 11 scènes
 
 | # | Participants | Prestation | Nb |
 |---|---|---|---|
@@ -56,6 +59,9 @@ Keren, Divine, Grace, Maimouna, Tania, Orianne
 | 6 | Maissae, Lina M. | Afro / rondade / salto | 2 |
 | 7 | Grace | Danse | 1 |
 | 8 | Lina S., Maïssa | Duo (Brésil) | 2 |
+| 9 | Giulia, Héloïse | Gabriela | 2 |
+| 10 | Stella, Giulia | 21 Reasons | 2 |
+| 11 | Héloïse, Juliette, Loïcia | Danse | 3 |
 
 ### 🤸 Gymnastique — 4 passages
 
@@ -80,7 +86,7 @@ Keren, Divine, Grace, Maimouna, Tania, Orianne
 | 3 | Nayana | Théâtre | 1 |
 | 4 | Charlotte | Théâtre | 1 |
 | 5 | Eileen, Leana, Lina M. | Théâtre | 3 |
-| 6 | Souleyman, Juliette, Timéo, Loïcia | Théâtre | 4 |
+| 6 | Souleyman, Juliette, Timéo, Loïcia | Théâtre à 4 | 4 |
 
 ### 🎤 Chant — 6 scènes
 
@@ -131,6 +137,7 @@ L'ordre est pensé pour :
 | N° | Scène | Participants | Catégorie | Durée est. |
 |---|---|---|---|---|
 | **1** | 🏫 **Capoeira** | Clara, Anna, Lydia, Ryma, Calie, Divine, Keren, Charlotte, Orianne, Shine, Maimouna, Grace, Tania (13) | Projet d'école | ~5 min |
+| **2** | 🏫 **Carnaval de Deborah** | Deborah (1) | Projet d'école | ~3 min |
 
 ---
 
@@ -138,24 +145,26 @@ L'ordre est pensé pour :
 
 | N° | Scène | Participants | Catégorie | Durée est. |
 |---|---|---|---|---|
-| **2** | 💃 Danse / gym — Lush Life | Alya, Elena, Elaïa, Kelyana | Danse | ~3 min |
-| **3** | 🎤 Chant | Ched / Cheid | Chant | ~3 min |
-| **4** | 💃 Gozalo | Jasmine, Léa, Lina M. | Danse | ~3 min |
-| **5** | 🪄 Holla Up | Charlotte | Magie | ~3 min |
-| **6** | 💃 Séga | Lana | Danse | ~3 min |
+| **3** | 💃 Danse / gym — Lush Life | Alya, Elena, Elaïa, Kelyana | Danse | ~3 min |
+| **4** | 💃 Danse — Gabriela | Giulia, Héloïse | Danse | ~3 min |
+| **5** | 🎤 Chant | Ched / Cheid | Chant | ~3 min |
+| **6** | 💃 Gozalo | Jasmine, Léa, Lina M. | Danse | ~3 min |
+| **7** | 🪄 Holla Up | Charlotte | Magie | ~3 min |
+| **8** | 💃 Séga | Lana | Danse | ~3 min |
 
 ---
 
-### 🟡 BLOC 2 — Théâtre & Chant
+### 🟡 BLOC 2 — Théâtre, Chant & Danse
 
 | N° | Scène | Participants | Catégorie | Durée est. |
 |---|---|---|---|---|
-| **7** | 🎭 Théâtre | Lilly, Shine, Divine | Théâtre | ~5 min |
-| **8** | 🎤 Chant | Jasmine, Léa | Chant | ~3 min |
-| **9** | 🎭 Théâtre | Nayana | Théâtre | ~4 min |
-| **10** | 🎤 Chant | Maïmouna | Chant | ~3 min |
-| **11** | 🎭 Mortelle Adèle | Ryma, Divine, Clara | Théâtre | ~5 min |
-| **12** | 🎤 Chant | Céline | Chant | ~3 min |
+| **9** | 🎭 Théâtre | Lilly, Shine, Divine | Théâtre | ~5 min |
+| **10** | 🎤 Chant | Jasmine, Léa | Chant | ~3 min |
+| **11** | 💃 Danse | Héloïse, Juliette, Loïcia | Danse | ~3 min |
+| **12** | 🎭 Théâtre | Nayana | Théâtre | ~4 min |
+| **13** | 🎤 Chant | Maïmouna | Chant | ~3 min |
+| **14** | 🎭 Mortelle Adèle | Ryma, Divine, Clara | Théâtre | ~5 min |
+| **15** | 🎤 Chant | Céline | Chant | ~3 min |
 
 ---
 
@@ -163,10 +172,10 @@ L'ordre est pensé pour :
 
 | N° | Scène | Participants | Catégorie | Durée est. |
 |---|---|---|---|---|
-| **13** | 🤸 Gym groupe | Giulia, Stella, Héloïse | Gym (sous-groupe) | ~3 min |
-| **14** | 🤸 Gym groupe | Inès, Eileen, Lya | Gym (sous-groupe) | ~3 min |
-| **15** | 🤸 Gym duo | Lina S., Maïssa | Gym (sous-groupe) | ~3 min |
-| **16** | 🤸 **Rondades / flip / salto** | Toutes ensemble (22 filles) | Gym (toutes) | ~5 min |
+| **16** | 🤸 Gym groupe | Giulia, Stella, Héloïse | Gym (sous-groupe) | ~3 min |
+| **17** | 🤸 Gym groupe | Inès, Eileen, Lya | Gym (sous-groupe) | ~3 min |
+| **18** | 🤸 Gym duo | Lina S., Maïssa | Gym (sous-groupe) | ~3 min |
+| **19** | 🤸 **Rondades / flip / salto** | Toutes ensemble (22 filles) | Gym (toutes) | ~5 min |
 
 ---
 
@@ -174,12 +183,12 @@ L'ordre est pensé pour :
 
 | N° | Scène | Participants | Catégorie | Durée est. |
 |---|---|---|---|---|
-| **17** | ⚽ Jonglage | Courage, Eliam | Jonglage foot | ~3 min |
-| **18** | 💃 Danse / scène de groupe | Kaylan, Elvin, Arthur, Alioun | Danse | ~3 min |
-| **19** | 🛼 Roller | Giulia | Roller | ~3 min |
-| **20** | 🛼 Roller | Mélina Adenet | Roller | ~3 min |
-| **21** | 🛼 Roller | Haby | Roller | ~3 min |
-| **22** | 🛼 Roller | Thalia F. | Roller | ~3 min |
+| **20** | ⚽ Jonglage | Courage, Eliam | Jonglage foot | ~3 min |
+| **21** | 💃 Danse / scène de groupe | Kaylan, Elvin, Arthur, Alioun | Danse | ~3 min |
+| **22** | 🛼 Roller | Giulia | Roller | ~3 min |
+| **23** | 🛼 Roller | Mélina Adenet | Roller | ~3 min |
+| **24** | 🛼 Roller | Haby | Roller | ~3 min |
+| **25** | 🛼 Roller | Thalia F. | Roller | ~3 min |
 
 ---
 
@@ -187,15 +196,16 @@ L'ordre est pensé pour :
 
 | N° | Scène | Participants | Catégorie | Durée est. |
 |---|---|---|---|---|
-| **23** | 💃 Danse | Clara, Lydia, Divine, Ryma | Danse | ~3 min |
-| **24** | 🎭 Théâtre | Charlotte | Théâtre | ~4 min |
-| **25** | 💃 Afro / rondade / salto | Maissae, Lina M. | Danse | ~3 min |
-| **26** | 🎭 Théâtre | Eileen, Leana, Lina M. | Théâtre | ~5 min |
-| **27** | 🎤 Chant | Lina M. | Chant | ~3 min |
-| **28** | 💃 Duo (Brésil) | Lina S., Maïssa | Danse | ~3 min |
-| **29** | 🎤 Chant (à confirmer) | Jumana | Chant | ~3 min |
-| **30** | 💃 Danse | Grace | Danse | ~3 min |
-| **31** | 🎭 Théâtre à 4 | Souleyman, Juliette, Timéo, Loïcia | Théâtre | ~5 min |
+| **26** | 💃 Danse | Clara, Lydia, Divine, Ryma | Danse | ~3 min |
+| **27** | 🎭 Théâtre | Charlotte | Théâtre | ~4 min |
+| **28** | 💃 Danse — 21 Reasons | Stella, Giulia | Danse | ~3 min |
+| **29** | 💃 Afro / rondade / salto | Maissae, Lina M. | Danse | ~3 min |
+| **30** | 🎭 Théâtre | Eileen, Leana, Lina M. | Théâtre | ~5 min |
+| **31** | 🎤 Chant | Lina M. | Chant | ~3 min |
+| **32** | 💃 Duo (Brésil) | Lina S., Maïssa | Danse | ~3 min |
+| **33** | 🎤 Chant (à confirmer) | Jumana | Chant | ~3 min |
+| **34** | 💃 Danse | Grace | Danse | ~3 min |
+| **35** | 🎭 Théâtre à 4 | Souleyman, Juliette, Timéo, Loïcia | Théâtre | ~5 min |
 
 ---
 
@@ -203,8 +213,8 @@ L'ordre est pensé pour :
 
 | N° | Scène | Participants | Catégorie | Durée est. |
 |---|---|---|---|---|
-| **32** | 🏫 **Oh Mama Tetema + Freestyle** | Keren, Divine, Grace, Maimouna, Tania, Orianne (6) | Projet d'école | ~5 min |
-| **33** | 🏫 **Quinzaine de l'égalité** | Ensemble (19+ enfants, 13 langues) | Projet d'école | ~8 min |
+| **36** | 🏫 **Oh Mama Tetema + Freestyle** | Keren, Divine, Grace, Maimouna, Tania, Orianne (6) | Projet d'école | ~5 min |
+| **37** | 🏫 **Quinzaine de l'égalité** | Ensemble (19+ enfants, 13 langues) | Projet d'école | ~8 min |
 
 ---
 
@@ -212,10 +222,10 @@ L'ordre est pensé pour :
 
 | | |
 |---|---|
-| Scènes libres (31) | ~95 min |
-| Projets d'école (3) | ~18 min |
-| Transitions / présentations | ~15 min |
-| **TOTAL ESTIMÉ** | **~2h10** |
+| Scènes libres (33) | ~101 min |
+| Projets d'école (4) | ~21 min |
+| Transitions / présentations | ~18 min |
+| **TOTAL ESTIMÉ** | **~2h20** |
 
 ---
 
@@ -226,6 +236,8 @@ L'ordre est pensé pour :
 | Lush Life | Danse / gym (Alya, Elena, Elaïa, Kelyana) | ✅ Prête |
 | Gozalo | Danse (Jasmine, Léa, Lina M.) | ✅ Prête |
 | Astronomia | Danse (Kaylan, Elvin, Arthur, Alioun) | ✅ Prête |
+| Gabriela | Danse (Giulia, Héloïse) | ✅ Prête |
+| 21 Reasons | Danse (Stella, Giulia) | ✅ Prête |
 | Spark Car | Danse (Kelyana, Elenna) — à confirmer | ⚠️ À confirmer |
 | Bruit de moteur | Théâtre (Les Martiens) | ⚠️ À préparer |
 | Musique théâtre Les Martiens | Théâtre (Lilly, Shine, Divine) | ⚠️ À définir |
