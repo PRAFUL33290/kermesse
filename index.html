@@ -92,7 +92,7 @@
     };
 
     const sceneCard = (c, index) => {
-      const isHero = index % 2 === 0 || c.name === "Gymnastique";
+      const isHero = index % 2 === 0 || c.name === "Gymnastique" || c.name === "Chant" || c.name === "Jonglage ballon de foot";
       const imageUrl = catImages[c.name] || '';
 
       if (isHero) {

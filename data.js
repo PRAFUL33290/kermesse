@@ -24,7 +24,7 @@ const SCHOOL_PROJECTS = [
   {
     name: "Carnaval de Deborah",
     note: "Projet d'école",
-    kids: ["Deborah"]
+    kids: ["Kaycee","Zia","Jasmine","Myla","Giulia","Lydia","Lily","Naya","Léa S.","Lina M.","Shyne","Mila S.","Keren"]
   },
   {
     name: "Quinzaine de l'égalité",
@@ -93,7 +93,7 @@ const FREE_CATEGORIES = [
     icon: "🎤",
     scenes: [
       { who: ["Jasmine","Léa"], scene: "Chant" },
-      { who: ["Ched / Cheid"], scene: "Chant" },
+      { who: ["Cheid"], scene: "Chant" },
       { who: ["Maïmouna"], scene: "Chant" },
       { who: ["Céline"], scene: "Chant" },
       { who: ["Lina M."], scene: "Chant" },
