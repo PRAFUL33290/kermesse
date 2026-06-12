@@ -92,11 +92,11 @@
     };
 
     const sceneCard = (c, index) => {
-      const isHero = index % 2 === 0;
+      const isHero = index % 2 === 0 || c.name === "Gymnastique";
       const imageUrl = catImages[c.name] || '';
-      
+
       if (isHero) {
-        return `<section class="section layout-hero" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('${imageUrl}')">
+        return `<section class="section layout-hero" style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)), url('${imageUrl}')">
           <div class="hero-content">
             <div class="section-head">
               <h2>${c.icon} ${esc(c.name)}</h2>
