@@ -130,6 +130,7 @@ const NAME_ALIASES = {
   "maissae": "Maïssa",
   "guillia": "Giulia",
   "elenna": "Elena",
+  "elaia": "Elaïa",
   "shine": "Shyne",
   "lina m": "Lina M.",
   "maimouna": "Maimouna",

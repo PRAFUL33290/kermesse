@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Repère enfants · Scène des Talents — École Arc en Ciel</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .repere-note {
+      border-left-color: #2b6cb0;
+      background: #ebf4ff;
+      border-color: #bee3f8;
+    }
+    .repere-note strong { color: #2b6cb0; }
+    .toolbar-repere {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+    .toolbar-repere input {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      font-size: 1rem;
+      background: #fff;
+      box-shadow: var(--shadow);
+      outline: none;
+    }
+    .toolbar-repere input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+    .child-flow {
+      display: grid;
+      gap: 14px;
+    }
+    .repere-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .repere-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 15px 18px;
+      border-bottom: 1px solid var(--line);
+      background: #fbfaf7;
+    }
+    .repere-name {
+      font-size: 1.1rem;
+      font-weight: 850;
+    }
+    .repere-count {
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: .78rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .flow-lines {
+      display: grid;
+      gap: 0;
+    }
+    .flow-line {
+      display: grid;
+      grid-template-columns: 70px 1fr 220px;
+      gap: 14px;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--line);
+      align-items: start;
+    }
+    .flow-line:last-child { border-bottom: none; }
+    .scene-pill {
+      display: inline-grid;
+      place-items: center;
+      min-width: 54px;
+      height: 34px;
+      border-radius: 9px;
+      color: #fff;
+      font-weight: 850;
+      background: linear-gradient(135deg, var(--cat-main), var(--cat-alt));
+    }
+    .flow-main {
+      min-width: 0;
+    }
+    .flow-title {
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .flow-meta {
+      color: var(--muted);
+      font-size: .88rem;
+      line-height: 1.4;
+    }
+    .flow-next {
+      border-left: 4px solid var(--next-main);
+      background: var(--next-soft);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: .84rem;
+      line-height: 1.35;
+    }
+    .flow-next strong {
+      display: block;
+      color: var(--next-main);
+      margin-bottom: 3px;
+    }
+    .cat-school {
+      --cat-main: #b8860b;
+      --cat-alt: #d4a017;
+    }
+    .cat-theatre {
+      --cat-main: #2b6cb0;
+      --cat-alt: #4299e1;
+    }
+    .cat-chant {
+      --cat-main: #b7791f;
+      --cat-alt: #ecc94b;
+    }
+    .cat-jonglage {
+      --cat-main: #2f855a;
+      --cat-alt: #48bb78;
+    }
+    .cat-danse {
+      --cat-main: #c53030;
+      --cat-alt: #fc8181;
+    }
+    .cat-gym {
+      --cat-main: #6b46c1;
+      --cat-alt: #b794f4;
+    }
+    .cat-roller {
+      --cat-main: #c05621;
+      --cat-alt: #ed8936;
+    }
+    .next-play {
+      --next-main: #2f855a;
+      --next-soft: #edf7f0;
+    }
+    .next-close {
+      --next-main: #c05621;
+      --next-soft: #fff3e8;
+    }
+    .next-nico {
+      --next-main: #b7791f;
+      --next-soft: #fff8db;
+    }
+    .next-done {
+      --next-main: #6b7280;
+      --next-soft: #f3f4f6;
+    }
+    .empty {
+      display: none;
+      padding: 28px;
+      text-align: center;
+      color: var(--muted);
+    }
+    @media (max-width: 760px) {
+      .flow-line {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .flow-next {
+        border-left-width: 0;
+        border-top: 4px solid var(--next-main);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <span class="dot">🎭</span>
+        <span>Scène des Talents<small>École Arc en Ciel · 19 juin</small></span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">🏠 Accueil</a></li>
+        <li><a href="enfants.html">👧 Enfants</a></li>
+        <li><a href="orga.html">🗓️ Organisation</a></li>
+        <li><a href="repere-enfants.html" class="active">🧭 Repère</a></li>
+        <li><a href="repetition.html">🎬 Répétitions</a></li>
+        <li><a href="nico.html">✅ Nico</a></li>
+        <li><a href="stats.html">📊 Statistiques</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <header class="page-head">
+      <p class="kicker">Fiches de passage</p>
+      <h1>Repère enfants</h1>
+      <p class="meta">Par enfant, dans l'ordre de leur premier passage</p>
+    </header>
+
+    <div class="rule repere-note">
+      <strong>Lecture rapide :</strong> le temps de respiration est estimé avec les prestations placées entre deux passages.
+      Si la fiche indique <strong>Nico garde près de la scène</strong>, c'est volontairement aligné avec la page Nico : l'enfant enchaîne avec le bloc de ramassage suivant.
+    </div>
+
+    <div class="toolbar-repere">
+      <input type="search" id="search" placeholder="Rechercher un enfant…" autocomplete="off">
+    </div>
+
+    <div class="child-flow" id="childFlow"></div>
+    <p class="empty" id="empty">Aucun enfant trouvé.</p>
+
+    <footer>Scène des Talents · École Arc en Ciel · 19 juin</footer>
+  </div>
+
+  <script src="data.js"></script>
+  <script>
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+
+    const esc = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+    const unique = list => [...new Set(list)];
+    const key = name => normKey(canonical(name));
+    const minutes = text => Number(String(text).match(/\d+/)?.[0] || 0);
+
+    const quinzaineKids = (() => {
+      const q = SCHOOL_PROJECTS.find(p => p.languages);
+      const kids = new Set();
+      q.languages.forEach(l => l.kids.forEach(k => kids.add(canonical(k))));
+      return [...kids];
+    })();
+
+    const scenes = [
+      { num: 1, icon: "🏫", name: "Maternelles de Virginie", cat: "Projet d'école", block: "Maternelles", kids: SCHOOL_PROJECTS[0].kids, duration: "~4 min" },
+      { num: 2, icon: "🏫", name: "Capoeira", cat: "Projet d'école", block: "Autres projets d'école", kids: SCHOOL_PROJECTS[1].kids, duration: "~5 min" },
+      { num: 3, icon: "🏫", name: "Oh Mama Tetema + Freestyle", cat: "Projet d'école", block: "Autres projets d'école", kids: SCHOOL_PROJECTS[2].kids, duration: "~5 min" },
+      { num: 4, icon: "🏫", name: "Carnaval de Deborah", cat: "Projet d'école", block: "Autres projets d'école", kids: SCHOOL_PROJECTS[3].kids, duration: "~3 min" },
+      { num: 5, icon: "🏫", name: "Quinzaine de l'égalité", cat: "Projet d'école", block: "Autres projets d'école", kids: quinzaineKids, duration: "~8 min" },
+      { num: 6, icon: "🎭", name: "Théâtre", cat: "Théâtre", block: "Théâtre", kids: ["Lilly","Shyne","Divine"], duration: "~5 min" },
+      { num: 7, icon: "🎭", name: "Théâtre", cat: "Théâtre", block: "Théâtre", kids: ["Nayana"], duration: "~4 min" },
+      { num: 8, icon: "🎭", name: "Mortelle Adèle", cat: "Théâtre", block: "Théâtre", kids: ["Ryma","Divine","Clara"], duration: "~5 min" },
+      { num: 9, icon: "🎭", name: "Théâtre", cat: "Théâtre", block: "Théâtre", kids: ["Charlotte"], duration: "~4 min" },
+      { num: 10, icon: "🎭", name: "Théâtre", cat: "Théâtre", block: "Théâtre", kids: ["Eileen","Leana","Lina M."], duration: "~5 min" },
+      { num: 11, icon: "🎭", name: "Théâtre à 4", cat: "Théâtre", block: "Théâtre", kids: ["Souleyman","Juliette","Timéo","Loïcia"], duration: "~5 min" },
+      { num: 12, icon: "🎤", name: "Chant", cat: "Chant", block: "Chant", kids: ["Cheid"], duration: "~3 min" },
+      { num: 13, icon: "🎤", name: "Chant", cat: "Chant", block: "Chant", kids: ["Jasmine","Léa"], duration: "~3 min" },
+      { num: 14, icon: "🎤", name: "Chant", cat: "Chant", block: "Chant", kids: ["Maïmouna"], duration: "~3 min" },
+      { num: 15, icon: "🎤", name: "Chant", cat: "Chant", block: "Chant", kids: ["Céline"], duration: "~3 min" },
+      { num: 16, icon: "🎤", name: "Chant", cat: "Chant", block: "Chant", kids: ["Lina M."], duration: "~3 min" },
+      { num: 17, icon: "🎤", name: "Chant", cat: "Chant", block: "Chant", kids: ["Keren"], duration: "~3 min" },
+      { num: 18, icon: "🎤", name: "Chant", cat: "Chant", block: "Chant", kids: ["Charlotte"], duration: "~3 min" },
+      { num: 19, icon: "🎤", name: "Chant (à confirmer)", cat: "Chant", block: "Chant", kids: ["Jumana"], duration: "~3 min" },
+      { num: 20, icon: "⚽", name: "Jonglage", cat: "Jonglage", block: "Jonglage", kids: ["Courage","Eliam"], duration: "~3 min" },
+      { num: 21, icon: "💃", name: "Danse / gym — Lush Life", cat: "Danse", block: "Danse", kids: ["Alya","Elena","Elaïa","Kelyana"], duration: "~3 min" },
+      { num: 22, icon: "💃", name: "Danse — Gabriela", cat: "Danse", block: "Danse", kids: ["Giulia","Héloïse"], duration: "~3 min" },
+      { num: 23, icon: "💃", name: "Gozalo", cat: "Danse", block: "Danse", kids: ["Jasmine","Léa","Lina M."], duration: "~3 min" },
+      { num: 24, icon: "💃", name: "Séga", cat: "Danse", block: "Danse", kids: ["Lana"], duration: "~3 min" },
+      { num: 25, icon: "💃", name: "Danse", cat: "Danse", block: "Danse", kids: ["Héloïse","Juliette","Loïcia"], duration: "~3 min" },
+      { num: 26, icon: "💃", name: "Danse / scène de groupe", cat: "Danse", block: "Danse", kids: ["Kaylan","Elvin","Arthur","Alioun"], duration: "~3 min" },
+      { num: 27, icon: "💃", name: "Danse", cat: "Danse", block: "Danse", kids: ["Clara","Lydia","Divine","Ryma"], duration: "~3 min" },
+      { num: 28, icon: "💃", name: "Danse — 21 Reasons", cat: "Danse", block: "Danse", kids: ["Stella","Giulia"], duration: "~3 min" },
+      { num: 29, icon: "💃", name: "Afro / rondade / salto", cat: "Danse", block: "Danse", kids: ["Maïssa","Lina M."], duration: "~3 min" },
+      { num: 30, icon: "💃", name: "Duo (Brésil)", cat: "Danse", block: "Danse", kids: ["Lina S.","Maïssa"], duration: "~3 min" },
+      { num: 31, icon: "💃", name: "Danse", cat: "Danse", block: "Danse", kids: ["Grace"], duration: "~3 min" },
+      { num: 32, icon: "💃", name: "Solo afro", cat: "Danse", block: "Danse", kids: ["Mamy Kadiatou"], duration: "~3 min" },
+      { num: 33, icon: "🤸", name: "Gym groupe", cat: "Gymnastique", block: "Gymnastique", kids: ["Giulia","Stella","Héloïse"], duration: "~3 min" },
+      { num: 34, icon: "🤸", name: "Gym duo", cat: "Gymnastique", block: "Gymnastique", kids: ["Lina S.","Maïssa"], duration: "~3 min" },
+      { num: 35, icon: "🤸", name: "Rondades / flip / salto", cat: "Gymnastique", block: "Gymnastique", kids: ["Giulia","Stella","Héloïse","Eileen","Lya","Lina S.","Maïssa","Alya","Elena","Elaïa","Kelyana","Yara","Keren","Tania","Housna","Alicia","Lydia","Naima Nour","Mélina B.","Leana","Céline"], duration: "~5 min" },
+      { num: 36, icon: "🤸", name: "Solo gymnastique", cat: "Gymnastique", block: "Gymnastique", kids: ["Mélina B."], duration: "~3 min" },
+      { num: 37, icon: "🛼", name: "Roller", cat: "Roller", block: "Rollers", kids: ["Giulia"], duration: "~3 min" },
+      { num: 38, icon: "🛼", name: "Roller", cat: "Roller", block: "Rollers", kids: ["Mélina Adenet"], duration: "~3 min" },
+      { num: 39, icon: "🛼", name: "Roller", cat: "Roller", block: "Rollers", kids: ["Haby"], duration: "~3 min" },
+      { num: 40, icon: "🛼", name: "Roller", cat: "Roller", block: "Rollers", kids: ["Thalia F."], duration: "~3 min" },
+      { num: 41, icon: "🛼", name: "Roller", cat: "Roller", block: "Rollers", kids: ["Naïma Nour"], duration: "~3 min" },
+      { num: 42, icon: "🛼", name: "Roller", cat: "Roller", block: "Rollers", kids: ["Dina"], duration: "~3 min" }
+    ];
+
+    const blockOrder = ["Maternelles", "Autres projets d'école", "Théâtre", "Chant", "Jonglage", "Danse", "Gymnastique", "Rollers"];
+    const catClass = cat => ({
+      "Projet d'école": "cat-school",
+      "Théâtre": "cat-theatre",
+      "Chant": "cat-chant",
+      "Jonglage": "cat-jonglage",
+      "Danse": "cat-danse",
+      "Gymnastique": "cat-gym",
+      "Roller": "cat-roller"
+    }[cat] || "cat-school");
+
+    const sceneByNum = new Map(scenes.map(s => [s.num, s]));
+    const childMap = new Map();
+
+    scenes.forEach(scene => {
+      unique(scene.kids.map(canonical)).forEach(kid => {
+        const childKey = key(kid);
+        if (!childMap.has(childKey)) childMap.set(childKey, { display: kid, passages: [] });
+        childMap.get(childKey).passages.push(scene);
+      });
+    });
+
+    const gapBetween = (current, next) => {
+      let total = 0;
+      for (let n = current.num + 1; n < next.num; n++) total += minutes(sceneByNum.get(n)?.duration);
+      return total;
+    };
+
+    const nextAdvice = (current, next) => {
+      if (!next) {
+        return {
+          cls: "next-done",
+          title: "Dernier passage",
+          text: "Après cette scène, retour avec les parents."
+        };
+      }
+
+      const gap = gapBetween(current, next);
+      const currentBlock = blockOrder.indexOf(current.block);
+      const nextBlock = blockOrder.indexOf(next.block);
+      const nicoAdjacent = nextBlock === currentBlock + 1;
+      const sameBlock = current.block === next.block;
+
+      if (sameBlock || gap < 15) {
+        return {
+          cls: "next-close",
+          title: `Respiration : ~${gap} min`,
+          text: `Rester proche de la scène. Prochain passage : scène ${next.num}, ${next.name}.`
+        };
+      }
+
+      if (nicoAdjacent) {
+        return {
+          cls: "next-nico",
+          title: `Respiration : ~${gap} min`,
+          text: `Nico garde près de la scène car l'enfant enchaîne avec le bloc ${next.block}. Prochain passage : scène ${next.num}.`
+        };
+      }
+
+      return {
+        cls: "next-play",
+        title: `Respiration : ~${gap} min`,
+        text: `Peut aller jouer ou souffler avec ses parents. Revenir avant la scène ${next.num}, ${next.name}.`
+      };
+    };
+
+    const allChildren = [...childMap.values()]
+      .map(child => ({ ...child, passages: child.passages.sort((a, b) => a.num - b.num) }))
+      .sort((a, b) => a.passages[0].num - b.passages[0].num || a.display.localeCompare(b.display));
+
+    const renderChild = child => `
+      <section class="repere-card" data-name="${esc(key(child.display))}">
+        <div class="repere-head">
+          <div class="repere-name">${esc(child.display)}</div>
+          <div class="repere-count">${child.passages.length} passage${child.passages.length > 1 ? 's' : ''}</div>
+        </div>
+        <div class="flow-lines">
+          ${child.passages.map((scene, index) => {
+            const next = child.passages[index + 1];
+            const advice = nextAdvice(scene, next);
+            const friends = scene.kids.filter(k => key(k) !== key(child.display)).map(esc).join(' · ');
+            return `<div class="flow-line ${catClass(scene.cat)}">
+              <div><span class="scene-pill">n°${scene.num}</span></div>
+              <div class="flow-main">
+                <div class="flow-title">${scene.icon} ${esc(scene.name)} <span class="flow-meta">(${esc(scene.cat)})</span></div>
+                <div class="flow-meta">Bloc Nico : ${esc(scene.block)} · Durée scène : ${esc(scene.duration)}</div>
+                ${friends ? `<div class="flow-meta">Avec : ${friends}</div>` : '<div class="flow-meta">Solo / passage individuel.</div>'}
+              </div>
+              <div class="flow-next ${advice.cls}">
+                <strong>${esc(advice.title)}</strong>
+                ${esc(advice.text)}
+              </div>
+            </div>`;
+          }).join('')}
+        </div>
+      </section>`;
+
+    const childFlow = document.getElementById('childFlow');
+    childFlow.innerHTML = allChildren.map(renderChild).join('');
+
+    const search = document.getElementById('search');
+    const empty = document.getElementById('empty');
+    const cards = [...document.querySelectorAll('.repere-card')];
+    const filterCards = () => {
+      const q = key(search.value);
+      let shown = 0;
+      cards.forEach(card => {
+        const visible = !q || card.dataset.name.includes(q);
+        card.style.display = visible ? '' : 'none';
+        if (visible) shown++;
+      });
+      empty.style.display = shown ? 'none' : 'block';
+    };
+    search.addEventListener('input', filterCards);
+  </script>
+</body>
+</html>
