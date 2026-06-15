@@ -202,7 +202,7 @@
     const esc = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
     const S = computeStats();
 
-    const totalPassages = 37;
+    const totalPassages = S.schoolCount + S.freeSceneCount;
     const blockCount = 6;
     const estimatedDuration = "~2h20";
 

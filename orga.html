@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="styles.css">
   <style>
     .order-grid{display:grid;gap:14px}.order-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow)}
-    .order-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}.order-num{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;font-weight:900}.school .order-num{background:linear-gradient(135deg,var(--gold),#d4a017)}
+    .order-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}.order-num{display:grid;place-items:center;min-width:72px;height:34px;padding:0 10px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;font-size:.82rem;font-weight:900;white-space:nowrap}.school .order-num{background:linear-gradient(135deg,var(--gold),#d4a017)}
     .order-title{font-weight:900}.order-meta{font-size:.82rem;color:var(--muted);font-weight:700}.kids{color:var(--muted);line-height:1.55}.search-box input{width:100%;padding:14px 16px;border:1px solid var(--line);border-radius:var(--radius);font-size:1rem;background:#fff;box-shadow:var(--shadow)}
     .child-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;margin-bottom:10px}.child-card.hidden{display:none}.child-name{font-weight:900;margin-bottom:6px}.badge{display:inline-block;border-radius:999px;padding:2px 9px;background:var(--accent-soft);color:var(--accent);font-size:.75rem;font-weight:800;margin-left:6px}
   </style>
@@ -32,7 +32,7 @@
     let n=schoolScenes.length;
     const freeScenes=FREE_CATEGORIES.flatMap(cat=>cat.scenes.map(s=>({num:++n,type:'free',cat:cat.name,name:s.scene,kids:uniqueCanonical(s.who),duration:s.duration||'~3 à 5 min'})));
     const running=[...schoolScenes,...freeScenes];
-    const card=s=>`<article class="order-card ${s.type==='school'?'school':''}"><div class="order-head"><span class="order-num">${s.num}</span><div><div class="order-title">${esc(s.name)}</div><div class="order-meta">${esc(s.cat)} · ${esc(s.duration||'')}</div></div></div><div class="kids">${s.kids.map(esc).join(' · ')}</div></article>`;
+    const card=s=>`<article class="order-card ${s.type==='school'?'school':''}"><div class="order-head"><span class="order-num">scène ${s.num}</span><div><div class="order-title">${esc(s.name)}</div><div class="order-meta">${esc(s.cat)} · ${esc(s.duration||'')}</div></div></div><div class="kids">${s.kids.map(esc).join(' · ')}</div></article>`;
     document.getElementById('runningOrder').innerHTML=running.map(card).join('');
     const pickup=[...SCHOOL_PROJECTS.map((p,i)=>({num:i+1,name:p.name,cat:'Projet Périscolaire',kids:projectKids(p),type:'school'})),...FREE_CATEGORIES.map((c,i)=>({num:SCHOOL_PROJECTS.length+i+1,name:c.name,cat:'Scènes libres',kids:uniqueCanonical(c.scenes.flatMap(s=>s.who)),type:'free'}))];
     document.getElementById('pickup').innerHTML=pickup.map(card).join('');

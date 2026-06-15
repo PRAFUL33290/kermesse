@@ -343,7 +343,7 @@
             const advice = nextAdvice(scene, next);
             const friends = scene.kids.filter(k => key(k) !== key(child.display)).map(esc).join(' · ');
             return `<div class="flow-line ${catClass(scene.cat)}">
-              <div><span class="scene-pill">n°${scene.num}</span></div>
+              <div><span class="scene-pill">scène ${scene.num}</span></div>
               <div class="flow-main">
                 <div class="flow-title">${scene.icon} ${esc(scene.name)} <span class="flow-meta">(${esc(scene.cat)})</span></div>
                 <div class="flow-meta">Bloc Nico : ${esc(scene.block)} · Durée scène : ${esc(scene.duration)}</div>

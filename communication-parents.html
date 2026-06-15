@@ -242,7 +242,7 @@
       <tr>
         <td><span class="time">vers ${esc(p.time)}</span></td>
         <td>
-          <div class="scene-name"><span class="pill">n°${index + 1}</span>${esc(p.scene)}</div>
+          <div class="scene-name"><span class="pill">scène ${index + 1}</span>${esc(p.scene)}</div>
           <div class="scene-cat">${esc(p.cat)}</div>
         </td>
         <td class="kids">${p.kids.map(esc).join(" · ")}</td>
@@ -256,7 +256,7 @@
         <article class="child-card">
           <div class="child-name">${esc(child.name)}</div>
           <div class="child-lines">
-            ${child.items.map(item => `<div><span class="pill">n°${item.num}</span>vers ${esc(item.time)} - ${esc(item.scene)} (${esc(item.cat)})</div>`).join("")}
+            ${child.items.map(item => `<div><span class="pill">scène ${item.num}</span>vers ${esc(item.time)} - ${esc(item.scene)} (${esc(item.cat)})</div>`).join("")}
           </div>
         </article>
       `).join("");

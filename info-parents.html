@@ -43,8 +43,8 @@
     </section>
 
     <section class="section duration-note">
-      <div class="section-head"><h2>Durée des numéros</h2></div>
-      <p>Les horaires sont approximatifs. La plupart des numéros durent environ 3 minutes. La scène de roller est plus longue et durera environ 5 à 7 minutes.</p>
+      <div class="section-head"><h2>Durée des scènes</h2></div>
+      <p>Les horaires sont approximatifs. La plupart des scènes durent environ 3 minutes. La scène de roller est plus longue et durera environ 5 à 7 minutes.</p>
     </section>
 
     <p class="cat-title">Passages par enfant</p>
@@ -78,7 +78,7 @@
     const sorted=[...children.values()].sort((a,b)=>a.name.localeCompare(b.name,'fr',{sensitivity:'base'}));
     document.getElementById('sceneCount').textContent=`${running.length} scènes`;
     document.getElementById('childCount').textContent=`${sorted.length} enfants`;
-    document.getElementById('childRows').innerHTML=sorted.map((child,index)=>`<tr><td data-label="N° enfant"><span class="child-num">${index+1}</span></td><td data-label="Prénom"><span class="child-name">${esc(child.name)}</span></td><td data-label="Scène(s)"><div class="scene-list">${child.scenes.map(scene=>`<div><span class="scene-pill ${scene.type==='school'?'school':''}">n°${scene.num} · ${esc(scene.cat)}</span><span class="scene-title">${esc(scene.name)}</span></div>`).join('')}</div></td><td data-label="Horaire"><div class="time-list">${child.scenes.map(scene=>`<span class="time-chip">vers ${scene.time}</span>`).join('')}</div></td></tr>`).join('');
+    document.getElementById('childRows').innerHTML=sorted.map((child,index)=>`<tr><td data-label="N° enfant"><span class="child-num">${index+1}</span></td><td data-label="Prénom"><span class="child-name">${esc(child.name)}</span></td><td data-label="Scène(s)"><div class="scene-list">${child.scenes.map(scene=>`<div><span class="scene-pill ${scene.type==='school'?'school':''}">scène ${scene.num} · ${esc(scene.cat)}</span><span class="scene-title">${esc(scene.name)}</span></div>`).join('')}</div></td><td data-label="Horaire"><div class="time-list">${child.scenes.map(scene=>`<span class="time-chip">vers ${scene.time}</span>`).join('')}</div></td></tr>`).join('');
   </script>
 </body>
 </html>
