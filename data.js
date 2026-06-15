@@ -8,7 +8,7 @@ const SCHOOL_PROJECTS = [
   {
     name: "Maternelles de Virginie",
     note: "Les pouvoirs des fleurs — Les Kids United",
-    kids: ["Lina", "Tiamo", "Nael (maternelle)", "Ambre", "Eva", "Anaelle", "Charlotte (maternelle)", "Maylis", "Emmy", "Adrien", "Isaure", "Alma", "Raphaël", "Léa", "Charlie"]
+    kids: ["Lina", "Tiamo", "Nael (maternelle)", "Ambre", "Eva", "Anaelle", "Charlotte (maternelle)", "Maylis", "Emmy", "Adrien", "Isaure", "Alma", "Raphaël", "Léa", "Charlie", "Andréa", "Appoline"]
   },
   {
     name: "Capoeira",
