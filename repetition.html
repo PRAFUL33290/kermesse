@@ -167,49 +167,63 @@
       if (project.languages) project.languages.forEach(l => names.push(...l.kids));
       return uniqueNames(names);
     };
+    const sceneKids = scene => scene.type === "school"
+      ? schoolKids(scene.source)
+      : categoryKids(scene.source);
 
     const schedule = [
       {
         day: "Lundi",
-        category: "Chant",
-        project: "Oh Mama Tetema + Freestyle",
-        note: "Voix et chorégraphie chantée : bon début de semaine, groupe facile à caler."
+        scenes: [
+          { label: "Quinzaine de l'égalité", source: "Quinzaine de l'égalité", type: "school" },
+          { label: "Oh Mama Tetema", source: "Oh Mama Tetema + Freestyle", type: "school" }
+        ],
+        note: "Journée projets périscolaires : langues, micro et chorégraphie."
       },
       {
         day: "Mardi",
-        category: "Danse",
-        project: "Carnaval de Deborah",
-        note: "Journée mouvement : idéal pour travailler placements, entrées et sorties."
+        scenes: [
+          { label: "Capoeira", source: "Capoeira", type: "school" },
+          { label: "Carnaval de Deborah", source: "Carnaval de Deborah", type: "school" }
+        ],
+        note: "Journée mouvement périscolaire : placements, entrées et sorties."
       },
       {
         day: "Jeudi",
-        category: "Théâtre",
-        project: "Quinzaine de l'égalité",
-        note: "Journée texte, langues et transitions au micro."
+        scenes: [
+          { label: "Chant", source: "Chant", type: "category" },
+          { label: "Danse", source: "Danse", type: "category" }
+        ],
+        note: "Voix puis chorégraphies : prévoir micro et espace dégagé."
       },
       {
         day: "Vendredi",
-        category: "Gymnastique",
-        project: "Capoeira",
-        note: "Journée physique : garder l'espace dégagé et faire un filage sécurité."
+        scenes: [
+          { label: "Jonglage ballon de foot", source: "Jonglage ballon de foot", type: "category" },
+          { label: "Rollers", source: "Roller", type: "category" }
+        ],
+        note: "Journée précision et déplacements : vérifier le sol et la sécurité."
       }
     ].map(item => {
-      const category = categoryKids(item.category);
-      const project = schoolKids(item.project);
+      const scenes = item.scenes.map(scene => ({
+        ...scene,
+        kids: sceneKids(scene)
+      }));
       return {
         ...item,
-        categoryKids: category,
-        projectKids: project,
-        canteenKids: uniqueNames([...category, ...project])
+        scenes,
+        canteenKids: uniqueNames(scenes.flatMap(scene => scene.kids))
       };
     });
 
     const totalCanteenSlots = schedule.reduce((n, d) => n + d.canteenKids.length, 0);
     const maxDay = Math.max(...schedule.map(d => d.canteenKids.length));
+    const schoolSceneCount = schedule.flatMap(d => d.scenes).filter(s => s.type === "school").length;
+    const categorySceneCount = schedule.flatMap(d => d.scenes).filter(s => s.type === "category").length;
     document.getElementById('summary').innerHTML = [
       { big: schedule.length, lab: "Jours" },
-      { big: "4", lab: "Projets Périscolaires" },
-      { big: "4", lab: "Catégories répétées" },
+      { big: schoolSceneCount, lab: "Projets Périscolaires" },
+      { big: categorySceneCount, lab: "Catégories répétées" },
       { big: maxDay, lab: "Enfants max/jour" },
       { big: totalCanteenSlots, lab: "Repas prévus cumulés" }
     ].map(s => `<div class="stat-card"><div class="big">${s.big}</div><div class="lab">${esc(s.lab)}</div></div>`).join('');
@@ -228,7 +242,7 @@
             </div>
             <div class="program-row">
               <strong>2e heure</strong>
-              <span>${esc(day.category)} + ${esc(day.project)}</span>
+              <span>${day.scenes.map(scene => esc(scene.label)).join(' + ')}</span>
             </div>
           </div>
 
@@ -237,15 +251,12 @@
             ${day.canteenKids.map(k => `<li>${esc(k)}</li>`).join('')}
           </ul>
 
-          <p class="kids-title">${esc(day.category)}</p>
-          <ul class="kids-list">
-            ${day.categoryKids.map(k => `<li>${esc(k)}</li>`).join('')}
-          </ul>
-
-          <p class="kids-title">${esc(day.project)}</p>
-          <ul class="kids-list">
-            ${day.projectKids.map(k => `<li class="school">${esc(k)}</li>`).join('')}
-          </ul>
+          ${day.scenes.map(scene => `
+            <p class="kids-title">${esc(scene.label)}</p>
+            <ul class="kids-list">
+              ${scene.kids.map(k => `<li class="${scene.type === 'school' ? 'school' : ''}">${esc(k)}</li>`).join('')}
+            </ul>
+          `).join('')}
 
           <p class="day-note">${esc(day.note)}</p>
         </div>
