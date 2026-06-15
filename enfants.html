@@ -20,6 +20,27 @@
       margin-right: 8px;
       flex-shrink: 0;
     }
+    .passage-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 30px;
+      height: 24px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #fff;
+      font-size: .72rem;
+      font-weight: 900;
+      margin-right: 8px;
+      flex-shrink: 0;
+    }
+    .st .passage-num {
+      min-width: 26px;
+      height: 22px;
+      margin-right: 6px;
+      background: var(--gold);
+      font-size: .68rem;
+    }
   </style>
 </head>
 <body>
@@ -75,6 +96,7 @@
 
     const esc = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
     const escAttr = s => esc(s).replace(/"/g, '&quot;');
+    const schoolNums = new Map(SCHOOL_PROJECTS.map((p, i) => [p.name, i + 1]));
 
     const kids = new Map();
     const getKid = raw => {
@@ -84,18 +106,20 @@
       return kids.get(key);
     };
 
+    let passageNum = SCHOOL_PROJECTS.length;
     FREE_CATEGORIES.forEach(cat => {
       cat.scenes.forEach(s => {
+        passageNum += 1;
         const solo = s.who.length === 1;
         s.who.forEach(w => {
-          getKid(w).free.push({ cat: cat.name, icon: cat.icon, scene: s.scene, solo, who: s.who });
+          getKid(w).free.push({ num: passageNum, cat: cat.name, icon: cat.icon, scene: s.scene, solo, who: s.who });
         });
       });
     });
 
     SCHOOL_PROJECTS.forEach(p => {
       if (p.kids) {
-        p.kids.forEach(k => getKid(k).school.push({ name: p.name, extra: "" }));
+        p.kids.forEach(k => getKid(k).school.push({ num: schoolNums.get(p.name), name: p.name, extra: "" }));
       }
       if (p.languages) {
         const byKid = new Map();
@@ -105,7 +129,7 @@
           byKid.get(key).push(l.lang);
         }));
         byKid.forEach((langs, key) => {
-          getKid(key).school.push({ name: p.name, extra: langs.join(', ') });
+          getKid(key).school.push({ num: schoolNums.get(p.name), name: p.name, extra: langs.join(', ') });
         });
       }
     });
@@ -145,7 +169,7 @@
       const freeHtml = ch.free.length
         ? `<ul class="groups">${ch.free.map(f =>
             `<li>
-               <span class="who">${f.icon} ${esc(f.scene)}</span>
+               <span class="who"><span class="passage-num">n°${f.num}</span>${f.icon} ${esc(f.scene)}</span>
                <span class="scene">
                  <span class="tag-cat">${esc(f.cat)}</span>
                  <span class="tag ${f.solo ? 'solo' : 'group'}">${f.solo ? 'Solo' : 'Groupe'}</span>
@@ -157,7 +181,7 @@
       const schoolHtml = ch.school.length
         ? `<div class="school-tags"><span class="st-label">🏫 Projets Périscolaires</span>
             ${ch.school.map(s =>
-              `<span class="st" title="${escAttr(s.extra)}">${esc(s.name)}${s.extra ? ` <em>(${esc(s.extra)})</em>` : ''}</span>`).join('')}
+              `<span class="st" title="${escAttr(s.extra)}"><span class="passage-num">n°${s.num}</span>${esc(s.name)}${s.extra ? ` <em>(${esc(s.extra)})</em>` : ''}</span>`).join('')}
            </div>`
         : '';
 

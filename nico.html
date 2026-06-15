@@ -184,12 +184,13 @@
     <header class="page-head">
       <p class="kicker">Planning de ramassage</p>
       <h1>Nico</h1>
-      <p class="meta">Animation à 17h45 · Les maternelles commencent</p>
+      <p class="meta">Animation à 17h45 · Les maternelles sont gérées par Virginie</p>
     </header>
 
     <div class="rule nico-note">
       <strong>Message pour Nico :</strong> amène les enfants par bloc, dans l'ordre ci-dessous.
       Si tu ne trouves pas un enfant, passe au suivant : ce n'est pas grave. Les enfants doivent aussi se bouger et savoir quand ils doivent être présents.<br><br>
+      <strong>Maternelles :</strong> tu ne t'en occupes pas. C'est Virginie qui vient les chercher et qui les accompagne pour leur passage.<br><br>
       <strong>Important :</strong> Les enfants sont sous la surveillance de leurs parents et uniquement de leurs parents. Ils doivent être accompagnés quand ils se présentent sur scène.
     </div>
 
@@ -225,7 +226,7 @@
         cls: 'school',
         time: '17h35',
         title: 'Maternelles',
-        note: 'Virginie vient les chercher : pas de cases à cocher pour Nico.',
+        note: "Virginie s'en occupe : Nico ne les ramasse pas.",
         noChecklist: true,
         projects: [
           { name: 'Maternelles de Virginie', kids: project('Maternelles de Virginie').kids }
@@ -282,7 +283,7 @@
         cls: 'roller',
         time: '19h55',
         title: 'Rollers',
-        note: 'Dernier bloc : les enfants doivent avoir leurs rollers prêts.',
+        note: 'Dernier bloc, 5 à 7 min : Thalia seule, puis Naïma Nour + Melyna + Haby, puis Dina.',
         kids: unique(category('Roller').scenes.flatMap(s => s.who))
       }
     ];
@@ -340,7 +341,7 @@
     const renderProjects = (block, marks) => `<div class="project-lines">${block.projects.map(p => `
       <div class="project-line">
         <strong>${esc(p.name)} · ${p.kids.length} enfant${p.kids.length > 1 ? 's' : ''}</strong>
-        <div class="project-meta">${block.noChecklist ? 'Virginie se charge de venir les chercher.' : 'À cocher au fur et à mesure du ramassage.'}</div>
+        <div class="project-meta">${block.noChecklist ? "Virginie s'en charge : Nico ne les coche pas et ne les ramasse pas." : 'À cocher au fur et à mesure du ramassage.'}</div>
         ${block.noChecklist ? renderPlainKids(p.kids, marks) : renderKids(p.kids, marks)}
       </div>
     `).join('')}</div>`;

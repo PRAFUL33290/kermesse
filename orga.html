@@ -28,7 +28,7 @@
     const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
     const schoolScenes=SCHOOL_PROJECTS.map((p,i)=>({num:i+1,type:'school',cat:'Projet Périscolaire',name:p.name,kids:p.kids||['Ensemble — '+p.languages.length+' langues'],duration:i===0?'~4 min':'~5 min'}));
     let n=schoolScenes.length;
-    const freeScenes=FREE_CATEGORIES.flatMap(cat=>cat.scenes.map(s=>({num:++n,type:'free',cat:cat.name,name:s.scene,kids:s.who,duration:'~3 à 5 min'})));
+    const freeScenes=FREE_CATEGORIES.flatMap(cat=>cat.scenes.map(s=>({num:++n,type:'free',cat:cat.name,name:s.scene,kids:s.who,duration:s.duration||'~3 à 5 min'})));
     const running=[...schoolScenes,...freeScenes];
     const card=s=>`<article class="order-card ${s.type==='school'?'school':''}"><div class="order-head"><span class="order-num">${s.num}</span><div><div class="order-title">${esc(s.name)}</div><div class="order-meta">${esc(s.cat)} · ${esc(s.duration||'')}</div></div></div><div class="kids">${s.kids.map(esc).join(' · ')}</div></article>`;
     document.getElementById('runningOrder').innerHTML=running.map(card).join('');
