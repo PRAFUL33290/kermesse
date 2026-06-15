@@ -19,7 +19,7 @@ const SCHOOL_PROJECTS = [
   {
     name: "Oh Mama Tetema + Freestyle",
     note: "Chorégraphie",
-    kids: ["Keren", "Divine", "Grace", "Maimouna", "Tania", "Orianne", "Husna", "Alicia"]
+    kids: ["Keren", "Divine", "Grace", "Maimouna", "Tania", "Orianne", "Husna", "Alicia", "Asma"]
   },
   {
     name: "Carnaval de Deborah",
@@ -30,7 +30,7 @@ const SCHOOL_PROJECTS = [
     name: "Quinzaine de l'égalité",
     note: "Nos artistes en herbe — par pays et langue",
     languages: [
-      { flag: "France", country: "France", lang: "Français", kids: ["Lilly","Lydia","Myla","Kelyana","Elaia","Juliette","Ilona","Jasmine","Guillia","Elenna","Mia","Alya","Divine","Lina M.","Alicia","Eileen","Léana","Céline","Cheid"] },
+      { flag: "France", country: "France", lang: "Français", kids: ["Lilly","Lydia","Myla","Kelyana","Elaia","Juliette","Ilona","Jasmine","Guillia","Elenna","Mia","Alya","Divine","Lina M.","Alicia","Eileen","Léana","Céline","Cheid","Asma"] },
       { flag: "Angleterre", country: "Angleterre", lang: "Anglais", kids: ["Juliette"] },
       { flag: "Espagne", country: "Espagne", lang: "Espagnol", kids: ["Myla","Kelyana","Elaia","Elenna","Mia","Shyne","Alya","Lina M.","Alicia","Mila","Zia","Cheid"] },
       { flag: "Portugal", country: "Portugal", lang: "Portugais", kids: ["Kelyana","Ilona","Alya","Lina M."] },
@@ -54,7 +54,7 @@ const FREE_CATEGORIES = [
   { name: "Chant", icon: "mic", scenes: [ { who: ["Jasmine","Léa S."], scene: "Lush Life" }, { who: ["Cheid"], scene: "Chant" }, { who: ["Maïmouna"], scene: "Chant" }, { who: ["Céline"], scene: "Chant" }, { who: ["Lina M."], scene: "Chant" }, { who: ["Keren"], scene: "Chant" }, { who: ["Charlotte"], scene: "Chant" }, { who: ["Jumana"], scene: "À confirmer" } ] },
   { name: "Jonglage ballon de foot", icon: "football", scenes: [ { who: ["Courage","Eliam"], scene: "Jonglage" } ] },
   { name: "Danse", icon: "dance", scenes: [ { who: ["Alya","Elenna","Elaïa","Kelyana"], scene: "Danse / gym — Lush Life" }, { who: ["Jasmine","Léa S."], scene: "Gozalo" }, { who: ["Alya","Elenna","Kelyana"], scene: "Spa" }, { who: ["Clara","Lydia","Divine","Ryma"], scene: "Danse" }, { who: ["Lana"], scene: "Séga" }, { who: ["Kaylan","Elvin","Arthur","Alioun"], scene: "Danse / scène de groupe" }, { who: ["Maïssa","Lina M."], scene: "Afro / rondade / salto" }, { who: ["Grace"], scene: "Danse" }, { who: ["Lina S.","Maïssa"], scene: "Duo (Brésil) — musique à confirmer" }, { who: ["Giulia","Heloise"], scene: "Gabriela" }, { who: ["Stella","Giulia"], scene: "21 Reasons" }, { who: ["Heloise","Juliette","Loicia"], scene: "Danse" }, { who: ["Mamy Kadiatou"], scene: "Solo afro" } ] },
-  { name: "Gymnastique", icon: "gym", scenes: [ { who: ["Giulia","Stella","Héloïse","Eileen","Lya","Lina S.","Maïssa","Alya","Elenna","Elaïa","Kelyana","Yara","Keren","Tania","Husna","Alicia","Lydia","Naima Nour","Melyna B.","Léana","Céline"], scene: "Rondades / flip / salto arrière (toutes ensemble)" }, { who: ["Giulia","Stella","Héloïse"], scene: "Gym groupe" }, { who: ["Lina S.","Maïssa"], scene: "Gym duo" }, { who: ["Melyna B."], scene: "Solo gymnastique" } ] },
+  { name: "Gymnastique", icon: "gym", scenes: [ { who: ["Giulia","Stella","Héloïse","Eileen","Lya","Lina S.","Maïssa","Alya","Elenna","Elaïa","Kelyana","Yara","Keren","Tania","Husna","Alicia","Lydia","Naima Nour","Melyna B.","Léana","Céline"], scene: "Rondades / flip / salto arrière (toutes ensemble)" }, { who: ["Giulia","Stella","Héloïse"], scene: "Gym groupe" }, { who: ["Lina S.","Maïssa"], scene: "Gym duo" }, { who: ["Camille","Héloïse"], scene: "Gym duo" }, { who: ["Melyna B."], scene: "Solo gymnastique" } ] },
   { name: "Roller", icon: "roller", scenes: [ { who: ["Thalia F.","Naïma Nour","Melyna Adenet","Haby","Dina"], scene: "Roller — Thalia entre seule puis sort ; Naïma Nour, Melyna et Haby ensemble puis sortent ; Dina finit", duration: "~5 à 7 min" } ] }
 ];
 
@@ -69,7 +69,7 @@ function computeStats() {
   SCHOOL_PROJECTS.forEach(p => { const projectKids = []; if (p.kids) projectKids.push(...p.kids); if (p.languages) p.languages.forEach(l => projectKids.push(...l.kids)); projectKids.forEach(k => { const key = normKey(canonical(k)); if (perChild.has(key)) perChild.get(key).school = true; }); });
   const allKids = new Set();
   FREE_CATEGORIES.forEach(c => c.scenes.forEach(s => s.who.forEach(w => allKids.add(normKey(canonical(w))))));
-  SCHOOL_PROJECTS.forEach(p => { if (p.kids) p.kids.forEach(k => allKids.add(normKey(canonical(k)))); if (p.languages) p.languages.forEach(l => l.kids.forEach(k => allKids.add(normKey(canonical(k))))); });
+  SCHOOL_PROJECTS.forEach(p => { if (p.kids) p.kids.forEach(k => allKids.add(normKey(canonical(k)))); if (p.languages) p.languages.forEach(l => l.kids.forEach(k => allKids.add(normKey(canonical(k)))); });
   const quinzaine = SCHOOL_PROJECTS.find(p => p.languages);
   const quinzaineKids = new Set();
   quinzaine.languages.forEach(l => l.kids.forEach(k => quinzaineKids.add(normKey(canonical(k)))));
