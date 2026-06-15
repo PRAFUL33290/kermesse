@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Info parents · Scène des Talents</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .back-home{display:inline-flex;align-items:center;gap:7px;margin:0 0 18px;padding:10px 14px;border-radius:999px;background:var(--accent);color:#fff;text-decoration:none;font-weight:900;box-shadow:var(--shadow)}.back-home:hover{background:var(--accent-2)}.info-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:0 0 22px}.info-box{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px}.info-box strong{display:block;color:var(--accent);font-size:.78rem;text-transform:uppercase;letter-spacing:.08em}.info-box span{display:block;margin-top:5px;font-size:1.35rem;font-weight:950;line-height:1.1}.parent-note{background:var(--gold-soft);border-color:#ecd9a6;border-left:5px solid var(--gold)}.parent-note h2{color:var(--gold)}.positive-note{background:#eef7f1;border-color:#b9dfc8;border-left:5px solid var(--green)}.positive-note h2{color:var(--green)}.duration-note{background:#eef4ff;border-color:#bfd4ff;border-left:5px solid #2b6cb0}.duration-note h2{color:#2b6cb0}.simple-list{margin:10px 0 0;padding-left:20px}.simple-list li{margin:8px 0}.parents-table-wrap{overflow:auto;border:1px solid var(--line);border-radius:var(--radius);background:#fff;box-shadow:var(--shadow)}.parents-table{width:100%;border-collapse:collapse;min-width:760px}.parents-table th,.parents-table td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.parents-table th{position:sticky;top:0;background:var(--bg);color:var(--muted);font-size:.76rem;text-transform:uppercase;letter-spacing:.06em;z-index:1}.parents-table tr:last-child td{border-bottom:0}.child-num{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;border-radius:8px;background:var(--accent);color:#fff;font-size:.8rem;font-weight:950}.child-name{font-weight:950}.scene-list{display:grid;gap:7px}.scene-pill{display:inline-flex;align-items:center;gap:7px;width:max-content;max-width:100%;padding:5px 9px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-size:.86rem;font-weight:850}.scene-pill.school{background:#fef3c7;color:#92400e}.scene-title{display:block;margin-top:3px;color:var(--muted);font-size:.86rem;line-height:1.35}.time-list{display:grid;gap:7px}.time-chip{display:inline-flex;align-items:center;justify-content:center;width:max-content;padding:5px 9px;border-radius:999px;background:#eef4ff;color:#2b6cb0;font-size:.86rem;font-weight:900;white-space:nowrap}.summary-line{margin:10px 0 0;color:var(--muted);font-size:.92rem;font-weight:700}@media (max-width:700px){.parents-table-wrap{overflow:visible;border:0;background:transparent;box-shadow:none}.parents-table{display:block;min-width:0}.parents-table thead{display:none}.parents-table tbody{display:grid;gap:12px}.parents-table tr{display:grid;gap:8px;padding:14px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;box-shadow:var(--shadow)}.parents-table td{display:grid;grid-template-columns:92px 1fr;gap:10px;padding:0;border:0}.parents-table td::before{content:attr(data-label);color:var(--muted);font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;font-weight:900}.scene-pill,.time-chip{width:fit-content}.scene-title{grid-column:1 / -1}}
+  </style>
+</head>
+<body>
+  <nav class="nav"><div class="nav-inner"><a class="brand" href="index.html"><span class="dot"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 6h16v7a8 8 0 0 1-16 0V6Z"/><path d="M8 10h.01M16 10h.01M9 16c2 1.4 4 1.4 6 0"/><path d="M7 3v3M17 3v3"/></svg></span><span>Scène des Talents<small>École Arc en Ciel · 19 juin</small></span></a><button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><ul class="nav-links" id="navLinks"><li><a href="index.html"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>Accueil</a></li><li><a href="enfants.html"><svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M8 14h8l2 7H6l2-7Z"/></svg>Enfants</a></li><li><a href="orga.html"><svg class="svg-icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Organisation</a></li><li><a href="repere-enfants.html"><svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15 9-2 5-5 2 2-5 5-2Z"/></svg>Repère</a></li><li><a href="repetition.html"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="m10 8 6 4-6 4V8Z"/></svg>Répétitions</a></li><li><a href="nico.html"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Nico</a></li><li><a href="stats.html"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><rect x="7" y="11" width="3" height="5"/><rect x="12" y="8" width="3" height="8"/><rect x="17" y="4" width="3" height="12"/></svg>Statistiques</a></li></ul></div></nav>
+
+  <div class="wrap">
+    <header class="page-head">
+      <p class="kicker">Info parents</p>
+      <h1>Scène des Talents</h1>
+      <p class="meta">Vendredi 19 juin · École Arc en Ciel</p>
+    </header>
+    <a class="back-home" href="index.html">← Retour à l'accueil</a>
+
+    <div class="info-strip">
+      <article class="info-box"><strong>Heure début</strong><span>17h45</span></article>
+      <article class="info-box"><strong>Organisation</strong><span id="sceneCount">-</span></article>
+      <article class="info-box"><strong>Enfants</strong><span id="childCount">-</span></article>
+    </div>
+
+    <section class="section parent-note">
+      <div class="section-head"><h2>Responsabilité des parents</h2></div>
+      <p>Pendant toute la durée de l'événement, les parents restent responsables de leurs enfants.</p>
+      <ul class="simple-list">
+        <li>Cette responsabilité s'applique dès l'arrivée sur le lieu de l'événement et jusqu'au départ.</li>
+        <li>Elle concerne également les enfants qui participent à la Scène des Talents.</li>
+        <li>Les enfants doivent rester sous la surveillance de leurs parents en dehors de leur passage sur scène.</li>
+        <li>Merci d'accompagner les enfants avec bienveillance et de respecter l'organisation prévue pour les passages.</li>
+      </ul>
+    </section>
+
+    <section class="section positive-note">
+      <div class="section-head"><h2>Participation des enfants</h2></div>
+      <p>Si un enfant a peur, ne se sent pas prêt ou n'a plus envie de passer sur scène, il en a le droit. Dans ce cas, la scène concernée ne se produira pas et le déroulement continuera simplement.</p>
+    </section>
+
+    <section class="section duration-note">
+      <div class="section-head"><h2>Durée des numéros</h2></div>
+      <p>Les horaires sont approximatifs. La plupart des numéros durent environ 3 minutes. La scène de roller est plus longue et durera environ 5 à 7 minutes.</p>
+    </section>
+
+    <p class="cat-title">Passages par enfant</p>
+    <div class="parents-table-wrap">
+      <table class="parents-table">
+        <thead><tr><th>N° enfant</th><th>Prénom</th><th>Scène(s)</th><th>Horaire approximatif</th></tr></thead>
+        <tbody id="childRows"></tbody>
+      </table>
+    </div>
+    <p class="summary-line">Les numéros d'enfant sont attribués par ordre alphabétique.</p>
+    <footer>Scène des Talents · École Arc en Ciel · 19 juin</footer>
+  </div>
+
+  <script src="data.js"></script>
+  <script>
+    const toggle=document.getElementById('navToggle'),links=document.getElementById('navLinks');toggle.addEventListener('click',()=>{const open=links.classList.toggle('open');toggle.setAttribute('aria-expanded',open);});
+    const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+    const childName=s=>canonical(s).trim().toLocaleLowerCase('fr-FR').replace(/(^|[\s'’-])(\p{L})/gu,(m,p,l)=>p+l.toLocaleUpperCase('fr-FR'));
+    const fmtTime=min=>`${String(Math.floor(min/60)).padStart(2,'0')}h${String(min%60).padStart(2,'0')}`;
+    const durationOf=s=>s.type==='school'?(s.num===5?8:5):(s.duration&&s.duration.includes('5 à 7')?6:3);
+    const projectKids=p=>p.kids?[...p.kids]:p.languages.flatMap(l=>l.kids);
+    const uniqueByName=list=>[...new Map(list.map(name=>{const display=childName(name);return [normKey(display),display];})).values()].sort((a,b)=>a.localeCompare(b,'fr',{sensitivity:'base'}));
+    const schoolScenes=SCHOOL_PROJECTS.map((p,i)=>({num:i+1,type:'school',cat:'Projet Périscolaire',name:p.name,kids:uniqueByName(projectKids(p))}));
+    let nextNum=schoolScenes.length;
+    const freeScenes=FREE_CATEGORIES.flatMap(cat=>cat.scenes.map(s=>({num:++nextNum,type:'free',cat:cat.name,name:s.scene,kids:uniqueByName(s.who),duration:s.duration||''})));
+    const running=[...schoolScenes,...freeScenes];
+    let cursor=17*60+45;
+    running.forEach(scene=>{scene.time=fmtTime(cursor);cursor+=durationOf(scene);});
+    const children=new Map();
+    running.forEach(scene=>scene.kids.forEach(name=>{const key=normKey(name);if(!children.has(key))children.set(key,{name,scenes:[]});children.get(key).scenes.push(scene);}));
+    const sorted=[...children.values()].sort((a,b)=>a.name.localeCompare(b.name,'fr',{sensitivity:'base'}));
+    document.getElementById('sceneCount').textContent=`${running.length} scènes`;
+    document.getElementById('childCount').textContent=`${sorted.length} enfants`;
+    document.getElementById('childRows').innerHTML=sorted.map((child,index)=>`<tr><td data-label="N° enfant"><span class="child-num">${index+1}</span></td><td data-label="Prénom"><span class="child-name">${esc(child.name)}</span></td><td data-label="Scène(s)"><div class="scene-list">${child.scenes.map(scene=>`<div><span class="scene-pill ${scene.type==='school'?'school':''}">n°${scene.num} · ${esc(scene.cat)}</span><span class="scene-title">${esc(scene.name)}</span></div>`).join('')}</div></td><td data-label="Horaire"><div class="time-list">${child.scenes.map(scene=>`<span class="time-chip">vers ${scene.time}</span>`).join('')}</div></td></tr>`).join('');
+  </script>
+</body>
+</html>
