@@ -24,6 +24,9 @@ img, video, iframe, canvas, svg { max-width: 100%; }
 .fa-icon, .brand-icon { width: 1em; height: 1em; display: inline-block; vertical-align: -0.125em; fill: currentColor; flex-shrink: 0; }
 .brand .dot .fa-icon { width: 17px; height: 17px; }
 .nav-links .fa-icon { width: 15px; height: 15px; }
+.svg-icon { width: 1.1em; height: 1.1em; display: inline-block; vertical-align: -.16em; flex-shrink: 0; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.brand .svg-icon { width: 18px; height: 18px; }
+.nav-links .svg-icon { width: 16px; height: 16px; }
 
 /* ---------- Structure commune ---------- */
 .wrap { width: min(1100px, calc(100% - 40px)); margin: 0 auto; padding: 28px 0 38px; }

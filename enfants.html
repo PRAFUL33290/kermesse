@@ -23,27 +23,7 @@
   </style>
 </head>
 <body>
-  <nav class="nav">
-    <div class="nav-inner">
-      <a class="brand" href="index.html">
-        <span class="dot">🎭</span>
-        <span>Scène des Talents<small>École Arc en Ciel · 19 juin</small></span>
-      </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">🏠 Accueil</a></li>
-        <li><a href="enfants.html" class="active">👧 Enfants</a></li>
-        <li><a href="orga.html">🗓️ Organisation</a></li>
-        <li><a href="repere-enfants.html">🧭 Repère</a></li>
-        <li><a href="repetition.html">🎬 Répétitions</a></li>
-        <li><a href="a-faire.html">📝 À faire</a></li>
-        <li><a href="nico.html">✅ Nico</a></li>
-        <li><a href="stats.html">📊 Statistiques</a></li>
-      </ul>
-    </div>
-  </nav>
+  <nav class="nav"><div class="nav-inner"><a class="brand" href="index.html"><span class="dot"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 6h16v7a8 8 0 0 1-16 0V6Z"/><path d="M8 10h.01M16 10h.01M9 16c2 1.4 4 1.4 6 0"/><path d="M7 3v3M17 3v3"/></svg></span><span>Scène des Talents<small>École Arc en Ciel · 19 juin</small></span></a><button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><ul class="nav-links" id="navLinks"><li><a href="index.html"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>Accueil</a></li><li><a href="parents.html"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-8 0v2"/><circle cx="12" cy="7" r="4"/><path d="M22 21v-2a3 3 0 0 0-2-2.8"/><path d="M2 21v-2a3 3 0 0 1 2-2.8"/></svg>Parents</a></li><li><a href="enfants.html" class="active"><svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M8 14h8l2 7H6l2-7Z"/></svg>Enfants</a></li><li><a href="orga.html"><svg class="svg-icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Organisation</a></li><li><a href="repere-enfants.html"><svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15 9-2 5-5 2 2-5 5-2Z"/></svg>Repère</a></li><li><a href="repetition.html"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="m10 8 6 4-6 4V8Z"/></svg>Répétitions</a></li><li><a href="nico.html"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Nico</a></li><li><a href="stats.html"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><rect x="7" y="11" width="3" height="5"/><rect x="12" y="8" width="3" height="8"/><rect x="17" y="4" width="3" height="12"/></svg>Statistiques</a></li></ul></div></nav>
 
   <div class="wrap">
     <header class="page-head">
@@ -54,7 +34,7 @@
 
     <div class="rule">
       <strong>Le chiffre</strong> à droite = <strong>nombre de scènes libres</strong> (limite : 2 max).
-      Les <strong>projets d'école</strong> ne comptent pas. Coche <strong>« Validé »</strong> quand tu as
+      Les <strong>projets périscolaires</strong> ne comptent pas. Coche <strong>« Validé »</strong> quand tu as
       vu l'enfant, et note tout changement. Tout est <strong>sauvegardé sur ton téléphone</strong> —
       pense à <strong>Exporter</strong> pour enregistrer le fichier sur GitHub.
     </div>
@@ -172,10 +152,10 @@
                </span>
                <span class="companions">${esc(companionText(ch, f))}</span>
              </li>`).join('')}</ul>`
-        : `<p class="empty">Aucune scène libre — uniquement projet(s) d'école.</p>`;
+        : `<p class="empty">Aucune scène libre — uniquement projet(s) périscolaire(s).</p>`;
 
       const schoolHtml = ch.school.length
-        ? `<div class="school-tags"><span class="st-label">🏫 Projets d'école</span>
+        ? `<div class="school-tags"><span class="st-label">🏫 Projets Périscolaires</span>
             ${ch.school.map(s =>
               `<span class="st" title="${escAttr(s.extra)}">${esc(s.name)}${s.extra ? ` <em>(${esc(s.extra)})</em>` : ''}</span>`).join('')}
            </div>`
