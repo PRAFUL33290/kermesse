@@ -1,0 +1,225 @@
+LISTING ENFANTS - REPETITIONS
+Base : planning repetition.html
+
+LUNDI - Quinzaine de l'egalite + Oh Mama Tetema
+Cantine : 32 enfants
+01. Alicia
+02. Alya
+03. Camille
+04. Celine
+05. Cheid
+06. Divine
+07. Eileen
+08. Elaia
+09. Elenna
+10. Giulia
+11. Grace
+12. Husna
+13. Ilona
+14. Jasmine
+15. Juliette
+16. Kelyana
+17. Keren
+18. Leana
+19. Lilly
+20. Lina M.
+21. Lydia
+22. Maimouna
+23. Maissa
+24. Mia
+25. Mila
+26. Myla
+27. Nayana
+28. Orianne
+29. Shyne
+30. Tania
+31. Yara
+32. Zia
+
+  Quinzaine de l'egalite (27 enfants)
+  - Alicia
+  - Alya
+  - Camille
+  - Celine
+  - Cheid
+  - Divine
+  - Eileen
+  - Elaia
+  - Elenna
+  - Giulia
+  - Ilona
+  - Jasmine
+  - Juliette
+  - Kelyana
+  - Keren
+  - Leana
+  - Lilly
+  - Lina M.
+  - Lydia
+  - Maissa
+  - Mia
+  - Mila
+  - Myla
+  - Nayana
+  - Shyne
+  - Yara
+  - Zia
+
+  Oh Mama Tetema (8 enfants)
+  - Alicia
+  - Divine
+  - Grace
+  - Husna
+  - Keren
+  - Maimouna
+  - Orianne
+  - Tania
+
+MARDI - Capoeira + Carnaval de Deborah
+Cantine : 23 enfants
+01. Anna
+02. Calie
+03. Charlotte
+04. Clara
+05. Divine
+06. Giulia
+07. Grace
+08. Jasmine
+09. Kaycee
+10. Keren
+11. Lea S.
+12. Lilly
+13. Lina M.
+14. Lydia
+15. Maimouna
+16. Mila S.
+17. Myla
+18. Naya
+19. Orianne
+20. Ryma
+21. Shyne
+22. Tania
+23. Zia
+
+  Capoeira (13 enfants)
+  - Anna
+  - Calie
+  - Charlotte
+  - Clara
+  - Divine
+  - Grace
+  - Keren
+  - Lydia
+  - Maimouna
+  - Orianne
+  - Ryma
+  - Shyne
+  - Tania
+
+  Carnaval de Deborah (13 enfants)
+  - Giulia
+  - Jasmine
+  - Kaycee
+  - Keren
+  - Lea S.
+  - Lilly
+  - Lina M.
+  - Lydia
+  - Mila S.
+  - Myla
+  - Naya
+  - Shyne
+  - Zia
+
+JEUDI - Chant + Danse
+Cantine : 31 enfants
+01. Alioun
+02. Alya
+03. Arthur
+04. Celine
+05. Charlotte
+06. Cheid
+07. Clara
+08. Divine
+09. Elaia
+10. Elenna
+11. Elvin
+12. Giulia
+13. Grace
+14. Heloise
+15. Jasmine
+16. Juliette
+17. Jumana
+18. Kaylan
+19. Kelyana
+20. Keren
+21. Lana
+22. Lea S.
+23. Lina M.
+24. Lina S.
+25. Loicia
+26. Lydia
+27. Maimouna
+28. Maissa
+29. Mamy Kadiatou
+30. Ryma
+31. Stella
+
+  Chant (9 enfants)
+  - Celine
+  - Charlotte
+  - Cheid
+  - Jasmine
+  - Jumana
+  - Keren
+  - Lea S.
+  - Lina M.
+  - Maimouna
+
+  Danse (25 enfants)
+  - Alioun
+  - Alya
+  - Arthur
+  - Clara
+  - Divine
+  - Elaia
+  - Elenna
+  - Elvin
+  - Giulia
+  - Grace
+  - Heloise
+  - Jasmine
+  - Juliette
+  - Kaylan
+  - Kelyana
+  - Lana
+  - Lea S.
+  - Lina M.
+  - Lina S.
+  - Loicia
+  - Lydia
+  - Maissa
+  - Mamy Kadiatou
+  - Ryma
+  - Stella
+
+VENDREDI - Jonglage ballon de foot + Rollers
+Cantine : 7 enfants
+01. Courage
+02. Dina
+03. Eliam
+04. Haby
+05. Melyna Adenet
+06. Naima Nour
+07. Thalia F.
+
+  Jonglage ballon de foot (2 enfants)
+  - Courage
+  - Eliam
+
+  Rollers (5 enfants)
+  - Dina
+  - Haby
+  - Melyna Adenet
+  - Naima Nour
+  - Thalia F.

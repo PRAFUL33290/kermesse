@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Communication parents — Scène des Talents</title>
+  <style>
+    :root {
+      --bg: #f7f5f0;
+      --card: #ffffff;
+      --ink: #1f2933;
+      --muted: #6b7280;
+      --line: #e6e2d9;
+      --accent: #c0392b;
+      --accent-2: #e07a5f;
+      --accent-soft: #fdecea;
+      --gold: #b8860b;
+      --gold-soft: #fdf6e3;
+      --green: #2f855a;
+      --shadow: 0 1px 2px rgba(31,41,51,.04), 0 8px 24px rgba(31,41,51,.06);
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+    }
+    .wrap { width: min(1100px, calc(100% - 40px)); margin: 0 auto; padding: 34px 0 42px; }
+    .kicker { margin: 0 0 8px; color: var(--accent); font-weight: 900; text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; }
+    h1 { margin: 0; font-size: clamp(2.2rem, 7vw, 4.2rem); line-height: .95; letter-spacing: -.05em; }
+    h2 { margin: 0; font-size: 1.35rem; line-height: 1.15; }
+    h3 { margin: 0 0 6px; font-size: 1.02rem; }
+    p { margin: 0; }
+    .meta { margin-top: 12px; color: var(--muted); font-weight: 700; }
+    .hero {
+      margin: 24px 0;
+      padding: 26px;
+      border-radius: 22px;
+      border: 0;
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: var(--shadow);
+    }
+    .hero p { max-width: 820px; margin-top: 10px; font-size: 1.05rem; font-weight: 650; }
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 0 0 24px; }
+    .info-card, .section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px 22px;
+    }
+    .info-card strong { display: block; color: var(--accent); font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; }
+    .info-card span { display: block; margin-top: 4px; font-size: 1.35rem; font-weight: 950; line-height: 1.1; }
+    .section { margin: 0 0 20px; }
+    .section-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+    .cat-title { margin: 28px 0 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; font-weight: 900; }
+    .notice {
+      background: var(--gold-soft);
+      border: 1px solid #ecd9a6;
+      border-left: 5px solid var(--gold);
+    }
+    .notice h2 { color: var(--gold); }
+    .positive {
+      background: #eef7f1;
+      border-color: #b9dfc8;
+      border-left: 5px solid var(--green);
+    }
+    .positive h2 { color: var(--green); }
+    .duration {
+      background: #eef4ff;
+      border-color: #bfd4ff;
+      border-left: 5px solid #2b6cb0;
+    }
+    .duration h2 { color: #2b6cb0; }
+    .simple-list { margin: 10px 0 0; padding-left: 20px; }
+    .simple-list li { margin: 8px 0; }
+    .table-wrap { overflow-x: auto; padding-bottom: 4px; }
+    table { width: 100%; border-collapse: separate; border-spacing: 0 12px; min-width: 760px; }
+    th { text-align: left; color: var(--muted); font-size: .76rem; text-transform: uppercase; letter-spacing: .06em; padding: 0 12px; }
+    td { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 14px 12px; vertical-align: top; }
+    td:first-child { border-left: 1px solid var(--line); border-radius: 12px 0 0 12px; width: 112px; }
+    td:last-child { border-right: 1px solid var(--line); border-radius: 0 12px 12px 0; }
+    .time { display: inline-flex; align-items: center; justify-content: center; min-width: 72px; border-radius: 10px; padding: 7px 10px; color: #fff; background: linear-gradient(135deg, var(--accent), var(--accent-2)); font-weight: 950; }
+    .scene-name { font-weight: 900; }
+    .scene-cat { margin-top: 3px; color: var(--muted); font-size: .88rem; font-weight: 750; }
+    .kids { font-weight: 750; }
+    .note { color: var(--muted); font-size: .9rem; }
+    .child-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 12px; }
+    .child-card { border: 1px solid var(--line); border-radius: 12px; background: #fff; padding: 13px 14px; }
+    .child-name { font-weight: 950; margin-bottom: 7px; }
+    .child-lines { display: grid; gap: 5px; color: var(--muted); font-size: .9rem; font-weight: 700; }
+    .pill { display: inline-flex; align-items: center; border-radius: 999px; padding: 2px 8px; background: var(--accent-soft); color: var(--accent); font-size: .74rem; font-weight: 900; margin-right: 5px; }
+    footer { margin: 26px 0 0; color: var(--muted); text-align: center; font-size: .9rem; }
+    @media (max-width: 700px) {
+      .wrap { width: 100%; padding: 24px 14px 34px; }
+      .hero, .section, .info-card { padding: 18px 16px; }
+      .table-wrap { overflow: visible; }
+      table, thead, tbody, tr, td { display: block; width: 100%; min-width: 0; }
+      thead { display: none; }
+      tr { margin-bottom: 14px; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #fff; box-shadow: var(--shadow); }
+      td { border: 0; border-radius: 0 !important; padding: 11px 14px; }
+      td:first-child { width: 100%; background: var(--accent-soft); }
+      .time { min-width: 0; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <p class="kicker">Communication parents</p>
+      <h1>Scène des Talents</h1>
+      <p class="meta">Vendredi 19 juin · École Arc en Ciel</p>
+    </header>
+
+    <section class="hero">
+      <h2>Un moment convivial pour valoriser les enfants</h2>
+      <p>Nous présenterons les projets périscolaires travaillés pendant l'année, puis les démonstrations préparées par les enfants : théâtre, chant, jonglage ballon de foot, danse, gymnastique, roller et autres talents.</p>
+    </section>
+
+    <div class="info-grid">
+      <article class="info-card"><strong>Horaire</strong><span>Début vers 18h00</span></article>
+      <article class="info-card"><strong>Lieu</strong><span>Côté maternelle</span></article>
+      <article class="info-card"><strong>Fin estimée</strong><span>Vers 20h30</span></article>
+      <article class="info-card"><strong>À prévoir</strong><span>Horaires approximatifs</span></article>
+    </div>
+
+    <p class="cat-title">Horaires et passages</p>
+    <section class="section">
+      <div class="section-head">
+        <h2>Déroulé prévisionnel</h2>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Horaire</th><th>Scène</th><th>Enfants</th><th>Information</th></tr></thead>
+          <tbody id="runningOrder"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <p class="cat-title">Enfants</p>
+    <section class="section">
+      <div class="section-head">
+        <h2>Retrouver le passage de chaque enfant</h2>
+      </div>
+      <div class="child-grid" id="childGrid"></div>
+    </section>
+
+    <p class="cat-title">Conditions</p>
+    <section class="section notice">
+      <div class="section-head"><h2>Responsabilité des parents</h2></div>
+      <p>Pendant toute la durée de l'événement, les parents restent responsables de leurs enfants.</p>
+      <ul class="simple-list">
+        <li>Cette responsabilité s'applique dès l'arrivée sur le lieu de l'événement et jusqu'au départ.</li>
+        <li>Elle concerne également les enfants qui participent à la Scène des Talents.</li>
+        <li>Les enfants doivent rester sous la surveillance de leurs parents en dehors de leur passage sur scène.</li>
+        <li>Merci d'accompagner les enfants avec bienveillance et de respecter l'organisation prévue pour les passages.</li>
+      </ul>
+    </section>
+
+    <section class="section positive">
+      <div class="section-head"><h2>Participation des enfants</h2></div>
+      <p>Ce moment doit rester positif. Si un enfant a peur, ne se sent pas prêt ou n'a plus envie de passer sur scène, il en a le droit.</p>
+      <ul class="simple-list">
+        <li>Aucune obligation n'est souhaitée.</li>
+        <li>Dans ce cas, la scène concernée ne se produira pas.</li>
+        <li>Nous continuerons simplement le déroulement du spectacle, car il y a beaucoup d'enfants à faire passer.</li>
+        <li>L'important est que chaque enfant se sente respecté et encouragé.</li>
+      </ul>
+    </section>
+
+    <section class="section duration">
+      <div class="section-head"><h2>Durée des numéros</h2></div>
+      <p>La plupart des numéros durent environ 3 minutes. La scène de roller est plus longue et durera environ 5 à 7 minutes.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>À retenir</h2></div>
+      <p>Merci de rester attentifs aux annonces, de laisser les espaces de passage dégagés et d'encourager tous les participants dans un esprit positif et respectueux.</p>
+    </section>
+
+    <footer>Scène des Talents · École Arc en Ciel · Vendredi 19 juin</footer>
+  </main>
+
+  <script>
+    const passages = [
+      { time: "18h00", cat: "Projet périscolaire", scene: "Maternelles de Virginie", kids: ["Lina","Tiamo","Nael (maternelle)","Ambre","Eva","Anaelle","Charlotte (maternelle)","Maylis","Emmy","Adrien","Isaure","Alma","Raphaël","Léa","Charlie"], note: "Les pouvoirs des fleurs - Les Kids United" },
+      { time: "18h05", cat: "Projet périscolaire", scene: "Capoeira", kids: ["Clara","Anna","Lydia","Ryma","Calie","Divine","Keren","Charlotte","Orianne","Shyne","Maimouna","Grace","Tania"], note: "Projet collectif" },
+      { time: "18h10", cat: "Projet périscolaire", scene: "Oh Mama Tetema + Freestyle", kids: ["Keren","Divine","Grace","Maimouna","Tania","Orianne","Husna","Alicia"], note: "Chorégraphie" },
+      { time: "18h15", cat: "Projet périscolaire", scene: "Carnaval de Deborah", kids: ["Kaycee","Zia","Jasmine","Myla","Giulia","Lydia","Lilly","Naya","Léa S.","Lina M.","Shyne","Mila S.","Keren"], note: "Projet collectif" },
+      { time: "18h20", cat: "Projet périscolaire", scene: "Quinzaine de l'égalité", kids: ["Lilly","Lydia","Myla","Kelyana","Elaïa","Juliette","Ilona","Jasmine","Giulia","Elenna","Mia","Alya","Divine","Lina M.","Alicia","Eileen","Léana","Céline","Cheid","Shyne","Mila","Zia","Camille","Yara","Maïssa","Nayana","Keren"], note: "Nos artistes en herbe - par pays et langue" },
+      { time: "18h35", cat: "Théâtre", scene: "Les Martiens", kids: ["Lilly","Shyne"], note: "Bruit de moteur + musique" },
+      { time: "18h40", cat: "Théâtre", scene: "Mortelle Adèle", kids: ["Ryma","Clara"], note: "" },
+      { time: "18h45", cat: "Théâtre", scene: "Théâtre", kids: ["Charlotte"], note: "" },
+      { time: "18h50", cat: "Théâtre", scene: "Théâtre", kids: ["Eileen","Léana"], note: "APC mardi/jeudi avec Eileen" },
+      { time: "18h55", cat: "Théâtre", scene: "Théâtre à 4", kids: ["Souleyman","Juliette","Timéo","Loïcia"], note: "" },
+      { time: "19h00", cat: "Chant", scene: "Lush Life", kids: ["Jasmine","Léa S."], note: "" },
+      { time: "19h03", cat: "Chant", scene: "Chant", kids: ["Cheid"], note: "" },
+      { time: "19h06", cat: "Chant", scene: "Chant", kids: ["Maïmouna"], note: "" },
+      { time: "19h09", cat: "Chant", scene: "Chant", kids: ["Céline"], note: "" },
+      { time: "19h12", cat: "Chant", scene: "Chant", kids: ["Lina M."], note: "" },
+      { time: "19h15", cat: "Chant", scene: "Chant", kids: ["Keren"], note: "" },
+      { time: "19h18", cat: "Chant", scene: "Chant", kids: ["Charlotte"], note: "" },
+      { time: "19h21", cat: "Chant", scene: "Chant à confirmer", kids: ["Jumana"], note: "" },
+      { time: "19h24", cat: "Jonglage ballon de foot", scene: "Jonglage", kids: ["Courage","Eliam"], note: "" },
+      { time: "19h27", cat: "Danse", scene: "Danse / gym - Lush Life", kids: ["Alya","Elenna","Elaïa","Kelyana"], note: "" },
+      { time: "19h30", cat: "Danse", scene: "Gozalo", kids: ["Jasmine","Léa S."], note: "" },
+      { time: "19h33", cat: "Danse", scene: "Spa", kids: ["Alya","Elenna","Kelyana"], note: "" },
+      { time: "19h36", cat: "Danse", scene: "Danse", kids: ["Clara","Lydia","Divine","Ryma"], note: "" },
+      { time: "19h39", cat: "Danse", scene: "Séga", kids: ["Lana"], note: "" },
+      { time: "19h42", cat: "Danse", scene: "Danse / scène de groupe", kids: ["Kaylan","Elvin","Arthur","Alioun"], note: "" },
+      { time: "19h45", cat: "Danse", scene: "Afro / rondade / salto", kids: ["Maïssa","Lina M."], note: "" },
+      { time: "19h48", cat: "Danse", scene: "Danse", kids: ["Grace"], note: "" },
+      { time: "19h51", cat: "Danse", scene: "Duo (Brésil)", kids: ["Lina S.","Maïssa"], note: "Musique à confirmer" },
+      { time: "19h54", cat: "Danse", scene: "Gabriela", kids: ["Giulia","Héloïse"], note: "" },
+      { time: "19h57", cat: "Danse", scene: "21 Reasons", kids: ["Stella","Giulia"], note: "" },
+      { time: "20h00", cat: "Danse", scene: "Danse", kids: ["Héloïse","Juliette","Loïcia"], note: "" },
+      { time: "20h03", cat: "Danse", scene: "Solo afro", kids: ["Mamy Kadiatou"], note: "" },
+      { time: "20h06", cat: "Gymnastique", scene: "Rondades / flip / salto arrière", kids: ["Giulia","Stella","Héloïse","Eileen","Lya","Lina S.","Maïssa","Alya","Elenna","Elaïa","Kelyana","Yara","Keren","Tania","Husna","Alicia","Lydia","Naïma Nour","Melyna B.","Léana","Céline"], note: "Toutes ensemble" },
+      { time: "20h11", cat: "Gymnastique", scene: "Gym groupe", kids: ["Giulia","Stella","Héloïse"], note: "" },
+      { time: "20h14", cat: "Gymnastique", scene: "Gym duo", kids: ["Lina S.","Maïssa"], note: "" },
+      { time: "20h17", cat: "Gymnastique", scene: "Solo gymnastique", kids: ["Melyna B."], note: "" },
+      { time: "20h20", cat: "Roller", scene: "Roller", kids: ["Thalia F.","Naïma Nour","Melyna Adenet","Haby","Dina"], note: "Thalia entre seule puis sort ; Naïma Nour, Melyna et Haby ensemble puis sortent ; Dina finit - durée 5 à 7 min" }
+    ];
+
+    const esc = s => String(s).replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+    const key = name => String(name).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\./g, "").trim();
+    const childMap = new Map();
+
+    passages.forEach((p, index) => {
+      p.kids.forEach(kid => {
+        const childKey = key(kid);
+        if (!childMap.has(childKey)) childMap.set(childKey, { name: kid, items: [] });
+        childMap.get(childKey).items.push({ num: index + 1, time: p.time, scene: p.scene, cat: p.cat });
+      });
+    });
+
+    document.getElementById("runningOrder").innerHTML = passages.map((p, index) => `
+      <tr>
+        <td><span class="time">vers ${esc(p.time)}</span></td>
+        <td>
+          <div class="scene-name"><span class="pill">n°${index + 1}</span>${esc(p.scene)}</div>
+          <div class="scene-cat">${esc(p.cat)}</div>
+        </td>
+        <td class="kids">${p.kids.map(esc).join(" · ")}</td>
+        <td class="note">${esc(p.note || "Horaire approximatif")}</td>
+      </tr>
+    `).join("");
+
+    document.getElementById("childGrid").innerHTML = [...childMap.values()]
+      .sort((a, b) => a.name.localeCompare(b.name, "fr", { sensitivity: "base" }))
+      .map(child => `
+        <article class="child-card">
+          <div class="child-name">${esc(child.name)}</div>
+          <div class="child-lines">
+            ${child.items.map(item => `<div><span class="pill">n°${item.num}</span>vers ${esc(item.time)} - ${esc(item.scene)} (${esc(item.cat)})</div>`).join("")}
+          </div>
+        </article>
+      `).join("");
+  </script>
+</body>
+</html>

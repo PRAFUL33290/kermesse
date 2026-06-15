@@ -26,13 +26,15 @@
   <script>
     const toggle=document.getElementById('navToggle'),links=document.getElementById('navLinks');toggle.addEventListener('click',()=>{const open=links.classList.toggle('open');toggle.setAttribute('aria-expanded',open);});
     const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
-    const schoolScenes=SCHOOL_PROJECTS.map((p,i)=>({num:i+1,type:'school',cat:'Projet Périscolaire',name:p.name,kids:p.kids||['Ensemble — '+p.languages.length+' langues'],duration:i===0?'~4 min':'~5 min'}));
+    const uniqueCanonical=list=>[...new Map(list.map(k=>[normKey(canonical(k)),canonical(k)])).values()].sort((a,b)=>a.localeCompare(b,'fr',{sensitivity:'base'}));
+    const projectKids=p=>p.kids?uniqueCanonical(p.kids):uniqueCanonical(p.languages.flatMap(l=>l.kids));
+    const schoolScenes=SCHOOL_PROJECTS.map((p,i)=>({num:i+1,type:'school',cat:'Projet Périscolaire',name:p.name,kids:projectKids(p),duration:i===0?'~4 min':(p.languages?'~8 min':'~5 min')}));
     let n=schoolScenes.length;
-    const freeScenes=FREE_CATEGORIES.flatMap(cat=>cat.scenes.map(s=>({num:++n,type:'free',cat:cat.name,name:s.scene,kids:s.who,duration:s.duration||'~3 à 5 min'})));
+    const freeScenes=FREE_CATEGORIES.flatMap(cat=>cat.scenes.map(s=>({num:++n,type:'free',cat:cat.name,name:s.scene,kids:uniqueCanonical(s.who),duration:s.duration||'~3 à 5 min'})));
     const running=[...schoolScenes,...freeScenes];
     const card=s=>`<article class="order-card ${s.type==='school'?'school':''}"><div class="order-head"><span class="order-num">${s.num}</span><div><div class="order-title">${esc(s.name)}</div><div class="order-meta">${esc(s.cat)} · ${esc(s.duration||'')}</div></div></div><div class="kids">${s.kids.map(esc).join(' · ')}</div></article>`;
     document.getElementById('runningOrder').innerHTML=running.map(card).join('');
-    const pickup=[...SCHOOL_PROJECTS.map((p,i)=>({num:i+1,name:p.name,cat:'Projet Périscolaire',kids:p.kids||[...new Set(p.languages.flatMap(l=>l.kids))],type:'school'})),...FREE_CATEGORIES.map((c,i)=>({num:SCHOOL_PROJECTS.length+i+1,name:c.name,cat:'Scènes libres',kids:[...new Set(c.scenes.flatMap(s=>s.who))],type:'free'}))];
+    const pickup=[...SCHOOL_PROJECTS.map((p,i)=>({num:i+1,name:p.name,cat:'Projet Périscolaire',kids:projectKids(p),type:'school'})),...FREE_CATEGORIES.map((c,i)=>({num:SCHOOL_PROJECTS.length+i+1,name:c.name,cat:'Scènes libres',kids:uniqueCanonical(c.scenes.flatMap(s=>s.who)),type:'free'}))];
     document.getElementById('pickup').innerHTML=pickup.map(card).join('');
     const childMap=new Map();running.forEach(s=>s.kids.forEach(k=>{const key=normKey(canonical(k));if(!childMap.has(key))childMap.set(key,{name:canonical(k),items:[]});childMap.get(key).items.push(s);}));
     const childList=document.getElementById('childList');

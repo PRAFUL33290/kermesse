@@ -30,7 +30,7 @@ const SCHOOL_PROJECTS = [
     name: "Quinzaine de l'égalité",
     note: "Nos artistes en herbe — par pays et langue",
     languages: [
-      { flag: "France", country: "France", lang: "Français", kids: ["Lilly","Lydia","Myla","Kelyana","Elaia","Juliette","Ilona","Jasmine","Guillia","Elenna","Mia","Alya","Divine","Lina M.","Alicia","Eileen","Céline","Cheid"] },
+      { flag: "France", country: "France", lang: "Français", kids: ["Lilly","Lydia","Myla","Kelyana","Elaia","Juliette","Ilona","Jasmine","Guillia","Elenna","Mia","Alya","Divine","Lina M.","Alicia","Eileen","Léana","Céline","Cheid"] },
       { flag: "Angleterre", country: "Angleterre", lang: "Anglais", kids: ["Juliette"] },
       { flag: "Espagne", country: "Espagne", lang: "Espagnol", kids: ["Myla","Kelyana","Elaia","Elenna","Mia","Shyne","Alya","Lina M.","Alicia","Mila","Zia","Cheid"] },
       { flag: "Portugal", country: "Portugal", lang: "Portugais", kids: ["Kelyana","Ilona","Alya","Lina M."] },

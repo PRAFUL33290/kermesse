@@ -211,14 +211,19 @@
 
     const esc = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
     const unique = list => [...new Set(list)];
+    const uniqueCanonical = list => [...new Map(list.map(k => [normKey(canonical(k)), canonical(k)])).values()]
+      .sort((a, b) => a.localeCompare(b, 'fr', { sensitivity: 'base' }));
     const project = name => SCHOOL_PROJECTS.find(p => p.name === name);
     const category = name => FREE_CATEGORIES.find(c => c.name === name);
+    const projectKids = name => {
+      const p = project(name);
+      return p.kids ? uniqueCanonical(p.kids) : uniqueCanonical(p.languages.flatMap(l => l.kids));
+    };
+    const categoryKids = name => uniqueCanonical(category(name).scenes.flatMap(s => s.who));
 
     const quinzaineKids = (() => {
       const q = SCHOOL_PROJECTS.find(p => p.languages);
-      const kids = new Set();
-      q.languages.forEach(l => l.kids.forEach(k => kids.add(k)));
-      return [...kids];
+      return uniqueCanonical(q.languages.flatMap(l => l.kids));
     })();
 
     const handoffBlocks = [
@@ -229,7 +234,7 @@
         note: "Virginie s'en occupe : Nico ne les ramasse pas.",
         noChecklist: true,
         projects: [
-          { name: 'Maternelles de Virginie', kids: project('Maternelles de Virginie').kids }
+          { name: 'Maternelles de Virginie', kids: projectKids('Maternelles de Virginie') }
         ]
       },
       {
@@ -238,9 +243,9 @@
         title: "Autres projets périscolaires",
         note: 'À garder proche de la scène après les maternelles.',
         projects: [
-          { name: 'Capoeira', kids: project('Capoeira').kids },
-          { name: 'Oh Mama Tetema + Freestyle', kids: project('Oh Mama Tetema + Freestyle').kids },
-          { name: 'Carnaval de Deborah', kids: project('Carnaval de Deborah').kids },
+          { name: 'Capoeira', kids: projectKids('Capoeira') },
+          { name: 'Oh Mama Tetema + Freestyle', kids: projectKids('Oh Mama Tetema + Freestyle') },
+          { name: 'Carnaval de Deborah', kids: projectKids('Carnaval de Deborah') },
           { name: "Quinzaine de l'égalité", kids: quinzaineKids }
         ]
       },
@@ -249,42 +254,42 @@
         time: '18h10',
         title: 'Théâtre',
         note: 'Après les projets, rassembler tous les groupes théâtre.',
-        kids: unique(category('Théâtre').scenes.flatMap(s => s.who))
+        kids: categoryKids('Théâtre')
       },
       {
         cls: 'chant',
         time: '18h35',
         title: 'Chant',
         note: 'Les chanteurs passent après le théâtre.',
-        kids: unique(category('Chant').scenes.flatMap(s => s.who))
+        kids: categoryKids('Chant')
       },
       {
         cls: 'jonglage',
         time: '18h55',
         title: 'Jonglage',
         note: 'Petit bloc juste avant la danse.',
-        kids: unique(category('Jonglage ballon de foot').scenes.flatMap(s => s.who))
+        kids: categoryKids('Jonglage ballon de foot')
       },
       {
         cls: 'danse',
         time: '19h00',
         title: 'Danse',
         note: "Gros bloc : prévoir un peu d'avance.",
-        kids: unique(category('Danse').scenes.flatMap(s => s.who))
+        kids: categoryKids('Danse')
       },
       {
         cls: 'gym',
         time: '19h40',
         title: 'Gymnastique',
         note: 'À amener en bloc, avec Mélina B. pour son solo.',
-        kids: unique(category('Gymnastique').scenes.flatMap(s => s.who))
+        kids: categoryKids('Gymnastique')
       },
       {
         cls: 'roller',
         time: '19h55',
         title: 'Rollers',
         note: 'Dernier bloc, 5 à 7 min : Thalia seule, puis Naïma Nour + Melyna + Haby, puis Dina.',
-        kids: unique(category('Roller').scenes.flatMap(s => s.who))
+        kids: categoryKids('Roller')
       }
     ];
 
@@ -347,9 +352,7 @@
     `).join('')}</div>`;
 
     document.getElementById('handoffList').innerHTML = handoffBlocks.map((block, index) => {
-      const count = block.projects
-        ? block.projects.reduce((sum, p) => sum + p.kids.length, 0)
-        : block.kids.length;
+      const count = blockKids(block).length;
       const previousBlock = handoffBlocks[index - 1];
       const nextBlock = handoffBlocks[index + 1];
       const marks = {
