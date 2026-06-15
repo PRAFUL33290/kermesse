@@ -16,7 +16,8 @@
     .home-stat .label { color:var(--muted); font-weight:700; font-size:.9rem; margin-top:7px; }
     @media (max-width:700px){ .home-stats{grid-template-columns:repeat(3,1fr); gap:8px;} .home-stat{padding:10px 8px; border-radius:12px; text-align:center;} .home-stat .num{font-size:1.25rem;} .home-stat .label{font-size:.68rem; line-height:1.15; margin-top:5px;} }
     .time-box { background:#eef4ff; border:1px solid #bfd4ff; border-left:5px solid #2b6cb0; border-radius:14px; padding:16px 18px; margin:0 0 28px; }
-    .time-box strong { color:#2b6cb0; }
+    .time-box strong { 
+      color:#2b6cb0; }
     .time-box p { margin:6px 0 0; color:var(--muted); }
     .section.free-category { --cat-main:var(--accent); --cat-alt:var(--accent-2); border:1px solid color-mix(in srgb,var(--cat-main) 70%,#fff); box-shadow:0 1px 2px rgba(31,41,51,.04),0 10px 28px color-mix(in srgb,var(--cat-main) 22%,transparent); }
     .section.free-category::before { content:''; position:absolute; inset:0 auto 0 0; width:8px; background:linear-gradient(180deg,var(--cat-main),var(--cat-alt)); z-index:1; }
@@ -31,7 +32,7 @@
   <div class="wrap">
     <header class="page-head"><p class="kicker">Listing des participants</p><h1>Scène des Talents</h1><p class="meta">Vendredi 19 juin · École Arc en Ciel</p></header>
     <div class="home-stats" id="homeStats"></div>
-    <div class="time-box"><strong>Horaires approximatifs :</strong><p>Projets Périscolaires à partir de 18h00 · Scène des Talents à partir de 18h35 · Fin estimée selon le déroulement et le passage des enfants.</p></div>
+    <div class="time-box"><strong>Horaires approximatifs :</strong><p id="timeBox">Fin estimée selon le déroulement et le passage des enfants.</p></div>
     <div class="rule"><strong>Règle :</strong> chaque enfant peut faire <strong>2 scènes maximum</strong>. Exception pour les projets périscolaires — <strong>Maternelles de Virginie</strong>, <strong>Capoeira</strong>, <strong>Oh Mama Tetema</strong> et <strong>Quinzaine de l'égalité</strong> — qui ne comptent pas dans cette limite.</div>
     <p class="cat-title">Projets Périscolaires</p><div id="school"></div>
     <p class="cat-title">Scènes libres</p><div id="free"></div>
@@ -45,6 +46,9 @@
     const svgIcon=name=>({theatre:'<svg class="svg-icon cat-icon-svg" viewBox="0 0 24 24"><path d="M4 6h16v7a8 8 0 0 1-16 0V6Z"/><path d="M8 10h.01M16 10h.01M9 16c2 1.4 4 1.4 6 0"/></svg>',mic:'<svg class="svg-icon cat-icon-svg" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10a7 7 0 0 1-14 0"/><path d="M12 17v5M8 22h8"/></svg>',roller:'<svg class="svg-icon cat-icon-svg" viewBox="0 0 24 24"><path d="M5 13h14l-2 5H7l-2-5Z"/><path d="M7 13V7h10v6"/><circle cx="8" cy="20" r="1.5"/><circle cx="16" cy="20" r="1.5"/></svg>',football:'<svg class="svg-icon cat-icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m12 7 4 3-2 5h-4l-2-5 4-3Z"/><path d="M12 7V3M16 10l4-2M14 15l2 4M10 15l-2 4M8 10 4 8"/></svg>',dance:'<svg class="svg-icon cat-icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="4" r="2"/><path d="M10 7h4l2 5-3 2 3 7"/><path d="M10 7 7 13l3 1"/><path d="M11 14 8 21"/></svg>',gym:'<svg class="svg-icon cat-icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><path d="M6 10h12"/><path d="M12 7v6l-5 7"/><path d="M12 13l5 7"/></svg>'}[name]||'');
     const stats=computeStats();
     document.getElementById('homeStats').innerHTML=`<div class="home-stat"><div class="num">${stats.uniqueChildren}</div><div class="label">enfants</div></div><div class="home-stat"><div class="num">${stats.categoryCount}</div><div class="label">catégories</div></div><div class="home-stat"><div class="num">${stats.schoolCount}</div><div class="label">projets</div></div>`;
+    const schedule=computeSchedule();
+    const talentsStart=(schedule.running.find(s=>s.type==='free')||{}).time;
+    document.getElementById('timeBox').innerHTML=`Projets périscolaires à partir de ${schedule.startTime} · Scène des Talents à partir de ~${talentsStart} · Fin estimée vers ~${schedule.endTime} (selon le déroulement).`;
     let sectionNum=0;
     const schoolHtml=SCHOOL_PROJECTS.map(p=>{sectionNum++;const num=sectionNum;let body,count;if(p.languages){count=`${p.languages.length} langues`;body=`<ul class="lang-list">${p.languages.map(l=>`<li><div class="lang-head"><span class="flag-label">${esc(l.country)}</span> — ${esc(l.lang)} <span class="badge">(${l.kids.length})</span></div><div class="lang-kids">${l.kids.map(esc).join(' · ')}</div></li>`).join('')}</ul>`;}else{count=`${p.kids.length} enfants`;body=`<ol class="names">${p.kids.map((k,i)=>`<li><span class="num">${i+1}</span> ${esc(k)}</li>`).join('')}</ol>`;}return `<section class="section school"><div class="section-head"><h2><span class="section-num">${num}</span>${esc(p.name)}</h2><span class="count">${count}</span></div>${p.note?`<p class="subtitle">${esc(p.note)}</p>`:''}${body}</section>`;}).join('');
     document.getElementById('school').innerHTML=schoolHtml;

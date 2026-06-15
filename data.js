@@ -77,3 +77,50 @@ function computeStats() {
   const overLimit = children.filter(c => c.count > 2);
   return { freeSceneCount, schoolCount, totalScenes: freeSceneCount, categoryCount: FREE_CATEGORIES.length, uniqueChildren: allKids.size, childrenInFree: perChild.size, quinzaineLangs: quinzaine.languages.length, quinzaineKids: quinzaineKids.size, children, overLimit, perCategory: FREE_CATEGORIES.map(c => ({ name: c.name, icon: c.icon, scenes: c.scenes.length, kids: new Set(c.scenes.flatMap(s => s.who.map(w => normKey(canonical(w))))).size })) };
 }
+
+/* ============================================================
+   Planning — source de calcul unique partagée par toutes les pages
+   Départ 17h45. Modèle de durée par scène ci-dessous.
+   ============================================================ */
+const SHOW_START_MIN = 17 * 60 + 45; /* 17h45 */
+
+function fmtTime(min) { return `${String(Math.floor(min / 60)).padStart(2, "0")}h${String(min % 60).padStart(2, "0")}`; }
+
+/* Durée (minutes) d'une scène : projet à langues 8, autre projet école 5,
+   scène libre « 5 à 7 min » (roller) 6, autre scène libre 3 */
+function sceneDurationMin(scene) {
+  if (scene.type === "school") return scene.languages ? 8 : 5;
+  return (scene.duration && scene.duration.includes("5 à 7")) ? 6 : 3;
+}
+
+/* Déroulé ordonné (projets école puis scènes libres) avec heures cumulées,
+   plus l'heure de début de chaque bloc utilisée par la fiche Nico. */
+function computeSchedule() {
+  const uniqueKids = list => [...new Map(list.map(k => [normKey(canonical(k)), canonical(k)])).values()].sort((a, b) => a.localeCompare(b, "fr", { sensitivity: "base" }));
+  const schoolScenes = SCHOOL_PROJECTS.map((p, i) => ({
+    num: i + 1, type: "school", cat: "Projet Périscolaire", project: p.name,
+    name: p.name, languages: !!p.languages,
+    kids: uniqueKids(p.kids ? p.kids : p.languages.flatMap(l => l.kids))
+  }));
+  let n = schoolScenes.length;
+  const freeScenes = FREE_CATEGORIES.flatMap(cat => cat.scenes.map(s => ({
+    num: ++n, type: "free", cat: cat.name, name: s.scene,
+    kids: uniqueKids(s.who), duration: s.duration || ""
+  })));
+  const running = [...schoolScenes, ...freeScenes];
+  let cursor = SHOW_START_MIN;
+  running.forEach(scene => { scene.startMin = cursor; scene.time = fmtTime(cursor); cursor += sceneDurationMin(scene); });
+  const endMin = cursor;
+
+  /* Début de bloc pour Nico : maternelles, projets (1er périscolaire hors
+     maternelles), puis chaque catégorie libre. */
+  const blockStart = new Map();
+  const matName = SCHOOL_PROJECTS[0].name;
+  const mat = running.find(s => s.project === matName);
+  if (mat) blockStart.set("maternelles", mat.time);
+  const firstProject = running.find(s => s.type === "school" && s.project !== matName);
+  if (firstProject) blockStart.set("projets", firstProject.time);
+  FREE_CATEGORIES.forEach(cat => { const first = running.find(s => s.cat === cat.name); if (first) blockStart.set(cat.name, first.time); });
+
+  return { running, startTime: fmtTime(SHOW_START_MIN), endMin, endTime: fmtTime(endMin), blockStart };
+}

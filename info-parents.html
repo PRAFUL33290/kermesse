@@ -63,16 +63,8 @@
     const toggle=document.getElementById('navToggle'),links=document.getElementById('navLinks');toggle.addEventListener('click',()=>{const open=links.classList.toggle('open');toggle.setAttribute('aria-expanded',open);});
     const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
     const childName=s=>canonical(s).trim().toLocaleLowerCase('fr-FR').replace(/(^|[\s'’-])(\p{L})/gu,(m,p,l)=>p+l.toLocaleUpperCase('fr-FR'));
-    const fmtTime=min=>`${String(Math.floor(min/60)).padStart(2,'0')}h${String(min%60).padStart(2,'0')}`;
-    const durationOf=s=>s.type==='school'?(s.num===5?8:5):(s.duration&&s.duration.includes('5 à 7')?6:3);
-    const projectKids=p=>p.kids?[...p.kids]:p.languages.flatMap(l=>l.kids);
-    const uniqueByName=list=>[...new Map(list.map(name=>{const display=childName(name);return [normKey(display),display];})).values()].sort((a,b)=>a.localeCompare(b,'fr',{sensitivity:'base'}));
-    const schoolScenes=SCHOOL_PROJECTS.map((p,i)=>({num:i+1,type:'school',cat:'Projet Périscolaire',name:p.name,kids:uniqueByName(projectKids(p))}));
-    let nextNum=schoolScenes.length;
-    const freeScenes=FREE_CATEGORIES.flatMap(cat=>cat.scenes.map(s=>({num:++nextNum,type:'free',cat:cat.name,name:s.scene,kids:uniqueByName(s.who),duration:s.duration||''})));
-    const running=[...schoolScenes,...freeScenes];
-    let cursor=17*60+45;
-    running.forEach(scene=>{scene.time=fmtTime(cursor);cursor+=durationOf(scene);});
+    const {running}=computeSchedule();
+    running.forEach(scene=>{scene.kids=[...new Map(scene.kids.map(k=>{const display=childName(k);return [normKey(display),display];})).values()].sort((a,b)=>a.localeCompare(b,'fr',{sensitivity:'base'}));});
     const children=new Map();
     running.forEach(scene=>scene.kids.forEach(name=>{const key=normKey(name);if(!children.has(key))children.set(key,{name,scenes:[]});children.get(key).scenes.push(scene);}));
     const sorted=[...children.values()].sort((a,b)=>a.name.localeCompare(b.name,'fr',{sensitivity:'base'}));

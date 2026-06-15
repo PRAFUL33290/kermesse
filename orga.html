@@ -28,7 +28,7 @@
     const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
     const uniqueCanonical=list=>[...new Map(list.map(k=>[normKey(canonical(k)),canonical(k)])).values()].sort((a,b)=>a.localeCompare(b,'fr',{sensitivity:'base'}));
     const projectKids=p=>p.kids?uniqueCanonical(p.kids):uniqueCanonical(p.languages.flatMap(l=>l.kids));
-    const schoolScenes=SCHOOL_PROJECTS.map((p,i)=>({num:i+1,type:'school',cat:'Projet Périscolaire',name:p.name,kids:projectKids(p),duration:i===0?'~4 min':(p.languages?'~8 min':'~5 min')}));
+    const schoolScenes=SCHOOL_PROJECTS.map((p,i)=>({num:i+1,type:'school',cat:'Projet Périscolaire',name:p.name,kids:projectKids(p),duration:`~${sceneDurationMin({type:'school',languages:!!p.languages})} min`}));
     let n=schoolScenes.length;
     const freeScenes=FREE_CATEGORIES.flatMap(cat=>cat.scenes.map(s=>({num:++n,type:'free',cat:cat.name,name:s.scene,kids:uniqueCanonical(s.who),duration:s.duration||'~3 à 5 min'})));
     const running=[...schoolScenes,...freeScenes];
