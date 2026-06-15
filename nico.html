@@ -11,22 +11,22 @@
     .handoff-list { display:flex; flex-direction:column; gap:16px; }
     .handoff-card { background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; }
     .handoff-head { display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:14px; padding:16px 20px; border-bottom:1px solid var(--line); background:#fff; }
-    .handoff-time { min-width:64px; height:42px; border-radius:10px; display:grid; place-items:center; color:#fff; font-weight:800; background:linear-gradient(135deg,var(--accent),var(--accent-2)); }
-    .handoff-title { font-weight:800; font-size:1.05rem; }
-    .handoff-title small { display:block; margin-top:2px; color:var(--muted); font-size:.78rem; font-weight:600; }
-    .handoff-count { font-size:.82rem; color:var(--muted); font-weight:700; white-space:nowrap; }
+    .handoff-time { min-width:70px; height:46px; border-radius:10px; display:grid; place-items:center; color:#fff; font-weight:800; font-size:1.1rem; background:linear-gradient(135deg,var(--accent),var(--accent-2)); }
+    .handoff-title { font-weight:800; font-size:1.12rem; }
+    .handoff-title small { display:block; margin-top:3px; color:var(--muted); font-size:.86rem; font-weight:600; line-height:1.4; }
+    .handoff-count { font-size:.86rem; color:var(--muted); font-weight:800; white-space:nowrap; }
     .handoff-body { padding:16px 20px 18px; }
-    .handoff-kids { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:8px; margin:0; padding:0; list-style:none; }
-    .handoff-kids li { display:flex; align-items:center; gap:8px; min-height:34px; padding:7px 10px; border:1px solid var(--line); border-radius:8px; background:#fff; font-size:.9rem; font-weight:650; }
+    .handoff-kids { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:10px; margin:0; padding:0; list-style:none; }
+    .handoff-kids li { display:flex; flex-wrap:wrap; align-items:center; gap:6px 9px; min-height:48px; padding:11px 13px; border:1px solid var(--line); border-radius:10px; background:#fff; box-shadow:inset 4px 0 0 var(--line); }
+    .handoff-kids li > span:not(.kid-tag) { font-size:1.08rem; font-weight:800; color:var(--ink); letter-spacing:.005em; }
     .handoff-kids li.keep-close { border-color:#d4a017; background:#fff7db; box-shadow:inset 4px 0 0 #d4a017; }
     .handoff-kids li.already-close { border-color:#2f855a; background:#edf7f0; box-shadow:inset 4px 0 0 #2f855a; }
     .handoff-kids li.returns-later { border-color:#5a67d8; background:#eef0fb; box-shadow:inset 4px 0 0 #5a67d8; }
-    .handoff-kids li .kid-tag:first-of-type { margin-left:auto; }
-    .kid-tag { padding:3px 7px; border-radius:999px; font-size:.68rem; font-weight:800; line-height:1; white-space:nowrap; }
+    .kid-tag { padding:4px 9px; border-radius:999px; font-size:.74rem; font-weight:800; line-height:1.1; white-space:nowrap; }
     .kid-tag.keep-close { background:#d4a017; color:#fff; }
     .kid-tag.already-close { background:#2f855a; color:#fff; }
     .kid-tag.returns-later { background:#5a67d8; color:#fff; }
-    .handoff-kids input { width:17px; height:17px; accent-color:var(--accent); flex-shrink:0; }
+    .handoff-kids input { width:22px; height:22px; accent-color:var(--accent); flex-shrink:0; }
     .project-lines { display:flex; flex-direction:column; gap:10px; }
     .project-line { padding:12px 14px; border:1px solid var(--line); border-radius:8px; background:#fff; }
     .project-line strong { display:block; margin-bottom:6px; color:var(--ink); }
@@ -45,7 +45,16 @@
     .scene-mini-item { padding:10px 12px; border-radius:8px; background:rgba(255,255,255,.72); border:1px solid rgba(31,41,51,.08); }
     .scene-mini-item strong { display:block; color:var(--ink); }
     .scene-mini-item span { display:block; margin-top:3px; color:var(--muted); font-size:.86rem; }
-    @media (max-width:620px){ .handoff-head{grid-template-columns:auto 1fr;} .handoff-count{grid-column:2;} .handoff-kids{grid-template-columns:1fr;} }
+    @media (max-width:620px){
+      .handoff-head{grid-template-columns:auto 1fr;}
+      .handoff-count{grid-column:2;}
+      .handoff-kids{grid-template-columns:1fr;}
+      .handoff-body{padding:14px 14px 16px;}
+      .handoff-kids li{min-height:52px;padding:12px 14px;}
+      .handoff-kids li > span:not(.kid-tag){font-size:1.12rem;}
+      .kid-tag{font-size:.78rem;padding:5px 10px;}
+      .handoff-kids input{width:24px;height:24px;}
+    }
   </style>
 </head>
 <body>
