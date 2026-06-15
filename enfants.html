@@ -6,354 +6,45 @@
   <title>Enfants · Scène des Talents — École Arc en Ciel</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    .kid-num {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: var(--line);
-      color: var(--muted);
-      font-size: .72rem;
-      font-weight: 700;
-      margin-right: 8px;
-      flex-shrink: 0;
-    }
-    .passage-num {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 30px;
-      height: 24px;
-      border-radius: 8px;
-      background: var(--accent);
-      color: #fff;
-      font-size: .72rem;
-      font-weight: 900;
-      margin-right: 8px;
-      flex-shrink: 0;
-    }
-    .st .passage-num {
-      min-width: 26px;
-      height: 22px;
-      margin-right: 6px;
-      background: var(--gold);
-      font-size: .68rem;
-    }
+    .kid-num{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;border-radius:50%;background:var(--line);color:var(--muted);font-size:.72rem;font-weight:700;margin-right:8px;flex-shrink:0}.passage-num{display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:24px;border-radius:8px;background:var(--accent);color:#fff;font-size:.72rem;font-weight:900;margin-right:8px;flex-shrink:0}.st .passage-num{min-width:26px;height:22px;margin-right:6px;background:var(--gold);font-size:.68rem}
+    .child-table-wrap{overflow:auto}.child-table{width:100%;border-collapse:collapse;background:#fff}.child-table th,.child-table td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.child-table th{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);background:var(--bg)}.scene-chip{display:inline-flex;align-items:center;gap:6px;margin:2px 4px 2px 0;padding:4px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-size:.82rem;font-weight:800}.scene-chip.school{background:#fef3c7;color:#92400e}.scene-chip strong{font-weight:900}
   </style>
 </head>
 <body>
   <nav class="nav"><div class="nav-inner"><a class="brand" href="index.html"><span class="dot"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 6h16v7a8 8 0 0 1-16 0V6Z"/><path d="M8 10h.01M16 10h.01M9 16c2 1.4 4 1.4 6 0"/><path d="M7 3v3M17 3v3"/></svg></span><span>Scène des Talents<small>École Arc en Ciel · 19 juin</small></span></a><button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><ul class="nav-links" id="navLinks"><li><a href="index.html"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>Accueil</a></li><li><a href="parents.html"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-8 0v2"/><circle cx="12" cy="7" r="4"/><path d="M22 21v-2a3 3 0 0 0-2-2.8"/><path d="M2 21v-2a3 3 0 0 1 2-2.8"/></svg>Parents</a></li><li><a href="enfants.html" class="active"><svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M8 14h8l2 7H6l2-7Z"/></svg>Enfants</a></li><li><a href="orga.html"><svg class="svg-icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Organisation</a></li><li><a href="repere-enfants.html"><svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15 9-2 5-5 2 2-5 5-2Z"/></svg>Repère</a></li><li><a href="repetition.html"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="m10 8 6 4-6 4V8Z"/></svg>Répétitions</a></li><li><a href="nico.html"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Nico</a></li><li><a href="stats.html"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><rect x="7" y="11" width="3" height="5"/><rect x="12" y="8" width="3" height="8"/><rect x="17" y="4" width="3" height="12"/></svg>Statistiques</a></li></ul></div></nav>
-
   <div class="wrap">
-    <header class="page-head">
-      <p class="kicker">Validation avec les enfants</p>
-      <h1>Les enfants</h1>
-      <p class="meta">Coche chaque enfant validé et note les changements éventuels</p>
-    </header>
-
-    <div class="rule">
-      <strong>Le chiffre</strong> à droite = <strong>nombre de scènes libres</strong> (limite : 2 max).
-      Les <strong>projets périscolaires</strong> ne comptent pas. Coche <strong>« Validé »</strong> quand tu as
-      vu l'enfant, et note tout changement. Tout est <strong>sauvegardé sur ton téléphone</strong> —
-      pense à <strong>Exporter</strong> pour enregistrer le fichier sur GitHub.
-    </div>
-
-    <div class="toolbar" id="toolbar">
-      <div class="progress">
-        <div class="progress-top">
-          <span class="progress-label">Progression des validations</span>
-          <span class="progress-val"><strong id="progCount">0</strong> / <span id="progTotal">0</span></span>
-        </div>
-        <div class="progress-track"><div class="progress-fill" id="progFill"></div></div>
-      </div>
-      <div class="toolbar-actions">
-        <button type="button" class="btn" id="btnExport">💾 Exporter</button>
-        <label class="btn btn-import">📂 Importer<input type="file" id="fileImport" accept="application/json,.json" hidden></label>
-        <button type="button" class="btn ghost" id="btnReset">↺ Réinitialiser</button>
-      </div>
-    </div>
-
-    <div class="search-bar">
-      <input type="search" id="search" placeholder="🔎 Rechercher un enfant…" autocomplete="off">
-      <span class="search-count" id="searchCount"></span>
-    </div>
-
-    <div class="kid-grid" id="kidGrid"></div>
-
-    <footer>Scène des Talents · École Arc en Ciel · 19 juin</footer>
+    <header class="page-head"><p class="kicker">Validation avec les enfants</p><h1>Les enfants</h1><p class="meta">Coche chaque enfant validé et note les changements éventuels</p></header>
+    <div class="rule"><strong>Le chiffre</strong> à droite = <strong>nombre de scènes libres</strong> (limite : 2 max). Les <strong>projets périscolaires</strong> ne comptent pas. Coche <strong>« Validé »</strong> quand tu as vu l'enfant, et note tout changement. Tout est <strong>sauvegardé sur ton téléphone</strong> — pense à <strong>Exporter</strong> pour enregistrer le fichier sur GitHub.</div>
+    <p class="cat-title">Tableau rapide — scènes par enfant</p>
+    <section class="section"><div class="child-table-wrap"><table class="child-table"><thead><tr><th>Enfant</th><th>Scènes avec numéros</th></tr></thead><tbody id="childSceneTable"></tbody></table></div></section>
+    <div class="toolbar" id="toolbar"><div class="progress"><div class="progress-top"><span class="progress-label">Progression des validations</span><span class="progress-val"><strong id="progCount">0</strong> / <span id="progTotal">0</span></span></div><div class="progress-track"><div class="progress-fill" id="progFill"></div></div></div><div class="toolbar-actions"><button type="button" class="btn" id="btnExport">💾 Exporter</button><label class="btn btn-import">📂 Importer<input type="file" id="fileImport" accept="application/json,.json" hidden></label><button type="button" class="btn ghost" id="btnReset">↺ Réinitialiser</button></div></div>
+    <div class="search-bar"><input type="search" id="search" placeholder="🔎 Rechercher un enfant…" autocomplete="off"><span class="search-count" id="searchCount"></span></div>
+    <div class="kid-grid" id="kidGrid"></div><footer>Scène des Talents · École Arc en Ciel · 19 juin</footer>
   </div>
-
   <script src="data.js"></script>
   <script>
-    const toggle = document.getElementById('navToggle');
-    const links = document.getElementById('navLinks');
-    toggle.addEventListener('click', () => {
-      const open = links.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open);
-    });
-
-    const esc = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
-    const escAttr = s => esc(s).replace(/"/g, '&quot;');
-    const schoolNums = new Map(SCHOOL_PROJECTS.map((p, i) => [p.name, i + 1]));
-
-    const kids = new Map();
-    const getKid = raw => {
-      const disp = canonical(raw);
-      const key = normKey(disp);
-      if (!kids.has(key)) kids.set(key, { display: disp, key, free: [], school: [] });
-      return kids.get(key);
-    };
-
-    let passageNum = SCHOOL_PROJECTS.length;
-    FREE_CATEGORIES.forEach(cat => {
-      cat.scenes.forEach(s => {
-        passageNum += 1;
-        const solo = s.who.length === 1;
-        s.who.forEach(w => {
-          getKid(w).free.push({ num: passageNum, cat: cat.name, icon: cat.icon, scene: s.scene, solo, who: s.who });
-        });
-      });
-    });
-
-    SCHOOL_PROJECTS.forEach(p => {
-      if (p.kids) {
-        p.kids.forEach(k => getKid(k).school.push({ num: schoolNums.get(p.name), name: p.name, extra: "" }));
-      }
-      if (p.languages) {
-        const byKid = new Map();
-        p.languages.forEach(l => l.kids.forEach(k => {
-          const key = normKey(canonical(k));
-          if (!byKid.has(key)) byKid.set(key, []);
-          byKid.get(key).push(l.lang);
-        }));
-        byKid.forEach((langs, key) => {
-          getKid(key).school.push({ num: schoolNums.get(p.name), name: p.name, extra: langs.join(', ') });
-        });
-      }
-    });
-
-    const sorted = [...kids.values()].sort((a, b) =>
-      a.display.localeCompare(b.display, 'fr', { sensitivity: 'base' }));
-
-    const STORAGE_KEY = 'scene-talents-validations-v1';
-    let state = {};
-    try { state = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch (e) { state = {}; }
-    const saveState = () => {
-      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {}
-    };
-    const getEntry = key => {
-      const e = (state[key] = state[key] || { v: false, notes: [] });
-      if (!Array.isArray(e.notes)) e.notes = e.n ? [e.n] : [];
-      delete e.n;
-      return e;
-    };
-
-    const renderNotes = notes => notes.map((t, i) =>
-      `<li class="note-item"><span class="note-text">${esc(t)}</span>
-         <button type="button" class="note-del" data-index="${i}" aria-label="Supprimer cette note">×</button></li>`).join('');
-
-    const companionText = (ch, f) => {
-      if (f.solo) return 'Seul·e sur cette scène';
-      const others = f.who.map(n => canonical(n)).filter(n => normKey(n) !== ch.key);
-      return others.length ? 'Avec ' + others.join(', ') : 'Groupe';
-    };
-
-    const card = (ch, idx) => {
-      const n = ch.free.length;
-      const over = n > 2;
-      const badgeClass = over ? 'count warn' : (n === 0 ? 'count zero' : 'count');
-      const label = `${n} scène${n > 1 ? 's' : ''}`;
-
-      const freeHtml = ch.free.length
-        ? `<ul class="groups">${ch.free.map(f =>
-            `<li>
-               <span class="who"><span class="passage-num">n°${f.num}</span>${f.icon} ${esc(f.scene)}</span>
-               <span class="scene">
-                 <span class="tag-cat">${esc(f.cat)}</span>
-                 <span class="tag ${f.solo ? 'solo' : 'group'}">${f.solo ? 'Solo' : 'Groupe'}</span>
-               </span>
-               <span class="companions">${esc(companionText(ch, f))}</span>
-             </li>`).join('')}</ul>`
-        : `<p class="empty">Aucune scène libre — uniquement projet(s) périscolaire(s).</p>`;
-
-      const schoolHtml = ch.school.length
-        ? `<div class="school-tags"><span class="st-label">🏫 Projets Périscolaires</span>
-            ${ch.school.map(s =>
-              `<span class="st" title="${escAttr(s.extra)}"><span class="passage-num">n°${s.num}</span>${esc(s.name)}${s.extra ? ` <em>(${esc(s.extra)})</em>` : ''}</span>`).join('')}
-           </div>`
-        : '';
-
-      const e = getEntry(ch.key);
-
-      return `<section class="section kid-card ${e.v ? 'is-validated' : ''}" data-key="${escAttr(ch.key)}" data-name="${escAttr(ch.display.toLowerCase())}">
-        <div class="section-head">
-          <h2><span class="kid-num">${idx + 1}</span>${esc(ch.display)}</h2>
-          <span class="${badgeClass}">${label}</span>
-        </div>
-        ${freeHtml}
-        ${schoolHtml}
-        <label class="validate-row">
-          <input type="checkbox" class="chk" ${e.v ? 'checked' : ''}>
-          <span class="validate-label">Validé avec l'enfant</span>
-          <span class="validate-state">✓</span>
-        </label>
-        <div class="notes">
-          <ul class="notes-list">${renderNotes(e.notes)}</ul>
-          <div class="note-input">
-            <textarea class="note-field" rows="1"
-              placeholder="Changement signalé par l'enfant…"></textarea>
-            <button type="button" class="btn note-add">➕ Ajouter</button>
-          </div>
-        </div>
-      </section>`;
-    };
-
-    const grid = document.getElementById('kidGrid');
-    grid.innerHTML = sorted.map((ch, i) => card(ch, i)).join('');
-
-    const progCount = document.getElementById('progCount');
-    const progTotal = document.getElementById('progTotal');
-    const progFill  = document.getElementById('progFill');
-    const total = sorted.length;
-    progTotal.textContent = total;
-    function updateProgress() {
-      const done = sorted.filter(ch => getEntry(ch.key).v).length;
-      progCount.textContent = done;
-      progFill.style.width = (total ? done / total * 100 : 0) + '%';
-    }
-    updateProgress();
-
-    function autoGrow(ta) { ta.style.height = 'auto'; ta.style.height = ta.scrollHeight + 'px'; }
-
-    grid.addEventListener('change', ev => {
-      const chk = ev.target.closest('.chk');
-      if (!chk) return;
-      const cardEl = chk.closest('.kid-card');
-      const key = cardEl.dataset.key;
-      getEntry(key).v = chk.checked;
-      cardEl.classList.toggle('is-validated', chk.checked);
-      saveState();
-      updateProgress();
-    });
-
-    grid.addEventListener('input', ev => {
-      const ta = ev.target.closest('.note-field');
-      if (ta) autoGrow(ta);
-    });
-
-    grid.addEventListener('click', ev => {
-      const add = ev.target.closest('.note-add');
-      const del = ev.target.closest('.note-del');
-      if (!add && !del) return;
-
-      const cardEl = ev.target.closest('.kid-card');
-      const entry = getEntry(cardEl.dataset.key);
-      const listEl = cardEl.querySelector('.notes-list');
-
-      if (add) {
-        const ta = cardEl.querySelector('.note-field');
-        const txt = ta.value.trim();
-        if (!txt) { ta.focus(); return; }
-        entry.notes.push(txt);
-        ta.value = '';
-        autoGrow(ta);
-      } else if (del) {
-        entry.notes.splice(Number(del.dataset.index), 1);
-      }
-      saveState();
-      listEl.innerHTML = renderNotes(entry.notes);
-    });
-
-    const searchCount = document.getElementById('searchCount');
-    const updateCount = shown => {
-      searchCount.textContent = shown === total ? `${total} enfants` : `${shown} / ${total} enfants`;
-    };
-    updateCount(total);
-
-    const search = document.getElementById('search');
-    search.addEventListener('input', () => {
-      const q = normKey(search.value);
-      let shown = 0;
-      grid.querySelectorAll('.kid-card').forEach(c => {
-        const match = !q || normKey(c.dataset.name).includes(q);
-        c.style.display = match ? '' : 'none';
-        if (match) shown++;
-      });
-      updateCount(shown);
-    });
-
-    document.getElementById('btnExport').addEventListener('click', () => {
-      const data = {
-        meta: {
-          app: "Scène des Talents — École Arc en Ciel",
-          evenement: "19 juin 2026",
-          exporteLe: new Date().toISOString()
-        },
-        enfants: sorted.map(ch => {
-          const e = getEntry(ch.key);
-          return { nom: ch.display, valide: !!e.v, notes: e.notes.slice() };
-        })
-      };
-      const json = JSON.stringify(data, null, 2);
-      const blob = new Blob([json], { type: "application/json" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      const stamp = new Date().toISOString().slice(0, 10);
-      a.href = url;
-      a.download = `validations-${stamp}.json`;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      URL.revokeObjectURL(url);
-    });
-
-    document.getElementById('fileImport').addEventListener('change', ev => {
-      const file = ev.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = () => {
-        try {
-          const data = JSON.parse(reader.result);
-          (data.enfants || []).forEach(e => {
-            const key = normKey(canonical(e.nom || ""));
-            if (!key) return;
-            const notes = Array.isArray(e.notes) ? e.notes : (e.note ? [e.note] : []);
-            state[key] = { v: !!e.valide, notes };
-          });
-          saveState();
-          grid.querySelectorAll('.kid-card').forEach(cardEl => {
-            const e = getEntry(cardEl.dataset.key);
-            const chk = cardEl.querySelector('.chk');
-            chk.checked = e.v;
-            cardEl.classList.toggle('is-validated', e.v);
-            cardEl.querySelector('.notes-list').innerHTML = renderNotes(e.notes);
-          });
-          updateProgress();
-          alert('✅ Validations importées.');
-        } catch (err) {
-          alert("❌ Fichier invalide : " + err.message);
-        }
-        ev.target.value = '';
-      };
-      reader.readAsText(file);
-    });
-
-    document.getElementById('btnReset').addEventListener('click', () => {
-      if (!confirm("Effacer toutes les validations et notes de ce téléphone ?\n(pense à Exporter avant si tu veux les garder)")) return;
-      state = {};
-      saveState();
-      grid.querySelectorAll('.kid-card').forEach(cardEl => {
-        cardEl.classList.remove('is-validated');
-        cardEl.querySelector('.chk').checked = false;
-        cardEl.querySelector('.notes-list').innerHTML = '';
-        const ta = cardEl.querySelector('.note-field');
-        ta.value = '';
-        autoGrow(ta);
-      });
-      updateProgress();
-    });
+    const toggle=document.getElementById('navToggle');const links=document.getElementById('navLinks');toggle.addEventListener('click',()=>{const open=links.classList.toggle('open');toggle.setAttribute('aria-expanded',open);});
+    const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));const escAttr=s=>esc(s).replace(/"/g,'&quot;');
+    const schoolNums=new Map(SCHOOL_PROJECTS.map((p,i)=>[p.name,i+1]));
+    const kids=new Map();const getKid=raw=>{const disp=canonical(raw);const key=normKey(disp);if(!kids.has(key))kids.set(key,{display:disp,key,free:[],school:[]});return kids.get(key);};
+    let passageNum=SCHOOL_PROJECTS.length;FREE_CATEGORIES.forEach(cat=>{cat.scenes.forEach(s=>{passageNum+=1;const solo=s.who.length===1;s.who.forEach(w=>{getKid(w).free.push({num:passageNum,cat:cat.name,icon:cat.icon,scene:s.scene,solo,who:s.who});});});});
+    SCHOOL_PROJECTS.forEach(p=>{if(p.kids){p.kids.forEach(k=>getKid(k).school.push({num:schoolNums.get(p.name),name:p.name,extra:''}));}if(p.languages){const byKid=new Map();p.languages.forEach(l=>l.kids.forEach(k=>{const key=normKey(canonical(k));if(!byKid.has(key))byKid.set(key,[]);byKid.get(key).push(l.lang);}));byKid.forEach((langs,key)=>{getKid(key).school.push({num:schoolNums.get(p.name),name:p.name,extra:langs.join(', ')});});}});
+    const sorted=[...kids.values()].sort((a,b)=>a.display.localeCompare(b.display,'fr',{sensitivity:'base'}));
+    document.getElementById('childSceneTable').innerHTML=sorted.map(ch=>{const items=[...ch.school.map(s=>({num:s.num,name:s.name,type:'school'})),...ch.free.map(f=>({num:f.num,name:f.scene,type:'free'}))].sort((a,b)=>a.num-b.num);return `<tr><td><strong>${esc(ch.display)}</strong></td><td>${items.map(i=>`<span class="scene-chip ${i.type==='school'?'school':''}"><strong>n°${i.num}</strong> ${esc(i.name)}</span>`).join('')}</td></tr>`;}).join('');
+    const STORAGE_KEY='scene-talents-validations-v1';let state={};try{state=JSON.parse(localStorage.getItem(STORAGE_KEY))||{};}catch(e){state={};}const saveState=()=>{try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));}catch(e){}};const getEntry=key=>{const e=(state[key]=state[key]||{v:false,notes:[]});if(!Array.isArray(e.notes))e.notes=e.n?[e.n]:[];delete e.n;return e;};
+    const renderNotes=notes=>notes.map((t,i)=>`<li class="note-item"><span class="note-text">${esc(t)}</span><button type="button" class="note-del" data-index="${i}" aria-label="Supprimer cette note">×</button></li>`).join('');
+    const companionText=(ch,f)=>{if(f.solo)return 'Seul·e sur cette scène';const others=f.who.map(n=>canonical(n)).filter(n=>normKey(n)!==ch.key);return others.length?'Avec '+others.join(', '):'Groupe';};
+    const card=(ch,idx)=>{const n=ch.free.length;const over=n>2;const badgeClass=over?'count warn':(n===0?'count zero':'count');const label=`${n} scène${n>1?'s':''}`;const freeHtml=ch.free.length?`<ul class="groups">${ch.free.map(f=>`<li><span class="who"><span class="passage-num">n°${f.num}</span>${f.icon} ${esc(f.scene)}</span><span class="scene"><span class="tag-cat">${esc(f.cat)}</span><span class="tag ${f.solo?'solo':'group'}">${f.solo?'Solo':'Groupe'}</span></span><span class="companions">${esc(companionText(ch,f))}</span></li>`).join('')}</ul>`:`<p class="empty">Aucune scène libre — uniquement projet(s) périscolaire(s).</p>`;const schoolHtml=ch.school.length?`<div class="school-tags"><span class="st-label">🏫 Projets Périscolaires</span>${ch.school.map(s=>`<span class="st" title="${escAttr(s.extra)}"><span class="passage-num">n°${s.num}</span>${esc(s.name)}${s.extra?` <em>(${esc(s.extra)})</em>`:''}</span>`).join('')}</div>`:'';const e=getEntry(ch.key);return `<section class="section kid-card ${e.v?'is-validated':''}" data-key="${escAttr(ch.key)}" data-name="${escAttr(ch.display.toLowerCase())}"><div class="section-head"><h2><span class="kid-num">${idx+1}</span>${esc(ch.display)}</h2><span class="${badgeClass}">${label}</span></div>${freeHtml}${schoolHtml}<label class="validate-row"><input type="checkbox" class="chk" ${e.v?'checked':''}><span class="validate-label">Validé avec l'enfant</span><span class="validate-state">✓</span></label><div class="notes"><ul class="notes-list">${renderNotes(e.notes)}</ul><div class="note-input"><textarea class="note-field" rows="1" placeholder="Changement signalé par l'enfant…"></textarea><button type="button" class="btn note-add">➕ Ajouter</button></div></div></section>`;};
+    const grid=document.getElementById('kidGrid');grid.innerHTML=sorted.map((ch,i)=>card(ch,i)).join('');
+    const progCount=document.getElementById('progCount'),progTotal=document.getElementById('progTotal'),progFill=document.getElementById('progFill');const total=sorted.length;progTotal.textContent=total;function updateProgress(){const done=sorted.filter(ch=>getEntry(ch.key).v).length;progCount.textContent=done;progFill.style.width=(total?done/total*100:0)+'%';}updateProgress();
+    function autoGrow(ta){ta.style.height='auto';ta.style.height=ta.scrollHeight+'px';}
+    grid.addEventListener('change',ev=>{const chk=ev.target.closest('.chk');if(!chk)return;const cardEl=chk.closest('.kid-card');const key=cardEl.dataset.key;getEntry(key).v=chk.checked;cardEl.classList.toggle('is-validated',chk.checked);saveState();updateProgress();});
+    grid.addEventListener('input',ev=>{const ta=ev.target.closest('.note-field');if(ta)autoGrow(ta);});
+    grid.addEventListener('click',ev=>{const add=ev.target.closest('.note-add');const del=ev.target.closest('.note-del');if(!add&&!del)return;const cardEl=ev.target.closest('.kid-card');const entry=getEntry(cardEl.dataset.key);const listEl=cardEl.querySelector('.notes-list');if(add){const ta=cardEl.querySelector('.note-field');const txt=ta.value.trim();if(!txt){ta.focus();return;}entry.notes.push(txt);ta.value='';autoGrow(ta);}else if(del){entry.notes.splice(Number(del.dataset.index),1);}saveState();listEl.innerHTML=renderNotes(entry.notes);});
+    const searchCount=document.getElementById('searchCount');const updateCount=shown=>{searchCount.textContent=shown===total?`${total} enfants`:`${shown} / ${total} enfants`;};updateCount(total);const search=document.getElementById('search');search.addEventListener('input',()=>{const q=normKey(search.value);let shown=0;grid.querySelectorAll('.kid-card').forEach(c=>{const match=!q||normKey(c.dataset.name).includes(q);c.style.display=match?'':'none';if(match)shown++;});updateCount(shown);});
+    document.getElementById('btnExport').addEventListener('click',()=>{const data={meta:{app:'Scène des Talents — École Arc en Ciel',evenement:'19 juin 2026',exporteLe:new Date().toISOString()},enfants:sorted.map(ch=>{const e=getEntry(ch.key);return{nom:ch.display,valide:!!e.v,notes:e.notes.slice()};})};const json=JSON.stringify(data,null,2);const blob=new Blob([json],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');const stamp=new Date().toISOString().slice(0,10);a.href=url;a.download=`validations-${stamp}.json`;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);});
+    document.getElementById('fileImport').addEventListener('change',ev=>{const file=ev.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{try{const data=JSON.parse(reader.result);(data.enfants||[]).forEach(e=>{const key=normKey(canonical(e.nom||''));if(!key)return;const notes=Array.isArray(e.notes)?e.notes:(e.note?[e.note]:[]);state[key]={v:!!e.valide,notes};});saveState();grid.querySelectorAll('.kid-card').forEach(cardEl=>{const e=getEntry(cardEl.dataset.key);const chk=cardEl.querySelector('.chk');chk.checked=e.v;cardEl.classList.toggle('is-validated',e.v);cardEl.querySelector('.notes-list').innerHTML=renderNotes(e.notes);});updateProgress();alert('✅ Validations importées.');}catch(err){alert('❌ Fichier invalide : '+err.message);}ev.target.value='';};reader.readAsText(file);});
+    document.getElementById('btnReset').addEventListener('click',()=>{if(!confirm('Effacer toutes les validations et notes de ce téléphone ?\n(pense à Exporter avant si tu veux les garder)'))return;state={};saveState();grid.querySelectorAll('.kid-card').forEach(cardEl=>{cardEl.classList.remove('is-validated');cardEl.querySelector('.chk').checked=false;cardEl.querySelector('.notes-list').innerHTML='';const ta=cardEl.querySelector('.note-field');ta.value='';autoGrow(ta);});updateProgress();});
   </script>
 </body>
 </html>
