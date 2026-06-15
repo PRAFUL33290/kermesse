@@ -8,7 +8,7 @@ const SCHOOL_PROJECTS = [
   {
     name: "Maternelles de Virginie",
     note: "Les pouvoirs des fleurs — Les Kids United",
-    kids: ["Lina", "Tiamo", "Nael", "Ambre", "Eva", "Anaelle", "Charlotte (maternelle)", "Maylis", "Emmy", "Adrien", "Isaure", "Alma", "Raphaël", "Léa", "Charlie"]
+    kids: ["Lina", "Tiamo", "Nael (maternelle)", "Ambre", "Eva", "Anaelle", "Charlotte (maternelle)", "Maylis", "Emmy", "Adrien", "Isaure", "Alma", "Raphaël", "Léa", "Charlie"]
   },
   {
     name: "Capoeira",
@@ -19,18 +19,18 @@ const SCHOOL_PROJECTS = [
   {
     name: "Oh Mama Tetema + Freestyle",
     note: "Chorégraphie",
-    kids: ["Keren", "Divine", "Grace", "Maimouna", "Tania", "Orianne", "Housna", "Alicia"]
+    kids: ["Keren", "Divine", "Grace", "Maimouna", "Tania", "Orianne", "Husna", "Alicia"]
   },
   {
     name: "Carnaval de Deborah",
     note: "Projet d'école",
-    kids: ["Kaycee","Zia","Jasmine","Myla","Giulia","Lydia","Lily","Naya","Léa S.","Lina M.","Shyne","Mila S.","Keren"]
+    kids: ["Kaycee","Zia","Jasmine","Myla","Giulia","Lydia","Lilly","Naya","Léa S.","Lina M.","Shyne","Mila S.","Keren"]
   },
   {
     name: "Quinzaine de l'égalité",
     note: "Nos artistes en herbe — par pays et langue",
     languages: [
-      { flag: "France", country: "France", lang: "Français", kids: ["Lilly","Lydia","Myla","Kelyana","Elaia","Juliette","Ilona","Jasmine","Guillia","Elenna","Mia","Alya","Divine","Lina M.","Alicia","Noémie","Eileen","Céline","Cheid"] },
+      { flag: "France", country: "France", lang: "Français", kids: ["Lilly","Lydia","Myla","Kelyana","Elaia","Juliette","Ilona","Jasmine","Guillia","Elenna","Mia","Alya","Divine","Lina M.","Alicia","Eileen","Céline","Cheid"] },
       { flag: "Angleterre", country: "Angleterre", lang: "Anglais", kids: ["Juliette"] },
       { flag: "Espagne", country: "Espagne", lang: "Espagnol", kids: ["Myla","Kelyana","Elaia","Elenna","Mia","Shyne","Alya","Lina M.","Alicia","Mila","Zia","Cheid"] },
       { flag: "Portugal", country: "Portugal", lang: "Portugais", kids: ["Kelyana","Ilona","Alya","Lina M."] },
@@ -39,7 +39,7 @@ const SCHOOL_PROJECTS = [
       { flag: "Tunisie", country: "Tunisie", lang: "Darija tunisien", kids: ["Lydia","Jasmine","Yara","Eileen"] },
       { flag: "Maroc", country: "Maroc", lang: "Darija marocain", kids: ["Yara","Maïssa","Lina M.","Cheid"] },
       { flag: "Algérie", country: "Algérie", lang: "Dziriya", kids: ["Zia","Cheid"] },
-      { flag: "Sénégal", country: "Sénégal", lang: "Wolof", kids: ["Divine","Noémie"] },
+      { flag: "Sénégal", country: "Sénégal", lang: "Wolof", kids: ["Divine"] },
       { flag: "Cameroun", country: "Cameroun", lang: "Douala", kids: ["Nayana","Keren"] },
       { flag: "Corée du Sud", country: "Corée du Sud", lang: "Coréen", kids: ["Elenna","Mia","Lina M.","Mila","Zia","Céline"] },
       { flag: "Japon", country: "Japon", lang: "Japonais", kids: ["Kelyana","Juliette","Ilona","Jasmine","Mia","Alya","Lina M.","Mila","Zia","Céline"] }
@@ -50,15 +50,15 @@ const SCHOOL_PROJECTS = [
 /* Scènes libres — comptent dans la limite de 2 scènes max par enfant */
 /* Ordre de ramassage : Théâtre → Chant → Jonglage → Danse → Gym → Roller */
 const FREE_CATEGORIES = [
-  { name: "Théâtre", icon: "theatre", scenes: [ { who: ["Lilly","Shyne","Divine"], scene: "Théâtre" }, { who: ["Ryma","Divine","Clara"], scene: "Mortelle Adèle" }, { who: ["Charlotte"], scene: "Théâtre" }, { who: ["Eileen","Leana","Lina M."], scene: "Théâtre" }, { who: ["Souleyman","Juliette","Timéo","Loïcia"], scene: "Théâtre" } ] },
-  { name: "Chant", icon: "mic", scenes: [ { who: ["Jasmine","Léa"], scene: "Chant" }, { who: ["Cheid"], scene: "Chant" }, { who: ["Maïmouna"], scene: "Chant" }, { who: ["Céline"], scene: "Chant" }, { who: ["Lina M."], scene: "Chant" }, { who: ["Keren"], scene: "Chant" }, { who: ["Charlotte"], scene: "Chant" }, { who: ["Jumana"], scene: "À confirmer" } ] },
-  { name: "Roller", icon: "roller", scenes: [ { who: ["Giulia"], scene: "Roller" }, { who: ["Mélina Adenet"], scene: "Roller" }, { who: ["Haby"], scene: "Roller" }, { who: ["Thalia F."], scene: "Roller" }, { who: ["Naïma Nour"], scene: "Roller" }, { who: ["Dina"], scene: "Roller" } ] },
+  { name: "Théâtre", icon: "theatre", scenes: [ { who: ["Lilly","Shyne"], scene: "Les Martiens — bruit de moteur + musique" }, { who: ["Ryma","Clara"], scene: "Mortelle Adèle" }, { who: ["Charlotte"], scene: "Théâtre" }, { who: ["Eileen","Léana"], scene: "Théâtre — APC mardi/jeudi avec Eileen" }, { who: ["Souleyman","Juliette","Timéo","Loïcia"], scene: "Théâtre à 4" } ] },
+  { name: "Chant", icon: "mic", scenes: [ { who: ["Jasmine","Léa S."], scene: "Lush Life" }, { who: ["Cheid"], scene: "Chant" }, { who: ["Maïmouna"], scene: "Chant" }, { who: ["Céline"], scene: "Chant" }, { who: ["Lina M."], scene: "Chant" }, { who: ["Keren"], scene: "Chant" }, { who: ["Charlotte"], scene: "Chant" }, { who: ["Jumana"], scene: "À confirmer" } ] },
+  { name: "Roller", icon: "roller", scenes: [ { who: ["Giulia"], scene: "Roller" }, { who: ["Melyna Adenet"], scene: "Roller" }, { who: ["Haby"], scene: "Roller" }, { who: ["Thalia F."], scene: "Roller" }, { who: ["Naïma Nour"], scene: "Roller" }, { who: ["Dina"], scene: "Roller" } ] },
   { name: "Jonglage ballon de foot", icon: "football", scenes: [ { who: ["Courage","Eliam"], scene: "Jonglage" } ] },
-  { name: "Danse", icon: "dance", scenes: [ { who: ["Alya","Elena","Elaïa","Kelyana"], scene: "Danse / gym — Lush Life" }, { who: ["Jasmine","Léa","Lina M."], scene: "Gozalo" }, { who: ["Clara","Lydia","Divine","Ryma"], scene: "Danse" }, { who: ["Lana"], scene: "Séga" }, { who: ["Kaylan","Elvin","Arthur","Alioun"], scene: "Danse / scène de groupe" }, { who: ["Maïssa","Lina M."], scene: "Afro / rondade / salto" }, { who: ["Grace"], scene: "Danse" }, { who: ["Lina S.","Maïssa"], scene: "Duo (Brésil) — musique à confirmer" }, { who: ["Giulia","Heloise"], scene: "Gabriela" }, { who: ["Stella","Giulia"], scene: "21 Reasons" }, { who: ["Heloise","Juliette","Loicia"], scene: "Danse" }, { who: ["Mamy Kadiatou"], scene: "Solo afro" } ] },
-  { name: "Gymnastique", icon: "gym", scenes: [ { who: ["Giulia","Stella","Héloïse","Eileen","Lya","Lina S.","Maïssa","Alya","Elena","Elaïa","Kelyana","Yara","Keren","Tania","Housna","Alicia","Lydia","Naima Nour","Mélina B.","Leana","Céline"], scene: "Rondades / flip / salto arrière (toutes ensemble)" }, { who: ["Giulia","Stella","Héloïse"], scene: "Gym groupe" }, { who: ["Lina S.","Maïssa"], scene: "Gym duo" }, { who: ["Mélina B."], scene: "Solo gymnastique" } ] }
+  { name: "Danse", icon: "dance", scenes: [ { who: ["Alya","Elenna","Elaïa","Kelyana"], scene: "Danse / gym — Lush Life" }, { who: ["Jasmine","Léa S."], scene: "Gozalo" }, { who: ["Alya","Elenna","Kelyana"], scene: "Spa" }, { who: ["Clara","Lydia","Divine","Ryma"], scene: "Danse" }, { who: ["Lana"], scene: "Séga" }, { who: ["Kaylan","Elvin","Arthur","Alioun"], scene: "Danse / scène de groupe" }, { who: ["Maïssa","Lina M."], scene: "Afro / rondade / salto" }, { who: ["Grace"], scene: "Danse" }, { who: ["Lina S.","Maïssa"], scene: "Duo (Brésil) — musique à confirmer" }, { who: ["Giulia","Heloise"], scene: "Gabriela" }, { who: ["Stella","Giulia"], scene: "21 Reasons" }, { who: ["Heloise","Juliette","Loicia"], scene: "Danse" }, { who: ["Mamy Kadiatou"], scene: "Solo afro" } ] },
+  { name: "Gymnastique", icon: "gym", scenes: [ { who: ["Giulia","Stella","Héloïse","Eileen","Lya","Lina S.","Maïssa","Alya","Elenna","Elaïa","Kelyana","Yara","Keren","Tania","Husna","Alicia","Lydia","Naima Nour","Melyna B.","Léana","Céline"], scene: "Rondades / flip / salto arrière (toutes ensemble)" }, { who: ["Giulia","Stella","Héloïse"], scene: "Gym groupe" }, { who: ["Lina S.","Maïssa"], scene: "Gym duo" }, { who: ["Melyna B."], scene: "Solo gymnastique" } ] }
 ];
 
-const NAME_ALIASES = { "mayssae": "Maïssa", "maissae": "Maïssa", "guillia": "Giulia", "elenna": "Elena", "elaia": "Elaïa", "shine": "Shyne", "lina m": "Lina M.", "maimouna": "Maimouna", "heloise": "Héloïse", "loicia": "Loïcia", "maissa": "Maïssa", "chahd": "Cheid", "naima nour": "Naïma Nour" };
+const NAME_ALIASES = { "mayssae": "Maïssa", "maissae": "Maïssa", "guillia": "Giulia", "elenna": "Elenna", "elena": "Elenna", "elaia": "Elaïa", "shine": "Shyne", "lina m": "Lina M.", "maimouna": "Maimouna", "heloise": "Héloïse", "leana": "Léana", "lily": "Lilly", "loicia": "Loïcia", "maissa": "Maïssa", "chahd": "Cheid", "naima nour": "Naïma Nour", "housna": "Husna", "melina": "Melyna", "mélina": "Melyna" };
 function normKey(name) { return name.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/\./g, "").trim(); }
 function canonical(name) { const k = normKey(name); if (NAME_ALIASES[k]) return NAME_ALIASES[k]; return name.trim(); }
 function computeStats() {
