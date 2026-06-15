@@ -69,7 +69,7 @@ function computeStats() {
   SCHOOL_PROJECTS.forEach(p => { const projectKids = []; if (p.kids) projectKids.push(...p.kids); if (p.languages) p.languages.forEach(l => projectKids.push(...l.kids)); projectKids.forEach(k => { const key = normKey(canonical(k)); if (perChild.has(key)) perChild.get(key).school = true; }); });
   const allKids = new Set();
   FREE_CATEGORIES.forEach(c => c.scenes.forEach(s => s.who.forEach(w => allKids.add(normKey(canonical(w))))));
-  SCHOOL_PROJECTS.forEach(p => { if (p.kids) p.kids.forEach(k => allKids.add(normKey(canonical(k)))); if (p.languages) p.languages.forEach(l => l.kids.forEach(k => allKids.add(normKey(canonical(k)))); });
+  SCHOOL_PROJECTS.forEach(p => { if (p.kids) p.kids.forEach(k => allKids.add(normKey(canonical(k)))); if (p.languages) p.languages.forEach(l => l.kids.forEach(k => allKids.add(normKey(canonical(k))))); });
   const quinzaine = SCHOOL_PROJECTS.find(p => p.languages);
   const quinzaineKids = new Set();
   quinzaine.languages.forEach(l => l.kids.forEach(k => quinzaineKids.add(normKey(canonical(k)))));
