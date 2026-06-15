@@ -59,7 +59,6 @@
       pense à <strong>Exporter</strong> pour enregistrer le fichier sur GitHub.
     </div>
 
-    <!-- Barre d'outils : progression + export / import -->
     <div class="toolbar" id="toolbar">
       <div class="progress">
         <div class="progress-top">
@@ -87,7 +86,6 @@
 
   <script src="data.js"></script>
   <script>
-    // ---- Menu responsive ----
     const toggle = document.getElementById('navToggle');
     const links = document.getElementById('navLinks');
     toggle.addEventListener('click', () => {
@@ -98,8 +96,6 @@
     const esc = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
     const escAttr = s => esc(s).replace(/"/g, '&quot;');
 
-    // ---- Construction de la fiche de chaque enfant ----
-    // clé normalisée -> { display, key, free:[{cat,icon,scene,solo}], school:[{name,extra}] }
     const kids = new Map();
     const getKid = raw => {
       const disp = canonical(raw);
@@ -108,7 +104,6 @@
       return kids.get(key);
     };
 
-    // Scènes libres (comptent dans la limite)
     FREE_CATEGORIES.forEach(cat => {
       cat.scenes.forEach(s => {
         const solo = s.who.length === 1;
@@ -118,7 +113,6 @@
       });
     });
 
-    // Projets d'école (ne comptent PAS)
     SCHOOL_PROJECTS.forEach(p => {
       if (p.kids) {
         p.kids.forEach(k => getKid(k).school.push({ name: p.name, extra: "" }));
@@ -136,14 +130,9 @@
       }
     });
 
-    // ---- Tri alphabétique (français) ----
     const sorted = [...kids.values()].sort((a, b) =>
       a.display.localeCompare(b.display, 'fr', { sensitivity: 'base' }));
 
-    /* ============================================================
-       Persistance locale (localStorage)
-       state = { [key]: { v: bool, n: string } }
-       ============================================================ */
     const STORAGE_KEY = 'scene-talents-validations-v1';
     let state = {};
     try { state = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch (e) { state = {}; }
@@ -152,36 +141,26 @@
     };
     const getEntry = key => {
       const e = (state[key] = state[key] || { v: false, notes: [] });
-      // Migration depuis l'ancien format { n: "..." }
       if (!Array.isArray(e.notes)) e.notes = e.n ? [e.n] : [];
       delete e.n;
       return e;
     };
 
-    // Rendu de la liste des notes d'une fiche
     const renderNotes = notes => notes.map((t, i) =>
       `<li class="note-item"><span class="note-text">${esc(t)}</span>
          <button type="button" class="note-del" data-index="${i}" aria-label="Supprimer cette note">×</button></li>`).join('');
 
-    // ---- Rendu d'une fiche ----
+    const companionText = (ch, f) => {
+      if (f.solo) return 'Seul·e sur cette scène';
+      const others = f.who.map(n => canonical(n)).filter(n => normKey(n) !== ch.key);
+      return others.length ? 'Avec ' + others.join(', ') : 'Groupe';
+    };
+
     const card = (ch, idx) => {
       const n = ch.free.length;
       const over = n > 2;
       const badgeClass = over ? 'count warn' : (n === 0 ? 'count zero' : 'count');
       const label = `${n} scène${n > 1 ? 's' : ''}`;
-
-      // Ligne "copains" sous le nom
-      const compParts = ch.free.map(f => {
-        if (f.solo) return 'Seul·e';
-        const others = f.who.map(n => canonical(n)).filter(n => normKey(n) !== ch.key);
-        return 'Avec ' + others.join(', ');
-      });
-      const companionsHtml = compParts.length === 0 ? '' :
-        compParts.length === 1
-          ? `<p class="companions">${esc(compParts[0])}</p>`
-          : `<p class="companions">${ch.free.map((f, i) =>
-              `<span><em class="comp-sc">${esc(f.scene)}</em> : ${esc(compParts[i])}</span>`
-            ).join(' &middot; ')}</p>`;
 
       const freeHtml = ch.free.length
         ? `<ul class="groups">${ch.free.map(f =>
@@ -191,6 +170,7 @@
                  <span class="tag-cat">${esc(f.cat)}</span>
                  <span class="tag ${f.solo ? 'solo' : 'group'}">${f.solo ? 'Solo' : 'Groupe'}</span>
                </span>
+               <span class="companions">${esc(companionText(ch, f))}</span>
              </li>`).join('')}</ul>`
         : `<p class="empty">Aucune scène libre — uniquement projet(s) d'école.</p>`;
 
@@ -208,7 +188,6 @@
           <h2><span class="kid-num">${idx + 1}</span>${esc(ch.display)}</h2>
           <span class="${badgeClass}">${label}</span>
         </div>
-        ${companionsHtml}
         ${freeHtml}
         ${schoolHtml}
         <label class="validate-row">
@@ -230,7 +209,6 @@
     const grid = document.getElementById('kidGrid');
     grid.innerHTML = sorted.map((ch, i) => card(ch, i)).join('');
 
-    // ---- Progression ----
     const progCount = document.getElementById('progCount');
     const progTotal = document.getElementById('progTotal');
     const progFill  = document.getElementById('progFill');
@@ -243,10 +221,8 @@
     }
     updateProgress();
 
-    // ---- Auto-grandir les zones de texte ----
     function autoGrow(ta) { ta.style.height = 'auto'; ta.style.height = ta.scrollHeight + 'px'; }
 
-    // ---- Interactions (cases + notes) — délégation d'événements ----
     grid.addEventListener('change', ev => {
       const chk = ev.target.closest('.chk');
       if (!chk) return;
@@ -258,13 +234,11 @@
       updateProgress();
     });
 
-    // Auto-grandir la zone de saisie pendant la frappe
     grid.addEventListener('input', ev => {
       const ta = ev.target.closest('.note-field');
       if (ta) autoGrow(ta);
     });
 
-    // Ajouter une note / supprimer une note
     grid.addEventListener('click', ev => {
       const add = ev.target.closest('.note-add');
       const del = ev.target.closest('.note-del');
@@ -288,7 +262,6 @@
       listEl.innerHTML = renderNotes(entry.notes);
     });
 
-    /* ---- Recherche ---- */
     const searchCount = document.getElementById('searchCount');
     const updateCount = shown => {
       searchCount.textContent = shown === total ? `${total} enfants` : `${shown} / ${total} enfants`;
@@ -307,9 +280,6 @@
       updateCount(shown);
     });
 
-    /* ============================================================
-       Export / Import
-       ============================================================ */
     document.getElementById('btnExport').addEventListener('click', () => {
       const data = {
         meta: {
@@ -345,12 +315,10 @@
           (data.enfants || []).forEach(e => {
             const key = normKey(canonical(e.nom || ""));
             if (!key) return;
-            // Accepte le nouveau format (notes[]) et l'ancien (note string)
             const notes = Array.isArray(e.notes) ? e.notes : (e.note ? [e.note] : []);
             state[key] = { v: !!e.valide, notes };
           });
           saveState();
-          // Re-applique aux fiches affichées
           grid.querySelectorAll('.kid-card').forEach(cardEl => {
             const e = getEntry(cardEl.dataset.key);
             const chk = cardEl.querySelector('.chk');
