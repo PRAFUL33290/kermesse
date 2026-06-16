@@ -52,6 +52,84 @@
     .kpi-card.accent-yellow{ border-top: 3px solid #e6b84a; }
     .kpi-card.accent-purple{ border-top: 3px solid #a98ce6; }
 
+    /* ---- Graphiques visuels ---- */
+    .visual-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+    .chart-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 20px;
+      display: grid;
+      gap: 16px;
+    }
+    .chart-title {
+      margin: 0;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .76rem;
+      font-weight: 900;
+    }
+    .pie-wrap {
+      display: grid;
+      grid-template-columns: minmax(130px, 170px) 1fr;
+      align-items: center;
+      gap: 18px;
+    }
+    .pie {
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: conic-gradient(var(--pie));
+      box-shadow: inset 0 0 0 1px rgba(31,41,51,.08);
+      position: relative;
+    }
+    .pie::after {
+      content: attr(data-total);
+      position: absolute;
+      inset: 27%;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--card);
+      color: var(--ink);
+      font-size: 1.55rem;
+      font-weight: 900;
+      box-shadow: 0 0 0 1px rgba(31,41,51,.08);
+    }
+    .legend-list {
+      display: grid;
+      gap: 9px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .legend-list li {
+      display: grid;
+      grid-template-columns: 12px 1fr auto;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: .88rem;
+      font-weight: 700;
+    }
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--dot);
+    }
+    .legend-val {
+      color: var(--ink);
+      font-variant-numeric: tabular-nums;
+      font-weight: 900;
+    }
+
     /* ---- Barres ---- */
     .bars li { margin-bottom: 18px; }
     .bar-top { margin-bottom: 7px; font-size: .93rem; }
@@ -73,6 +151,7 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
+      background: linear-gradient(90deg, var(--bar), color-mix(in srgb, var(--bar) 72%, white));
     }
     .bar-fill-label {
       font-size: .68rem;
@@ -105,8 +184,44 @@
     }
 
     /* ---- Tableau enfants ---- */
+    .kid-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
     .kid-table th { font-size: .75rem; }
     .kid-table td { padding: 11px 8px; }
+    .kid-table th,
+    .kid-table td {
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+    .kid-table th.c,
+    .kid-table td.c { text-align: center; }
+    .det-tag,
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 3px 8px;
+      margin: 2px 4px 2px 0;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: .76rem;
+      font-weight: 850;
+    }
+    .det-tag.school {
+      background: #fef3c7;
+      color: #92400e;
+    }
+    .pill.ok {
+      background: #e6f4ec;
+      color: var(--green);
+    }
+    .pill.warn {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
     .count-chip {
       display: inline-flex;
       align-items: center;
@@ -142,6 +257,11 @@
       color: var(--green);
       font-weight: 600;
     }
+
+    @media (max-width: 700px) {
+      .pie-wrap { grid-template-columns: 1fr; }
+      .pie { width: min(220px, 76vw); justify-self: center; }
+    }
   </style>
 </head>
 <body>
@@ -157,8 +277,11 @@
     <!-- KPIs -->
     <div class="kpi-grid" id="kpis"></div>
 
-    <!-- Barres : scènes par catégorie -->
-    <p class="cat-title">Scènes par catégorie</p>
+    <!-- Graphiques -->
+    <div class="visual-grid" id="visualCharts"></div>
+
+    <!-- Barres : passages par catégorie -->
+    <p class="cat-title">Passages par catégorie</p>
     <section class="section">
       <div class="section-meta">
         <span class="sm-total" id="totalScenesLabel"></span>
@@ -180,7 +303,7 @@
     <section class="section">
       <div id="overBanner"></div>
       <table class="kid-table">
-        <thead><tr><th>Enfant</th><th class="c">Scènes</th><th class="c">Limite</th><th>Catégories</th></tr></thead>
+        <thead><tr><th>Enfant</th><th class="c">Scènes libres</th><th class="c">Limite</th><th>Catégories / projets</th></tr></thead>
         <tbody id="kidRows"></tbody>
       </table>
       <p class="note" id="kidNote"></p>
@@ -202,15 +325,34 @@
     const esc = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
     const S = computeStats();
 
-    const totalPassages = S.schoolCount + S.freeSceneCount;
-    const blockCount = 6;
+    const totalPassages = S.totalScenes;
+    const blockCount = S.categoryCount + 1;
     const estimatedDuration = "~2h20";
+    const palette = ["#2b6cb0", "#b7791f", "#2f855a", "#c53030", "#6b46c1", "#c05621", "#0f766e"];
+    const categoryColor = name => ({
+      "Projets périscolaires": "#0f766e",
+      "Théâtre": "#2b6cb0",
+      "Chant": "#b7791f",
+      "Jonglage ballon de foot": "#2f855a",
+      "Danse": "#c53030",
+      "Gymnastique": "#6b46c1",
+      "Roller": "#c05621"
+    }[name] || palette[0]);
+    const iconLabel = icon => ({
+      school: "🏫",
+      theatre: "🎭",
+      mic: "🎤",
+      football: "⚽",
+      dance: "💃",
+      gym: "🤸",
+      roller: "🛼"
+    }[icon] || icon);
 
     // ---- KPI cards ----
     const kpis = [
       { num: totalPassages,     label: "Passages au total", icon: "🎬", color: "accent-red"    },
       { num: S.freeSceneCount,  label: "Scènes libres",     icon: "🎭", color: "accent-blue"   },
-      { num: S.schoolCount,     label: "Projets Périscolaires",   icon: "🏫", color: "accent-green"  },
+      { num: S.schoolCount,     label: "Projets ALSH",      icon: "🏫", color: "accent-green"  },
       { num: blockCount,        label: "Blocs",             icon: "🧩", color: "accent-yellow" },
       { num: S.uniqueChildren,  label: "Enfants impliqués", icon: "🎉", color: "accent-purple" },
       { num: estimatedDuration, label: "Durée estimée",     icon: "⏱️", color: "accent-blue"   },
@@ -223,40 +365,71 @@
        </div>`
     ).join('');
 
-    // ---- Barres : scènes par catégorie ----
-    const totalFreeScenes = S.freeSceneCount;
-    const maxScenes = Math.max(...S.perCategory.map(c => c.scenes));
+    // ---- Camemberts ----
+    const pieGradient = items => {
+      const total = items.reduce((n, item) => n + item.value, 0);
+      let start = 0;
+      return items.map((item, i) => {
+        const end = start + (total ? item.value / total * 100 : 0);
+        const seg = `${item.color || palette[i % palette.length]} ${start.toFixed(2)}% ${end.toFixed(2)}%`;
+        start = end;
+        return seg;
+      }).join(', ');
+    };
+    const chartCard = (title, items, totalLabel) => {
+      const total = items.reduce((n, item) => n + item.value, 0);
+      return `<section class="chart-card">
+        <p class="chart-title">${esc(title)}</p>
+        <div class="pie-wrap">
+          <div class="pie" style="--pie:${pieGradient(items)}" data-total="${esc(totalLabel || total)}"></div>
+          <ul class="legend-list">${items.map((item, i) => {
+            const pct = total ? Math.round(item.value / total * 100) : 0;
+            const color = item.color || palette[i % palette.length];
+            return `<li style="--dot:${color}"><span class="legend-dot"></span><span>${esc(item.name)}</span><span class="legend-val">${item.value} · ${pct}%</span></li>`;
+          }).join('')}</ul>
+        </div>
+      </section>`;
+    };
+    const sceneTypeItems = S.sceneTypeBreakdown.map(item => ({ ...item, color: categoryColor(item.name) }));
+    const topCategoryItems = S.perPassageCategory.map(c => ({ name: c.name, value: c.scenes, color: categoryColor(c.name) }));
+    document.getElementById('visualCharts').innerHTML =
+      chartCard("Répartition des passages", sceneTypeItems, totalPassages) +
+      chartCard("Passages par catégorie", topCategoryItems, totalPassages);
+
+    // ---- Barres : passages par catégorie ----
+    const totalScenes = S.totalScenes;
+    const maxScenes = Math.max(...S.perPassageCategory.map(c => c.scenes));
     document.getElementById('totalScenesLabel').textContent =
-      `Total : ${totalFreeScenes} scène${totalFreeScenes > 1 ? 's' : ''}`;
-    document.getElementById('barScenes').innerHTML = S.perCategory.map(c => {
-      const pct = totalFreeScenes ? Math.round(c.scenes / totalFreeScenes * 100) : 0;
+      `Total : ${totalScenes} passage${totalScenes > 1 ? 's' : ''} dont ${S.schoolCount} projets ALSH`;
+    document.getElementById('barScenes').innerHTML = S.perPassageCategory.map(c => {
+      const pct = totalScenes ? Math.round(c.scenes / totalScenes * 100) : 0;
       const w   = maxScenes ? (c.scenes / maxScenes * 100).toFixed(1) : 0;
       return `<li>
         <div class="bar-top">
-          <span class="name">${c.icon} ${esc(c.name)}</span>
+          <span class="name">${iconLabel(c.icon)} ${esc(c.name)}</span>
           <span class="val">${c.scenes}<span class="pct">${pct}%</span></span>
         </div>
         <div class="bar-track">
-          <div class="bar-fill" data-w="${w}"><span class="bar-fill-label">${pct}%</span></div>
+          <div class="bar-fill" style="--bar:${categoryColor(c.name)}" data-w="${w}"><span class="bar-fill-label">${pct}%</span></div>
         </div>
       </li>`;
     }).join('');
 
     // ---- Barres : enfants par catégorie ----
-    const totalKidsInCats = S.perCategory.reduce((n, c) => n + c.kids, 0);
-    const maxKids = Math.max(...S.perCategory.map(c => c.kids));
+    const totalKidsInCats = S.perPassageCategory.reduce((n, c) => n + c.kids, 0);
+    const maxKids = Math.max(...S.perPassageCategory.map(c => c.kids));
     document.getElementById('totalKidsLabel').textContent =
-      `Total : ${S.childrenInFree} enfant${S.childrenInFree > 1 ? 's' : ''} uniques`;
-    document.getElementById('barKids').innerHTML = S.perCategory.map(c => {
+      `Total : ${S.uniqueChildren} enfant${S.uniqueChildren > 1 ? 's' : ''} uniques (${S.childrenInSchool} en ALSH, ${S.childrenInFree} en scènes libres)`;
+    document.getElementById('barKids').innerHTML = S.perPassageCategory.map(c => {
       const pct = totalKidsInCats ? Math.round(c.kids / totalKidsInCats * 100) : 0;
       const w   = maxKids ? (c.kids / maxKids * 100).toFixed(1) : 0;
       return `<li>
         <div class="bar-top">
-          <span class="name">${c.icon} ${esc(c.name)}</span>
+          <span class="name">${iconLabel(c.icon)} ${esc(c.name)}</span>
           <span class="val">${c.kids}<span class="pct">${pct}%</span></span>
         </div>
         <div class="bar-track">
-          <div class="bar-fill alt" data-w="${w}"><span class="bar-fill-label">${pct}%</span></div>
+          <div class="bar-fill alt" style="--bar:${categoryColor(c.name)}" data-w="${w}"><span class="bar-fill-label">${pct}%</span></div>
         </div>
       </li>`;
     }).join('');
@@ -268,7 +441,7 @@
       const over = ch.count > 2;
       const tags = [
         ...ch.cats.map(c => `<span class="det-tag">${esc(c)}</span>`),
-        ...(ch.school ? [`<span class="det-tag school">Projet Périscolaire</span>`] : [])
+        ...ch.projects.map(p => `<span class="det-tag school">${esc(p)}</span>`)
       ].join('');
       return `<tr class="${over ? 'over' : ''}">
         <td>${esc(ch.display)}</td>
@@ -292,7 +465,7 @@
     }
 
     document.getElementById('kidNote').textContent =
-      'Les projets périscolaires ne sont pas comptés dans la limite. Note : certains prénoms ont des variantes regroupées automatiquement — à confirmer manuellement.';
+      'Les projets ALSH / périscolaires sont affichés pour chaque enfant, mais ne sont pas comptés dans la limite de 2 scènes libres. Note : certains prénoms ont des variantes regroupées automatiquement — à confirmer manuellement.';
 
     // ---- Animation des barres ----
     requestAnimationFrame(() => {

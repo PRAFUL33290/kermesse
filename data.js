@@ -64,18 +64,22 @@ function canonical(name) { const k = normKey(name); if (NAME_ALIASES[k]) return 
 function computeStats() {
   const freeSceneCount = FREE_CATEGORIES.reduce((n, c) => n + c.scenes.length, 0);
   const schoolCount = SCHOOL_PROJECTS.length;
+  const uniqueKids = list => new Set(list.map(k => normKey(canonical(k))));
+  const kidsOfProject = p => p.kids ? p.kids : p.languages.flatMap(l => l.kids);
+  const schoolKids = uniqueKids(SCHOOL_PROJECTS.flatMap(kidsOfProject));
   const perChild = new Map();
-  FREE_CATEGORIES.forEach(cat => { cat.scenes.forEach(s => { s.who.forEach(raw => { const disp = canonical(raw); const key = normKey(disp); if (!perChild.has(key)) perChild.set(key, { display: disp, count: 0, cats: new Set(), school: false }); const e = perChild.get(key); e.cats.add(cat.name); e.count = e.cats.size; }); }); });
-  SCHOOL_PROJECTS.forEach(p => { const projectKids = []; if (p.kids) projectKids.push(...p.kids); if (p.languages) p.languages.forEach(l => projectKids.push(...l.kids)); projectKids.forEach(k => { const key = normKey(canonical(k)); if (perChild.has(key)) perChild.get(key).school = true; }); });
+  FREE_CATEGORIES.forEach(cat => { cat.scenes.forEach(s => { s.who.forEach(raw => { const disp = canonical(raw); const key = normKey(disp); if (!perChild.has(key)) perChild.set(key, { display: disp, count: 0, cats: new Set(), school: false, projects: new Set() }); const e = perChild.get(key); e.cats.add(cat.name); e.count += 1; }); }); });
+  SCHOOL_PROJECTS.forEach(p => { kidsOfProject(p).forEach(k => { const disp = canonical(k); const key = normKey(disp); if (!perChild.has(key)) perChild.set(key, { display: disp, count: 0, cats: new Set(), school: false, projects: new Set() }); const e = perChild.get(key); e.school = true; e.projects.add(p.name); }); });
   const allKids = new Set();
   FREE_CATEGORIES.forEach(c => c.scenes.forEach(s => s.who.forEach(w => allKids.add(normKey(canonical(w))))));
-  SCHOOL_PROJECTS.forEach(p => { if (p.kids) p.kids.forEach(k => allKids.add(normKey(canonical(k)))); if (p.languages) p.languages.forEach(l => l.kids.forEach(k => allKids.add(normKey(canonical(k))))); });
+  SCHOOL_PROJECTS.forEach(p => kidsOfProject(p).forEach(k => allKids.add(normKey(canonical(k)))));
   const quinzaine = SCHOOL_PROJECTS.find(p => p.languages);
   const quinzaineKids = new Set();
   quinzaine.languages.forEach(l => l.kids.forEach(k => quinzaineKids.add(normKey(canonical(k)))));
-  const children = [...perChild.values()].map(e => ({ ...e, cats: [...e.cats] })).sort((a, b) => b.count - a.count || a.display.localeCompare(b.display));
+  const children = [...perChild.values()].map(e => ({ ...e, cats: [...e.cats], projects: [...e.projects] })).sort((a, b) => b.count - a.count || a.display.localeCompare(b.display));
   const overLimit = children.filter(c => c.count > 2);
-  return { freeSceneCount, schoolCount, totalScenes: freeSceneCount, categoryCount: FREE_CATEGORIES.length, uniqueChildren: allKids.size, childrenInFree: perChild.size, quinzaineLangs: quinzaine.languages.length, quinzaineKids: quinzaineKids.size, children, overLimit, perCategory: FREE_CATEGORIES.map(c => ({ name: c.name, icon: c.icon, scenes: c.scenes.length, kids: new Set(c.scenes.flatMap(s => s.who.map(w => normKey(canonical(w))))).size })) };
+  const perFreeCategory = FREE_CATEGORIES.map(c => ({ name: c.name, icon: c.icon, scenes: c.scenes.length, kids: uniqueKids(c.scenes.flatMap(s => s.who)).size }));
+  return { freeSceneCount, schoolCount, totalScenes: freeSceneCount + schoolCount, categoryCount: FREE_CATEGORIES.length, uniqueChildren: allKids.size, childrenInFree: uniqueKids(FREE_CATEGORIES.flatMap(c => c.scenes.flatMap(s => s.who))).size, childrenInSchool: schoolKids.size, quinzaineLangs: quinzaine.languages.length, quinzaineKids: quinzaineKids.size, children, overLimit, perCategory: perFreeCategory, perPassageCategory: [{ name: "Projets périscolaires", icon: "school", scenes: schoolCount, kids: schoolKids.size }, ...perFreeCategory], sceneTypeBreakdown: [{ name: "Projets périscolaires", value: schoolCount }, { name: "Scènes libres", value: freeSceneCount }] };
 }
 
 /* ============================================================
