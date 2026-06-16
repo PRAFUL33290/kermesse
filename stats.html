@@ -214,6 +214,20 @@
       background: #fef3c7;
       color: #92400e;
     }
+    .scene-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      margin: 2px 4px 2px 0;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: .86rem;
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+    }
     .pill.ok {
       background: #e6f4ec;
       color: var(--green);
@@ -303,7 +317,7 @@
     <section class="section">
       <div id="overBanner"></div>
       <table class="kid-table">
-        <thead><tr><th>Enfant</th><th class="c">Scènes libres</th><th class="c">Limite</th><th>Catégories / projets</th></tr></thead>
+        <thead><tr><th>Enfant</th><th class="c">Scènes libres</th><th class="c">Limite</th><th>Numéros de scènes</th></tr></thead>
         <tbody id="kidRows"></tbody>
       </table>
       <p class="note" id="kidNote"></p>
@@ -435,19 +449,25 @@
     }).join('');
 
     // ---- Tableau enfants (tri alphabétique) ----
+    const childSceneNums = new Map();
+    computeSchedule().running.forEach(scene => {
+      scene.kids.forEach(raw => {
+        const key = normKey(canonical(raw));
+        if (!childSceneNums.has(key)) childSceneNums.set(key, []);
+        childSceneNums.get(key).push(scene.num);
+      });
+    });
     const kidsSorted = [...S.children].sort((a, b) =>
       a.display.localeCompare(b.display, 'fr', { sensitivity: 'base' }));
     document.getElementById('kidRows').innerHTML = kidsSorted.map(ch => {
       const over = ch.count > 2;
-      const tags = [
-        ...ch.cats.map(c => `<span class="det-tag">${esc(c)}</span>`),
-        ...ch.projects.map(p => `<span class="det-tag school">${esc(p)}</span>`)
-      ].join('');
+      const nums = childSceneNums.get(normKey(canonical(ch.display))) || [];
+      const sceneNums = nums.map(n => `<span class="scene-num">${n}</span>`).join('');
       return `<tr class="${over ? 'over' : ''}">
         <td>${esc(ch.display)}</td>
         <td class="c"><span class="count-chip ${over ? 'warn' : 'ok'}">${ch.count}</span></td>
         <td class="c"><span class="pill ${over ? 'warn' : 'ok'}">${over ? 'Dépasse' : 'OK'}</span></td>
-        <td>${tags}</td>
+        <td>${sceneNums}</td>
       </tr>`;
     }).join('');
 
@@ -465,7 +485,7 @@
     }
 
     document.getElementById('kidNote').textContent =
-      'Les projets ALSH / périscolaires sont affichés pour chaque enfant, mais ne sont pas comptés dans la limite de 2 scènes libres. Note : certains prénoms ont des variantes regroupées automatiquement — à confirmer manuellement.';
+      'Les numéros correspondent aux passages du déroulé complet. Les projets ALSH / périscolaires ne sont pas comptés dans la limite de 2 scènes libres. Note : certains prénoms ont des variantes regroupées automatiquement — à confirmer manuellement.';
 
     // ---- Animation des barres ----
     requestAnimationFrame(() => {
