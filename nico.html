@@ -16,13 +16,15 @@
     .handoff-title small { display:block; margin-top:3px; color:var(--muted); font-size:.86rem; font-weight:600; line-height:1.4; }
     .handoff-count { font-size:.86rem; color:var(--muted); font-weight:800; white-space:nowrap; }
     .handoff-body { padding:16px 20px 18px; }
-    .handoff-kids { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:10px; margin:0; padding:0; list-style:none; }
-    .handoff-kids li { display:flex; flex-wrap:wrap; align-items:center; gap:6px 9px; min-height:48px; padding:11px 13px; border:1px solid var(--line); border-radius:10px; background:#fff; box-shadow:inset 4px 0 0 var(--line); }
-    .handoff-kids li > span:not(.kid-tag) { font-size:1.08rem; font-weight:800; color:var(--ink); letter-spacing:.005em; }
+    .handoff-kids { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:10px; margin:0; padding:0; list-style:none; }
+    .handoff-kids li { display:grid; grid-template-columns:auto minmax(0,1fr); gap:7px 9px; align-items:center; min-height:58px; padding:11px 13px; border:1px solid var(--line); border-radius:10px; background:#fff; box-shadow:inset 4px 0 0 var(--line); }
+    .kid-name { min-width:0; font-size:1.08rem; font-weight:800; color:var(--ink); letter-spacing:.005em; overflow-wrap:anywhere; }
+    .kid-tags { grid-column:1 / -1; display:flex; flex-wrap:wrap; gap:6px; min-width:0; }
+    .handoff-kids li.no-check .kid-name { grid-column:1 / -1; }
     .handoff-kids li.keep-close { border-color:#d4a017; background:#fff7db; box-shadow:inset 4px 0 0 #d4a017; }
     .handoff-kids li.already-close { border-color:#2f855a; background:#edf7f0; box-shadow:inset 4px 0 0 #2f855a; }
     .handoff-kids li.returns-later { border-color:#5a67d8; background:#eef0fb; box-shadow:inset 4px 0 0 #5a67d8; }
-    .kid-tag { padding:4px 9px; border-radius:999px; font-size:.74rem; font-weight:800; line-height:1.1; white-space:nowrap; }
+    .kid-tag { max-width:100%; padding:4px 9px; border-radius:999px; font-size:.74rem; font-weight:800; line-height:1.15; overflow-wrap:anywhere; }
     .kid-tag.keep-close { background:#d4a017; color:#fff; }
     .kid-tag.already-close { background:#2f855a; color:#fff; }
     .kid-tag.returns-later { background:#5a67d8; color:#fff; }
@@ -52,11 +54,15 @@
       .handoff-kids{grid-template-columns:1fr;}
       .handoff-body{padding:14px 14px 16px;}
       .handoff-kids li{min-height:52px;padding:12px 14px;}
-      .handoff-kids li > span:not(.kid-tag){font-size:1.12rem;}
+      .kid-name{font-size:1.12rem;}
       .scene-list li{grid-template-columns:1fr;}
       .scene-kids{grid-column:1;}
       .kid-tag{font-size:.78rem;padding:5px 10px;}
       .handoff-kids input{width:24px;height:24px;}
+    }
+    @media (max-width:380px){
+      .handoff-kids li{grid-template-columns:1fr;}
+      .handoff-kids input{grid-row:1;justify-self:start;}
     }
   </style>
 </head>
@@ -122,17 +128,21 @@
     const kidKey=kid=>normKey(canonical(kid));
     const kidKeySet=kids=>new Set(kids.map(kidKey));
     const blockKids=block=>unique(block.projects?block.projects.flatMap(p=>p.kids):block.kids);
+    const blockScenes=block=>block.projects?block.projects.flatMap(p=>p.scenes||[]):(block.scenes||[]);
     /* Tous les blocs où passe chaque enfant, pour repérer les retours non consécutifs. */
     const kidBlocks=new Map();
     handoffBlocks.forEach((b,i)=>{[...new Set(blockKids(b).map(kidKey))].forEach(k=>{if(!kidBlocks.has(k))kidBlocks.set(k,[]);kidBlocks.get(k).push(i);});});
     const markNext=(current,next)=>{if(!next)return new Set();const nextKids=kidKeySet(blockKids(next));return new Set(blockKids(current).filter(k=>nextKids.has(kidKey(k))));};
     const markPrevious=(current,previous)=>{if(!previous)return new Set();const previousKids=kidKeySet(blockKids(previous));return new Set(blockKids(current).filter(k=>previousKids.has(kidKey(k))));};
-    const markReturnsLater=(current,index)=>{const m=new Map();blockKids(current).forEach(kid=>{const idx=kidBlocks.get(kidKey(kid))||[];const next=idx.find(j=>j>index);if(next!==undefined&&next>index+1)m.set(kid,handoffBlocks[next].title);});return m;};
-    const kidClass=(kid,marks={})=>marks.keepClose?.has(kid)?' class="keep-close"':marks.returnsLater?.has(kid)?' class="returns-later"':marks.alreadyClose?.has(kid)?' class="already-close"':'';
-    const kidTag=(kid,marks={})=>{const tags=[];if(marks.alreadyClose?.has(kid))tags.push('<span class="kid-tag already-close">déjà là</span>');if(marks.keepClose?.has(kid))tags.push('<span class="kid-tag keep-close">à garder</span>');if(marks.returnsLater?.has(kid))tags.push(`<span class="kid-tag returns-later">revient en ${esc(marks.returnsLater.get(kid))}</span>`);return tags.join('');};
+    const nextSceneForKid=(kid,startIndex)=>{const key=kidKey(kid);for(let i=startIndex;i<handoffBlocks.length;i++){const scene=blockScenes(handoffBlocks[i]).find(s=>s.kids.some(k=>kidKey(k)===key));if(scene)return scene;}return null;};
+    const markReturnsLater=(current,index)=>{const m=new Map();blockKids(current).forEach(kid=>{const idx=kidBlocks.get(kidKey(kid))||[];const next=idx.find(j=>j>index);if(next!==undefined&&next>index+1)m.set(kid,{block:handoffBlocks[next].title,scene:nextSceneForKid(kid,next)});});return m;};
+    const kidClassName=(kid,marks={})=>marks.keepClose?.has(kid)?'keep-close':marks.returnsLater?.has(kid)?'returns-later':marks.alreadyClose?.has(kid)?'already-close':'';
+    const kidClass=(kid,marks={})=>kidClassName(kid,marks)?` class="${kidClassName(kid,marks)}"`:'';
+    const returnLabel=info=>info?.scene?`revient scène ${info.scene.num} · ${esc(info.scene.time)} · ${esc(info.scene.name)}`:`revient en ${esc(info?.block||'plus tard')}`;
+    const kidTag=(kid,marks={})=>{const tags=[];if(marks.alreadyClose?.has(kid))tags.push('<span class="kid-tag already-close">déjà là</span>');if(marks.keepClose?.has(kid))tags.push('<span class="kid-tag keep-close">à garder</span>');if(marks.returnsLater?.has(kid))tags.push(`<span class="kid-tag returns-later">${returnLabel(marks.returnsLater.get(kid))}</span>`);return tags.length?`<span class="kid-tags">${tags.join('')}</span>`:'';};
     const renderSceneList=scenes=>scenes?.length?`<ul class="scene-list">${scenes.map(s=>`<li><span class="scene-num">scène ${s.num} · ${esc(s.time)}</span><span class="scene-name">${esc(s.name)}</span><span class="scene-kids">${s.kids.map(esc).join(' · ')}</span></li>`).join('')}</ul>`:'';
-    const renderKids=(kids,marks)=>`<ul class="handoff-kids">${kids.map(k=>`<li${kidClass(k,marks)}><input type="checkbox" aria-label="${esc(k)}"><span>${esc(k)}</span>${kidTag(k,marks)}</li>`).join('')}</ul>`;
-    const renderPlainKids=(kids,marks)=>`<ul class="handoff-kids">${kids.map(k=>`<li${kidClass(k,marks)}><span>${esc(k)}</span>${kidTag(k,marks)}</li>`).join('')}</ul>`;
+    const renderKids=(kids,marks)=>`<ul class="handoff-kids">${kids.map(k=>`<li${kidClass(k,marks)}><input type="checkbox" aria-label="${esc(k)}"><span class="kid-name">${esc(k)}</span>${kidTag(k,marks)}</li>`).join('')}</ul>`;
+    const renderPlainKids=(kids,marks)=>`<ul class="handoff-kids">${kids.map(k=>`<li class="no-check ${kidClassName(k,marks)}"><span class="kid-name">${esc(k)}</span>${kidTag(k,marks)}</li>`).join('')}</ul>`;
     const renderStayNote=(current,next)=>{if(!next)return '';const nextKids=kidKeySet(blockKids(next));const staying=blockKids(current).filter(k=>nextKids.has(kidKey(k)));if(!staying.length)return '';return `<div class="stay-note"><strong>Ne les fais pas repartir : ils enchaînent avec le bloc suivant.</strong>${staying.map(esc).join(' · ')}</div>`;};
     const renderProjects=(block,marks)=>`<div class="project-lines">${block.projects.map(p=>{const source=project(p.name)||{};const noPickup=block.noChecklist||p.noPickup||source.noPickup;const referenceOnly=p.referenceOnly||source.referenceOnly;const manager=p.manager||source.manager||(block.noChecklist?'Virginie':'Déborah');const meta=referenceOnly?'Liste de repère pour Nico : pas de cases à cocher.':(noPickup?`${esc(manager)} s'en charge : Nico ne les coche pas et ne les ramasse pas.`:'À cocher au fur et à mesure du ramassage.');return `<div class="project-line"><strong>${esc(p.name)} · ${p.kids.length} enfant${p.kids.length>1?'s':''}</strong>${renderSceneList(p.scenes)}<div class="project-meta">${meta}</div>${noPickup||referenceOnly?renderPlainKids(p.kids,marks):renderKids(p.kids,marks)}</div>`;}).join('')}</div>`;
 
