@@ -99,8 +99,8 @@
     const bt=k=>schedule.blockStart.get(k)||'';
 
     const handoffBlocks=[
-      {cls:'school',time:bt('maternelles'),title:'Maternelles',note:"Virginie s'en occupe : Nico ne les ramasse pas.",noChecklist:true,projects:[{name:'Maternelles de Virginie',kids:projectKids('Maternelles de Virginie'),noPickup:true,manager:'Virginie'}]},
-      {cls:'school',time:bt('projets'),title:'Autres projets périscolaires',note:'À garder proche de la scène après les maternelles.',projects:[{name:'Capoeira',kids:projectKids('Capoeira')},{name:'Oh Mama Tetema + Freestyle',kids:projectKids('Oh Mama Tetema + Freestyle')},{name:'Carnaval',kids:projectKids('Carnaval')},{name:"Quinzaine de l'égalité",kids:quinzaineKids}]},
+      {cls:'school',time:bt('maternelles'),title:'Maternelles et carnaval',note:"Virginie et Déborah s'en occupent : Nico ne les ramasse pas.",noChecklist:true,projects:[{name:'Maternelles de Virginie',kids:projectKids('Maternelles de Virginie'),noPickup:true,manager:'Virginie'},{name:'Carnaval',kids:projectKids('Carnaval'),noPickup:true,manager:'Déborah'}]},
+      {cls:'school',time:bt('projets'),title:'Autres projets périscolaires',note:'À garder proche de la scène après les maternelles.',projects:[{name:'Capoeira',kids:projectKids('Capoeira')},{name:'Oh Mama Tetema + Freestyle',kids:projectKids('Oh Mama Tetema + Freestyle')},{name:"Quinzaine de l'égalité",kids:quinzaineKids}]},
       {cls:'theatre',time:bt('Théâtre'),title:'Théâtre',note:'Après les projets, rassembler tous les groupes théâtre.',kids:categoryKids('Théâtre')},
       {cls:'chant',time:bt('Chant'),title:'Chant',note:'Les chanteurs passent après le théâtre. Bloc d’une dizaine d’enfants (~30 min).',kids:categoryKids('Chant')},
       {cls:'jonglage',time:bt('Jonglage ballon de foot'),title:'Jonglage',note:'Petit bloc juste avant la danse.',kids:categoryKids('Jonglage ballon de foot')},
