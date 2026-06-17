@@ -312,7 +312,7 @@
 
     const allChildren = [...childMap.values()]
       .map(child => ({ ...child, passages: child.passages.sort((a, b) => a.num - b.num) }))
-      .sort((a, b) => a.passages[0].num - b.passages[0].num || a.display.localeCompare(b.display));
+      .sort((a, b) => a.display.localeCompare(b.display, 'fr', { sensitivity: 'base' }));
 
     const renderChild = child => `
       <section class="repere-card" data-name="${esc(key(child.display))}">
