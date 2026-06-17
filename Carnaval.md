@@ -1,13 +1,11 @@
 1. Kaycee 
 2. Lia 
 3. Jasmine 
-4. Myla 
-5. Giulia 
-6. Lydia 
-7. Lily 
-8. Naya 
-9. Léa S.
-10. Lina M. 
-11. Shyne 
-12. Mila S.
-
+4. Giulia 
+5. Lydia 
+6. Lily 
+7. Naya 
+8. Léa S.
+9. Lina M. 
+10. Shyne 
+11. Mila S.

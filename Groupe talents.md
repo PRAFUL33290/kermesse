@@ -7,7 +7,6 @@ Voici **tous les groupes des scènes libres uniquement**, donc **sans Quinzaine 
 | **Alya + Elena + Elaïa + Kelyana**   | Danse — **Lush Life**   |
 | **Jasmine + Léa + Lina M.**          | Danse — **Gozalo**      |
 | **Clara + Lydia + Divine + Ryma + Yara** | Danse — **Kakalika** |
-| **Lana**                             | Séga                    |
 | **Kaylan + Elvin + Arthur + Alioun** | Danse / scène de groupe |
 | **Maïssa + Lina**                    | Afro / rondade / salto  |
 | **Grace**                            | Danse                   |
@@ -28,6 +27,7 @@ Voici **tous les groupes des scènes libres uniquement**, donc **sans Quinzaine 
 | **Alicia**                  | Gym                    |
 | **Lydia**                   | Gym / danse à préciser |
 | **Naima Nour**              | Gym                    |
+| **Mélyna A.**               | Gym                    |
 
 ## Théâtre
 
@@ -44,7 +44,6 @@ Voici **tous les groupes des scènes libres uniquement**, donc **sans Quinzaine 
 | Groupe / enfant   | Scène             |
 | ----------------- | ----------------- |
 | **Jasmine + Léa** | Chant             |
-| **Ched / Cheid**  | Chant             |
 | **Maïmouna**      | Chant             |
 | **Céline**        | Chant             |
 | **Lina**          | Chant             |
@@ -55,7 +54,7 @@ Voici **tous les groupes des scènes libres uniquement**, donc **sans Quinzaine 
 | Groupe / enfant   | Scène  |
 | ----------------- | ------ |
 | **Giulia**        | Roller |
-| **Mélina Adenet** | Roller |
+| **Mélyna A.**     | Roller |
 
 ## Jonglage ballon de foot
 

@@ -8,8 +8,8 @@
 | | Nombre |
 |---|---|
 | **Scènes / passages libres** | 33 |
-| **Projets d'école** | 4 |
-| **Total des passages** | 37 |
+| **Projets d'école** | 5 |
+| **Total des passages** | 38 |
 | **Catégories** | 7 (Danse, Gym, Théâtre, Chant, Roller, Jonglage, Magie) |
 
 ---
@@ -29,7 +29,7 @@ Keren, Divine, Grace, Maimouna, Tania, Orianne
 
 | Drapeau | Pays | Langue | Enfants |
 |---|---|---|---|
-| 🇫🇷 | France | Français | Lilly, Lydia, Myla, Kelyana, Elaïa, Juliette, Ilona, Jasmine, Giulia, Elenna, Mia, Alya, Divine, Lina M., Alicia, Noémie, Eileen, Céline, Chahd |
+| 🇫🇷 | France | Français | Lilly, Lydia, Myla, Kelyana, Elaïa, Juliette, Ilona, Jasmine, Giulia, Elenna, Mia, Alya, Divine, Lina M., Alicia, Noémie, Eileen, Céline, Chahd, Lina E. |
 | 🏴󠁧󠁢󠁥󠁮󠁧󠁿 | Angleterre | Anglais | Juliette |
 | 🇪🇸 | Espagne | Espagnol | Myla, Kelyana, Elaïa, Elenna, Mia, Shyne, Alya, Lina M., Alicia, Mila, Zia, Chahd |
 | 🇵🇹 | Portugal | Portugais | Kelyana, Ilona, Alya, Lina M. |
@@ -47,21 +47,20 @@ Keren, Divine, Grace, Maimouna, Tania, Orianne
 
 ## 🎪 Scènes libres — Détail par catégorie
 
-### 💃 Danse — 11 scènes
+### 💃 Danse — 10 scènes
 
 | # | Participants | Prestation | Nb |
 |---|---|---|---|
 | 1 | Alya, Elena, Elaïa, Kelyana | Danse / gym — Lush Life | 4 |
 | 2 | Jasmine, Léa, Lina M. | Gozalo | 3 |
 | 3 | Clara, Lydia, Divine, Ryma, Yara | Danse — Kakalika | 5 |
-| 4 | Lana | Séga | 1 |
-| 5 | Kaylan, Elvin, Arthur, Alioun | Danse / scène de groupe | 4 |
-| 6 | Maïssa, Lina M. | Afro / rondade / salto | 2 |
-| 7 | Grace | Danse | 1 |
-| 8 | Lina S., Maïssa | Duo (Brésil) | 2 |
-| 9 | Giulia, Héloïse | Gabriela | 2 |
-| 10 | Stella, Giulia | 21 Reasons | 2 |
-| 11 | Héloïse, Juliette, Loïcia | Danse | 3 |
+| 4 | Kaylan, Elvin, Arthur, Alioun | Danse / scène de groupe | 4 |
+| 5 | Maïssa, Lina M. | Afro / rondade / salto | 2 |
+| 6 | Grace | Danse | 1 |
+| 7 | Lina S., Maïssa | Duo (Brésil) | 2 |
+| 8 | Giulia, Héloïse | Gabriela | 2 |
+| 9 | Stella, Giulia | 21 Reasons | 2 |
+| 10 | Héloïse, Juliette, Loïcia | Danse | 3 |
 
 ### 🤸 Gymnastique — 4 passages
 
@@ -70,7 +69,7 @@ Keren, Divine, Grace, Maimouna, Tania, Orianne
 
 | # | Participants | Prestation | Nb |
 |---|---|---|---|
-| 1 | Giulia, Stella, Héloïse, Inès, Eileen, Lya, Lina S., Maïssa, Alya, Elena, Elaïa, Kelyana, Yara, Keren, Tania, Housna, Alicia, Lydia, Naima Nour, Mélina B., Leana, Céline | Rondades / flip / salto arrière (toutes ensemble) | 22 |
+| 1 | Giulia, Stella, Héloïse, Inès, Eileen, Lya, Lina S., Maïssa, Alya, Elena, Elaïa, Kelyana, Yara, Keren, Tania, Housna, Alicia, Lydia, Naima Nour, Mélina B., Mélyna A., Leana, Céline | Rondades / flip / salto arrière (toutes ensemble) | 23 |
 | 2 | Giulia, Stella, Héloïse | Gym groupe | 3 |
 | 3 | Inès, Eileen, Lya | Gym groupe | 3 |
 | 4 | Lina S., Maïssa | Gym duo | 2 |
@@ -88,23 +87,22 @@ Keren, Divine, Grace, Maimouna, Tania, Orianne
 | 5 | Eileen, Leana, Lina M. | Théâtre | 3 |
 | 6 | Souleyman, Juliette, Timéo, Loïcia | Théâtre à 4 | 4 |
 
-### 🎤 Chant — 6 scènes
+### 🎤 Chant — 5 scènes
 
 | # | Participants | Prestation | Nb |
 |---|---|---|---|
 | 1 | Jasmine, Léa | Chant | 2 |
-| 2 | Ched / Cheid | Chant | 1 |
-| 3 | Maïmouna | Chant | 1 |
-| 4 | Céline | Chant | 1 |
-| 5 | Lina M. | Chant | 1 |
-| 6 | Jumana | À confirmer | 1 |
+| 2 | Maïmouna | Chant | 1 |
+| 3 | Céline | Chant | 1 |
+| 4 | Lina M. | Chant | 1 |
+| 5 | Jumana | À confirmer | 1 |
 
 ### 🛼 Roller — 4 scènes
 
 | # | Participants | Prestation | Nb |
 |---|---|---|---|
 | 1 | Giulia | Roller | 1 |
-| 2 | Mélina Adenet | Roller | 1 |
+| 2 | Mélyna A. | Roller | 1 |
 | 3 | Haby | Roller | 1 |
 | 4 | Thalia F. | Roller | 1 |
 
@@ -147,10 +145,8 @@ L'ordre est pensé pour :
 |---|---|---|---|---|
 | **3** | 💃 Danse / gym — Lush Life | Alya, Elena, Elaïa, Kelyana | Danse | ~3 min |
 | **4** | 💃 Danse — Gabriela | Giulia, Héloïse | Danse | ~3 min |
-| **5** | 🎤 Chant | Ched / Cheid | Chant | ~3 min |
 | **6** | 💃 Gozalo | Jasmine, Léa, Lina M. | Danse | ~3 min |
 | **7** | 🪄 Holla Up | Charlotte | Magie | ~3 min |
-| **8** | 💃 Séga | Lana | Danse | ~3 min |
 
 ---
 
@@ -186,7 +182,7 @@ L'ordre est pensé pour :
 | **20** | ⚽ Jonglage | Courage, Eliam | Jonglage foot | ~3 min |
 | **21** | 💃 Danse / scène de groupe | Kaylan, Elvin, Arthur, Alioun | Danse | ~3 min |
 | **22** | 🛼 Roller | Giulia | Roller | ~3 min |
-| **23** | 🛼 Roller | Mélina Adenet | Roller | ~3 min |
+| **23** | 🛼 Roller | Mélyna A. | Roller | ~3 min |
 | **24** | 🛼 Roller | Haby | Roller | ~3 min |
 | **25** | 🛼 Roller | Thalia F. | Roller | ~3 min |
 
@@ -242,8 +238,6 @@ L'ordre est pensé pour :
 | Spark Car | Danse (Kelyana, Elenna) — à confirmer | ⚠️ À confirmer |
 | Bruit de moteur | Théâtre (Les Martiens) | ⚠️ À préparer |
 | Musique théâtre Les Martiens | Théâtre (Lilly, Shine, Divine) | ⚠️ À définir |
-| Musique chant Cheid | Chant | ⚠️ À récupérer |
-| Musique Séga | Danse (Lana) | ⚠️ À définir |
 | Musique Duo Brésil | Danse (Lina S., Maïssa) | ⚠️ À confirmer |
 | Musique gym / rondades | Gymnastique (toutes) | ⚠️ À définir |
 

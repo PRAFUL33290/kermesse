@@ -8,7 +8,6 @@
 | Alya + Elaïa                     | GRS                     | **Taki Taki**  |
 | Léa + Jasmine                    | Danse                   | **Gozalo**     |
 | Kelyana + Elenna                 | Danse duo (à confirmer) | **Spark Car**  |
-| Lana                             | Danse Séga              | À définir      |
 | Kaylan + Elvin + Arthur + Alioun | Danse / scène de groupe | **Astronomia** |
 | Clara + Lydia + Divine + Ryma + Yara | Danse                | **Kakalika**   |
 | Maïssa + Lina M.                 | Danse                   | À définir      |
@@ -23,7 +22,7 @@
 
 ### Scène commune — Rondades / flip / salto arrière (toutes ensemble)
 
-Giulia, Stella, Héloïse, Inès, Eileen, Lya, Lina S., Maïssa, Alya, Elena, Elaïa, Kelyana, Yara, Keren, Tania, Housna, Alicia, Lydia, Naima Nour, Mélina B., Leana, Céline
+Giulia, Stella, Héloïse, Inès, Eileen, Lya, Lina S., Maïssa, Alya, Elena, Elaïa, Kelyana, Yara, Keren, Tania, Housna, Alicia, Lydia, Naima Nour, Mélina B., Mélyna A., Leana, Céline
 
 ### Sous-groupes séparés
 
@@ -54,7 +53,6 @@ Giulia, Stella, Héloïse, Inès, Eileen, Lya, Lina S., Maïssa, Alya, Elena, El
 | Participants  | Musique |                     |
 | ------------- | ------- | ------------------- |
 | Léa + Jasmine | Chant   | À confirmer         |
-| Cheid         | Chant   | Musique à récupérer |
 | Maïmouna      | Chant   | À définir           |
 | Céline        | Chant   | À définir           |
 | Lina M.       | Chant   | À définir           |
@@ -75,7 +73,7 @@ Giulia, Stella, Héloïse, Inès, Eileen, Lya, Lina S., Maïssa, Alya, Elena, El
 | Participants  | Prestation |
 | ------------- | ---------- |
 | Giulia        | Roller     |
-| Mélina Adenet | Roller     |
+| Mélyna A.     | Roller     |
 | Haby          | Roller     |
 | Thalia F.     | Roller     |
 
@@ -109,7 +107,6 @@ Giulia, Stella, Héloïse, Inès, Eileen, Lya, Lina S., Maïssa, Alya, Elena, El
 | Giulia    | Théâtre Les Martiens + Gymnastique + Roller   |
 | Kelyana   | Confirmer Spark Car                           |
 | Elenna    | Confirmer Spark Car                           |
-| Cheid     | Récupérer la musique du chant                 |
 | Charlotte | Valider le tour de magie                      |
 | Jumana    | Faire un point sur son chant                  |
 | Maïmouna  | Faire un point sur son chant                  |

@@ -1,7 +1,7 @@
 Liste enfants participant à la quinzaine de l'égalité :
 
 🌟Nos Artistes en Herbe
-1) 🇫🇷 France — Français : Lilly • Lydia • Myla • Kelyana • Elaia • Juliette • Ilona • Jasmine • Guillia • Elenna • Mia • Alya • Divine • Lina • Alicia • Noémie • Eileen • Céline • Cheid (19)
+1) 🇫🇷 France — Français : Lilly • Lydia • Myla • Kelyana • Elaia • Juliette • Ilona • Jasmine • Guillia • Elenna • Mia • Alya • Divine • Lina • Alicia • Noémie • Eileen • Céline • Cheid • Lina E. (20)
 
 2) 🏴󠁧󠁢󠁥󠁮󠁧󠁿 Angleterre — Anglais : Juliette (1)
 

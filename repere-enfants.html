@@ -221,45 +221,28 @@
       return [...kids];
     })();
 
-    const scenes = [
-      { num: 1, icon: "🏫", name: "Maternelles de Virginie", cat: "Projet Périscolaire", block: "Maternelles", kids: SCHOOL_PROJECTS[0].kids, duration: "~4 min" },
-      { num: 2, icon: "🏫", name: "Capoeira", cat: "Projet Périscolaire", block: "Autres projets périscolaires", kids: SCHOOL_PROJECTS[1].kids, duration: "~5 min" },
-      { num: 3, icon: "🏫", name: "Oh Mama Tetema + Freestyle", cat: "Projet Périscolaire", block: "Autres projets périscolaires", kids: SCHOOL_PROJECTS[2].kids, duration: "~5 min" },
-      { num: 4, icon: "🏫", name: "Carnaval de Deborah", cat: "Projet Périscolaire", block: "Autres projets périscolaires", kids: SCHOOL_PROJECTS[3].kids, duration: "~3 min" },
-      { num: 5, icon: "🏫", name: "Quinzaine de l'égalité", cat: "Projet Périscolaire", block: "Autres projets périscolaires", kids: quinzaineKids, duration: "~8 min" },
-      { num: 6, icon: "🎭", name: "Théâtre", cat: "Théâtre", block: "Théâtre", kids: ["Lilly","Shyne","Divine"], duration: "~5 min" },
-      { num: 7, icon: "🎭", name: "Théâtre", cat: "Théâtre", block: "Théâtre", kids: ["Nayana"], duration: "~4 min" },
-      { num: 8, icon: "🎭", name: "Mortelle Adèle", cat: "Théâtre", block: "Théâtre", kids: ["Ryma","Divine","Clara"], duration: "~5 min" },
-      { num: 9, icon: "🎭", name: "Théâtre", cat: "Théâtre", block: "Théâtre", kids: ["Charlotte"], duration: "~4 min" },
-      { num: 10, icon: "🎭", name: "Théâtre", cat: "Théâtre", block: "Théâtre", kids: ["Eileen","Leana","Lina M."], duration: "~5 min" },
-      { num: 11, icon: "🎭", name: "Théâtre à 4", cat: "Théâtre", block: "Théâtre", kids: ["Souleyman","Juliette","Timéo","Loïcia"], duration: "~5 min" },
-      { num: 12, icon: "🎤", name: "Chant", cat: "Chant", block: "Chant", kids: ["Cheid"], duration: "~3 min" },
-      { num: 13, icon: "🎤", name: "Chant", cat: "Chant", block: "Chant", kids: ["Jasmine","Léa"], duration: "~3 min" },
-      { num: 14, icon: "🎤", name: "Chant", cat: "Chant", block: "Chant", kids: ["Maïmouna"], duration: "~3 min" },
-      { num: 15, icon: "🎤", name: "Chant", cat: "Chant", block: "Chant", kids: ["Céline"], duration: "~3 min" },
-      { num: 16, icon: "🎤", name: "Chant", cat: "Chant", block: "Chant", kids: ["Lina M."], duration: "~3 min" },
-      { num: 17, icon: "🎤", name: "Chant", cat: "Chant", block: "Chant", kids: ["Keren"], duration: "~3 min" },
-      { num: 18, icon: "🎤", name: "Chant", cat: "Chant", block: "Chant", kids: ["Charlotte"], duration: "~3 min" },
-      { num: 19, icon: "🎤", name: "Chant (à confirmer)", cat: "Chant", block: "Chant", kids: ["Jumana"], duration: "~3 min" },
-      { num: 20, icon: "⚽", name: "Jonglage", cat: "Jonglage", block: "Jonglage", kids: ["Courage","Eliam"], duration: "~3 min" },
-      { num: 21, icon: "💃", name: "Danse / gym — Lush Life", cat: "Danse", block: "Danse", kids: ["Alya","Elena","Elaïa","Kelyana"], duration: "~3 min" },
-      { num: 22, icon: "💃", name: "Danse — Gabriela", cat: "Danse", block: "Danse", kids: ["Giulia","Héloïse"], duration: "~3 min" },
-      { num: 23, icon: "💃", name: "Gozalo", cat: "Danse", block: "Danse", kids: ["Jasmine","Léa","Lina M."], duration: "~3 min" },
-      { num: 24, icon: "💃", name: "Séga", cat: "Danse", block: "Danse", kids: ["Lana"], duration: "~3 min" },
-      { num: 25, icon: "💃", name: "Danse", cat: "Danse", block: "Danse", kids: ["Héloïse","Juliette","Loïcia"], duration: "~3 min" },
-      { num: 26, icon: "💃", name: "Danse / scène de groupe", cat: "Danse", block: "Danse", kids: ["Kaylan","Elvin","Arthur","Alioun"], duration: "~3 min" },
-      { num: 27, icon: "💃", name: "Danse — Kakalika", cat: "Danse", block: "Danse", kids: ["Clara","Lydia","Divine","Ryma","Yara"], duration: "~3 min" },
-      { num: 28, icon: "💃", name: "Danse — 21 Reasons", cat: "Danse", block: "Danse", kids: ["Stella","Giulia"], duration: "~3 min" },
-      { num: 29, icon: "💃", name: "Afro / rondade / salto", cat: "Danse", block: "Danse", kids: ["Maïssa","Lina M."], duration: "~3 min" },
-      { num: 30, icon: "💃", name: "Duo (Brésil)", cat: "Danse", block: "Danse", kids: ["Lina S.","Maïssa"], duration: "~3 min" },
-      { num: 31, icon: "💃", name: "Danse", cat: "Danse", block: "Danse", kids: ["Grace"], duration: "~3 min" },
-      { num: 32, icon: "💃", name: "Solo afro", cat: "Danse", block: "Danse", kids: ["Mamy Kadiatou"], duration: "~3 min" },
-      { num: 33, icon: "🤸", name: "Gym groupe", cat: "Gymnastique", block: "Gymnastique", kids: ["Giulia","Stella","Héloïse"], duration: "~3 min" },
-      { num: 34, icon: "🤸", name: "Gym duo", cat: "Gymnastique", block: "Gymnastique", kids: ["Lina S.","Maïssa"], duration: "~3 min" },
-      { num: 35, icon: "🤸", name: "Rondades / flip / salto", cat: "Gymnastique", block: "Gymnastique", kids: ["Giulia","Stella","Héloïse","Eileen","Lya","Lina S.","Maïssa","Alya","Elena","Elaïa","Kelyana","Yara","Keren","Tania","Housna","Alicia","Lydia","Naima Nour","Mélina B.","Leana","Céline"], duration: "~5 min" },
-      { num: 36, icon: "🤸", name: "Solo gymnastique", cat: "Gymnastique", block: "Gymnastique", kids: ["Mélina B."], duration: "~3 min" },
-      { num: 37, icon: "🛼", name: "Roller", cat: "Roller", block: "Rollers", kids: ["Thalia F.","Naïma Nour","Melyna Adenet","Haby","Dina"], duration: "~5 à 7 min" }
-    ];
+    const iconByCat = {
+      "Projet Périscolaire": "🏫",
+      "Théâtre": "🎭",
+      "Chant": "🎤",
+      "Jonglage ballon de foot": "⚽",
+      "Danse": "💃",
+      "Gymnastique": "🤸",
+      "Roller": "🛼"
+    };
+    const blockFor = scene => {
+      if (scene.type === "school") return scene.name === "Maternelles de Virginie" ? "Maternelles" : "Autres projets périscolaires";
+      return scene.cat === "Roller" ? "Rollers" : scene.cat;
+    };
+    const scenes = computeSchedule().running.map(scene => ({
+      num: scene.num,
+      icon: iconByCat[scene.cat] || "🏫",
+      name: scene.name,
+      cat: scene.cat,
+      block: blockFor(scene),
+      kids: scene.kids,
+      duration: scene.duration || `~${sceneDurationMin(scene)} min`
+    }));
 
     const blockOrder = ["Maternelles", "Autres projets périscolaires", "Théâtre", "Chant", "Jonglage", "Danse", "Gymnastique", "Rollers"];
     const catClass = cat => ({

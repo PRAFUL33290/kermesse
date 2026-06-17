@@ -153,22 +153,20 @@ Cantine : 31 enfants
 18. Kaylan
 19. Kelyana
 20. Keren
-21. Lana
-22. Lea S.
-23. Lina M.
-24. Lina S.
-25. Loicia
-26. Lydia
-27. Maimouna
-28. Maissa
-29. Mamy Kadiatou
-30. Ryma
-31. Stella
+21. Lea S.
+22. Lina M.
+23. Lina S.
+24. Loicia
+25. Lydia
+26. Maimouna
+27. Maissa
+28. Mamy Kadiatou
+29. Ryma
+30. Stella
 
-  Chant (9 enfants)
+  Chant (8 enfants)
   - Celine
   - Charlotte
-  - Cheid
   - Jasmine
   - Jumana
   - Keren
@@ -176,7 +174,7 @@ Cantine : 31 enfants
   - Lina M.
   - Maimouna
 
-  Danse (25 enfants)
+  Danse (24 enfants)
   - Alioun
   - Alya
   - Arthur
@@ -192,7 +190,6 @@ Cantine : 31 enfants
   - Juliette
   - Kaylan
   - Kelyana
-  - Lana
   - Lea S.
   - Lina M.
   - Lina S.
@@ -209,7 +206,7 @@ Cantine : 7 enfants
 02. Dina
 03. Eliam
 04. Haby
-05. Melyna Adenet
+05. Mélyna A.
 06. Naima Nour
 07. Thalia F.
 
@@ -220,6 +217,6 @@ Cantine : 7 enfants
   Rollers (5 enfants)
   - Dina
   - Haby
-  - Melyna Adenet
+  - Mélyna A.
   - Naima Nour
   - Thalia F.
