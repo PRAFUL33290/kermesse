@@ -75,7 +75,7 @@ Cantine : 32 enfants
   - Orianne
   - Tania
 
-MARDI - Capoeira + Carnaval de Deborah
+MARDI - Capoeira + Carnaval
 Cantine : 23 enfants
 01. Anna
 02. Calie
@@ -116,7 +116,7 @@ Cantine : 23 enfants
   - Shyne
   - Tania
 
-  Carnaval de Deborah (13 enfants)
+  Carnaval (13 enfants)
   - Giulia
   - Jasmine
   - Kaycee

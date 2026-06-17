@@ -17,9 +17,9 @@
       "Capoeira",
       "Oh Mama Tetema + Freestyle",
       "Quinzaine de l'égalité",
-      "Carnaval de Deborah"
+      "Carnaval"
     ],
-    "detail": "Chaque enfant peut faire 2 scènes maximum dans les scènes libres. Les projets d'école (Capoeira, Oh Mama Tetema, Quinzaine de l'égalité, Carnaval de Deborah) ne comptent pas dans cette limite."
+    "detail": "Chaque enfant peut faire 2 scènes maximum dans les scènes libres. Les projets d'école (Capoeira, Oh Mama Tetema, Quinzaine de l'égalité, Carnaval) ne comptent pas dans cette limite."
   },
 
   "resumeChiffre": {
@@ -44,7 +44,7 @@
       "enfants": ["Clara", "Anna", "Lydia", "Ryma", "Calie", "Divine", "Keren", "Charlotte", "Orianne", "Shine", "Maimouna", "Grace", "Tania"]
     },
     {
-      "nom": "Carnaval de Deborah",
+      "nom": "Carnaval",
       "note": "Projet d'école",
       "nbEnfants": 1,
       "enfants": ["Deborah"]
@@ -166,7 +166,7 @@
         "couleur": "🟢",
         "passages": [
           { "n": 1, "scene": "Capoeira", "participants": "13 enfants", "categorie": "Projet d'école", "duree": "~5 min" },
-          { "n": 2, "scene": "Carnaval de Deborah", "participants": "Deborah (1)", "categorie": "Projet d'école", "duree": "~3 min" }
+          { "n": 2, "scene": "Carnaval", "participants": "Deborah (1)", "categorie": "Projet d'école", "duree": "~3 min" }
         ]
       },
       {

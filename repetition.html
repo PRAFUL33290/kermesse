@@ -30,7 +30,7 @@
     const sceneKids=scene=>scene.type==='school'?schoolKids(scene.source):categoryKids(scene.source);
     const schedule=[
       {day:'Lundi',scenes:[{label:"Quinzaine de l'égalité",source:"Quinzaine de l'égalité",type:'school'},{label:'Oh Mama Tetema',source:'Oh Mama Tetema + Freestyle',type:'school'}],note:'Journée projets périscolaires : langues, micro et chorégraphie.'},
-      {day:'Mardi',scenes:[{label:'Théâtre',source:'Théâtre',type:'category'},{label:'Chant - passage 1',source:'Chant',type:'category'},{label:'Chant - passage 2',source:'Chant',type:'category'},{label:'Carnaval de Deborah',source:'Carnaval de Deborah',type:'school'}],note:'Répétition théâtre, chant et Carnaval de Deborah. Les chants passent deux fois pour mieux mémoriser.'},
+      {day:'Mardi',scenes:[{label:'Théâtre',source:'Théâtre',type:'category'},{label:'Chant - passage 1',source:'Chant',type:'category'},{label:'Chant - passage 2',source:'Chant',type:'category'},{label:'Carnaval',source:'Carnaval',type:'school'}],note:'Répétition théâtre, chant et Carnaval. Les chants passent deux fois pour mieux mémoriser.'},
       {day:'Jeudi',scenes:[{label:'Danse',source:'Danse',type:'category'},{label:'Capoeira',source:'Capoeira',type:'school'}],note:'Répétition danse et Capoeira : espace dégagé, placements et enchaînements.'},
       {day:'Vendredi',scenes:[{label:'Jonglage ballon de foot',source:'Jonglage ballon de foot',type:'category'},{label:'Rollers',source:'Roller',type:'category'}],note:'Journée précision et déplacements : vérifier le sol et la sécurité.'}
     ].map(item=>{const scenes=item.scenes.map(scene=>({...scene,kids:sceneKids(scene)}));return {...item,scenes,canteenKids:uniqueNames(scenes.flatMap(scene=>scene.kids))};});

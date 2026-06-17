@@ -93,7 +93,7 @@ Giulia, Stella, Héloïse, Inès, Eileen, Lya, Lina S., Maïssa, Alya, Elena, El
 | ------ | ------------ | ---- |
 | Capoeira | Clara, Anna, Lydia, Ryma, Calie, Divine, Keren, Charlotte, Orianne, Shine, Maimouna, Grace, Tania | |
 | Oh Mama Tetema + Freestyle | Keren, Divine, Grace, Maimouna, Tania, Orianne | Chorégraphie |
-| Carnaval de Deborah | Deborah | Projet d'école |
+| Carnaval | Deborah | Projet d'école |
 | Quinzaine de l'égalité | Multi-langues | Nos artistes en herbe |
 
 ---

@@ -22,7 +22,7 @@ const SCHOOL_PROJECTS = [
     kids: ["Keren", "Divine", "Grace", "Maimouna", "Tania", "Orianne", "Husna", "Alicia", "Asma"]
   },
   {
-    name: "Carnaval de Deborah",
+    name: "Carnaval",
     note: "Projet d'école",
     kids: ["Kaycee","Zia","Jasmine","Giulia","Lydia","Lilly","Naya","Léa S.","Lina M.","Shyne","Mila S.","Keren"]
   },

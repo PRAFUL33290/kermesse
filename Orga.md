@@ -19,7 +19,7 @@
 ### 1. Capoeira — 13 enfants
 Clara, Anna, Lydia, Ryma, Calie, Divine, Keren, Charlotte, Orianne, Shine, Maimouna, Grace, Tania
 
-### 2. Carnaval de Deborah — 1 enfant
+### 2. Carnaval — 1 enfant
 Deborah
 
 ### 3. Oh Mama Tetema + Freestyle (Chorégraphie) — 6 enfants
@@ -135,7 +135,7 @@ L'ordre est pensé pour :
 | N° | Scène | Participants | Catégorie | Durée est. |
 |---|---|---|---|---|
 | **1** | 🏫 **Capoeira** | Clara, Anna, Lydia, Ryma, Calie, Divine, Keren, Charlotte, Orianne, Shine, Maimouna, Grace, Tania (13) | Projet d'école | ~5 min |
-| **2** | 🏫 **Carnaval de Deborah** | Deborah (1) | Projet d'école | ~3 min |
+| **2** | 🏫 **Carnaval** | Deborah (1) | Projet d'école | ~3 min |
 
 ---
 
