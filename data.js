@@ -26,7 +26,7 @@ const SCHOOL_PROJECTS = [
     note: "Scène maternelle uniquement — Déborah gère les enfants",
     noPickup: true,
     manager: "Déborah",
-    kids: ["Elly","Robin","Saliou","Sacha","Abass","Adam","Unaï","Yessin","Mayssan","Léna M.Z","Flore","Matia","Lya","Shaden","Jade","Maïa","Naya","Alice C.","Luna","Palmer","Louise C.","Meï"]
+    kids: ["Elly","Robin","Saliou","Sacha","Abass","Adam","Unaï","Yessin","Mayssan","Léna M.Z","Flore","Matia","Lya (maternelle)","Shaden","Jade","Maïa","Naya","Alice C.","Luna","Palmer","Louise C.","Meï"]
   },
   {
     name: "Quinzaine de l'égalité",
