@@ -305,6 +305,8 @@
     const totalPassages = S.totalScenes;
     const blockCount = S.categoryCount + 1;
     const estimatedDuration = "~2h20";
+    const totalScenesHorsProjets = S.children.reduce((n, child) => n + child.count, 0);
+    const averageScenesPerChild = S.childrenInFree ? (totalScenesHorsProjets / S.childrenInFree).toFixed(1).replace('.', ',') : '0';
     const palette = ["#2b6cb0", "#b7791f", "#2f855a", "#c53030", "#6b46c1", "#c05621", "#0f766e"];
     const categoryColor = name => ({
       "Projets périscolaires": "#0f766e",
@@ -328,7 +330,7 @@
     // ---- KPI cards ----
     const kpis = [
       { num: totalPassages,     label: "Passages au total", icon: "🎬", color: "accent-red"    },
-      { num: S.freeSceneCount,  label: "Scènes libres",     icon: "🎭", color: "accent-blue"   },
+      { num: averageScenesPerChild, label: "Moyenne par enfant", icon: "🎭", color: "accent-blue"   },
       { num: S.schoolCount,     label: "Projets ALSH",      icon: "🏫", color: "accent-green"  },
       { num: blockCount,        label: "Blocs",             icon: "🧩", color: "accent-yellow" },
       { num: S.uniqueChildren,  label: "Enfants impliqués", icon: "🎉", color: "accent-purple" },
@@ -367,7 +369,10 @@
         </div>
       </section>`;
     };
-    const sceneTypeItems = S.sceneTypeBreakdown.map(item => ({ ...item, color: categoryColor(item.name) }));
+    const sceneTypeItems = S.sceneTypeBreakdown.map(item => {
+      const name = item.name === "Scènes libres" ? "Hors projets périscolaires" : item.name;
+      return { ...item, name, color: categoryColor(name) };
+    });
     const topCategoryItems = S.perPassageCategory.map(c => ({ name: c.name, value: c.scenes, color: categoryColor(c.name) }));
     document.getElementById('visualCharts').innerHTML =
       chartCard("Répartition des passages", sceneTypeItems, totalPassages) +
@@ -396,7 +401,7 @@
     const totalKidsInCats = S.perPassageCategory.reduce((n, c) => n + c.kids, 0);
     const maxKids = Math.max(...S.perPassageCategory.map(c => c.kids));
     document.getElementById('totalKidsLabel').textContent =
-      `Total : ${S.uniqueChildren} enfant${S.uniqueChildren > 1 ? 's' : ''} uniques (${S.childrenInSchool} en ALSH, ${S.childrenInFree} en scènes libres)`;
+      `Total : ${S.uniqueChildren} enfant${S.uniqueChildren > 1 ? 's' : ''} uniques (${S.childrenInSchool} en ALSH, ${S.childrenInFree} hors projets périscolaires)`;
     document.getElementById('barKids').innerHTML = S.perPassageCategory.map(c => {
       const pct = totalKidsInCats ? Math.round(c.kids / totalKidsInCats * 100) : 0;
       const w   = maxKids ? (c.kids / maxKids * 100).toFixed(1) : 0;
@@ -432,7 +437,7 @@
     }).join('');
 
     document.getElementById('kidNote').textContent =
-      'Les numéros correspondent aux passages du déroulé complet. Les projets ALSH / périscolaires ne sont pas comptés dans la limite de 2 scènes libres. Note : certains prénoms ont des variantes regroupées automatiquement — à confirmer manuellement.';
+      'Les numéros correspondent aux passages du déroulé complet. Les projets ALSH / périscolaires ne sont pas comptés dans la limite de 2 scènes hors projets. Note : certains prénoms ont des variantes regroupées automatiquement — à confirmer manuellement.';
 
     // ---- Animation des barres ----
     requestAnimationFrame(() => {
