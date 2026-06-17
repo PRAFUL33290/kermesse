@@ -103,13 +103,13 @@ function computeSchedule() {
   const uniqueKids = list => [...new Map(list.map(k => [normKey(canonical(k)), canonical(k)])).values()].sort((a, b) => a.localeCompare(b, "fr", { sensitivity: "base" }));
   const schoolScenes = SCHOOL_PROJECTS.map((p, i) => ({
     num: i + 1, type: "school", cat: "Projet Périscolaire", project: p.name,
-    name: p.name, languages: !!p.languages,
+    name: p.name, note: p.note || "", languages: !!p.languages,
     kids: uniqueKids(p.kids ? p.kids : p.languages.flatMap(l => l.kids))
   }));
   let n = schoolScenes.length;
   const freeScenes = FREE_CATEGORIES.flatMap(cat => cat.scenes.map(s => ({
     num: ++n, type: "free", cat: cat.name, name: s.scene,
-    kids: uniqueKids(s.who), duration: s.duration || ""
+    note: s.note || "", kids: uniqueKids(s.who), duration: s.duration || ""
   })));
   const running = [...schoolScenes, ...freeScenes];
   let cursor = SHOW_START_MIN;
