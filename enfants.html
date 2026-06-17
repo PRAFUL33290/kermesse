@@ -25,7 +25,7 @@
   <script src="data.js"></script>
   <script>
     const toggle=document.getElementById('navToggle');const links=document.getElementById('navLinks');toggle.addEventListener('click',()=>{const open=links.classList.toggle('open');toggle.setAttribute('aria-expanded',open);});
-    const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));const escAttr=s=>esc(s).replace(/"/g,'&quot;');const childName=s=>canonical(s).trim().toLocaleLowerCase('fr-FR').replace(/(^|[\s'’-])(\p{L})/gu,(m,p,l)=>p+l.toLocaleUpperCase('fr-FR'));
+    const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));const escAttr=s=>esc(s).replace(/"/g,'&quot;');const childName=s=>canonical(s).trim().toLocaleLowerCase('fr-FR').replace(/(^|[\s'’-])(\p{L})/gu,(m,p,l)=>p+l.toLocaleUpperCase('fr-FR')).replace(/\bCp\b/g,'CP').replace(/\bCm2\b/g,'CM2');
     const schoolNums=new Map(SCHOOL_PROJECTS.map((p,i)=>[p.name,i+1]));
     const kids=new Map();const getKid=raw=>{const disp=childName(raw);const key=normKey(disp);if(!kids.has(key))kids.set(key,{display:disp,key,free:[],school:[]});return kids.get(key);};
     let passageNum=SCHOOL_PROJECTS.length;FREE_CATEGORIES.forEach(cat=>{cat.scenes.forEach(s=>{passageNum+=1;const solo=s.who.length===1;s.who.forEach(w=>{getKid(w).free.push({num:passageNum,cat:cat.name,icon:cat.icon,scene:s.scene,solo,who:s.who});});});});
