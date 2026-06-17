@@ -1,1 +1,3 @@
-Les enfants ont le droit de faire 2 scènes max. Mis a part si l'enfant fait Capoeira, Oh mama tetema et Quinzaine de l'égalité. Ils ont le droit car ce sont des projets d'école. Pour le reste, c'est 2 scènes maximum.
+Les projets d'école sont affichés séparément des scènes libres : Capoeira, Oh Mama Tetema, Carnaval maternelle, Maternelles de Virginie et Quinzaine de l'égalité.
+
+Il n'y a plus de limite de passages.

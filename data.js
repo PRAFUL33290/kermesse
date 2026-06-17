@@ -3,7 +3,7 @@
    Source de données unique partagée par index.html et stats.html
    ============================================================ */
 
-/* Projets d'école — ne comptent PAS dans la limite de 2 scènes */
+/* Projets d'école — affichés séparément des scènes libres */
 const SCHOOL_PROJECTS = [
   {
     name: "Maternelles de Virginie",
@@ -49,7 +49,7 @@ const SCHOOL_PROJECTS = [
   }
 ];
 
-/* Scènes libres — comptent dans la limite de 2 scènes max par enfant */
+/* Scènes libres */
 /* Ordre de ramassage : Théâtre → Chant → Jonglage → Danse → Gym → Roller */
 const FREE_CATEGORIES = [
   { name: "Théâtre", icon: "theatre", scenes: [ { who: ["Lilly","Shyne"], scene: "Les Martiens — bruit de moteur + musique" }, { who: ["Ryma","Clara"], scene: "Mortelle Adèle" }, { who: ["Charlotte"], scene: "Théâtre" }, { who: ["Mélina B.","Lya"], scene: "Théâtre" }, { who: ["Eileen","Léana","Lina M."], scene: "Théâtre — APC mardi/jeudi avec Eileen" }, { who: ["Céline","Ibrahim","Emy"], scene: "Théâtre" }, { who: ["Souleyman","Juliette","Timéo","Loïcia"], scene: "Théâtre à 4" } ] },

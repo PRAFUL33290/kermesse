@@ -14,7 +14,7 @@
 
 ---
 
-## 🏫 Projets d'école (ne comptent pas dans la limite des 2 scènes)
+## 🏫 Projets d'école (séparés des scènes libres)
 
 ### 1. Capoeira — 13 enfants
 Clara, Anna, Lydia, Ryma, Calie, Divine, Keren, Charlotte, Orianne, Shine, Maimouna, Grace, Tania
