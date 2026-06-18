@@ -79,7 +79,6 @@
     ],
     "Danse": [
       { "participants": ["Kaylan", "Elvin", "Arthur", "Alioun"], "prestation": "Astronomia" },
-      { "participants": ["Clara"], "prestation": "Thriller" },
       { "participants": ["Jasmine", "Léa S."], "prestation": "Gozalo" },
       { "participants": ["Lydia", "Yara"], "prestation": "Pilé" },
       { "participants": ["Mamy Kadiatou", "Lina S.", "Maïssa"], "prestation": "Samba du Brésil" },

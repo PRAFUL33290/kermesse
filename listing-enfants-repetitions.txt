@@ -109,7 +109,6 @@ Cantine : enfants a prevoir selon les scenes ci-dessous
   - Alya
   - Arthur
   - Camille
-  - Clara
   - Elaia
   - Elenna
   - Elvin
