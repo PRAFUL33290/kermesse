@@ -101,7 +101,7 @@ Keren, Divine, Grace, Maimouna, Tania, Orianne
 |---|---|---|---|
 | 1 | Giulia | Roller | 1 |
 | 2 | Mélyna A. | Roller | 1 |
-| 3 | Haby | Roller | 1 |
+| 3 | Haby Hawa | Roller | 1 |
 | 4 | Thalia F. | Roller | 1 |
 
 ### ⚽ Jonglage ballon de foot — 1 scène
@@ -180,7 +180,7 @@ L'ordre est pensé pour :
 | **21** | 💃 Danse / scène de groupe | Kaylan, Elvin, Arthur, Alioun | Danse | ~3 min |
 | **22** | 🛼 Roller | Giulia | Roller | ~3 min |
 | **23** | 🛼 Roller | Mélyna A. | Roller | ~3 min |
-| **24** | 🛼 Roller | Haby | Roller | ~3 min |
+| **24** | 🛼 Roller | Haby Hawa | Roller | ~3 min |
 | **25** | 🛼 Roller | Thalia F. | Roller | ~3 min |
 
 ---

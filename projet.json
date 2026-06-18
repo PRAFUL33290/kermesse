@@ -16,7 +16,7 @@
     "Lydia et Yara dansent sur Pilé.",
     "Mamy Kadiatou, Lina S. et Maïssa font Samba du Brésil ; le solo de Mamy Kadiatou est supprimé.",
     "Héloïse est ajoutée aux passages concernés.",
-    "Haby, Hawa et Thalia F. sont ajoutées à la scène de gymnastique collective.",
+    "Haby Hawa et Thalia F. sont ajoutées à la scène de gymnastique collective.",
     "Charlotte est supprimée du chant et ajoutée en magie.",
     "Grace est supprimée de son solo danse.",
     "Camille, Héloïse, Juliette et Loïcia dansent sur 21 Reasons.",
@@ -92,10 +92,10 @@
       { "participants": ["Alya CM2", "Elaïa"], "prestation": "GRS — Taki Taki" },
       { "participants": ["Mélina B."], "prestation": "Solo gymnastique" },
       { "participants": ["Lina S.", "Maïssa"], "prestation": "Gym duo" },
-      { "participants": ["Giulia", "Stella", "Héloïse", "Eileen", "Lya", "Lina S.", "Maïssa", "Alya CP", "Alya CM2", "Elenna", "Elaïa", "Kelyana", "Yara", "Keren", "Tania", "Alicia", "Lydia", "Naima Nour", "Mélina B.", "Mélyna A.", "Léana", "Céline", "Haby", "Hawa", "Thalia F."], "prestation": "Rondades / flip / salto arrière (toutes ensemble)" }
+      { "participants": ["Giulia", "Stella", "Héloïse", "Eileen", "Lya", "Lina S.", "Maïssa", "Alya CP", "Alya CM2", "Elenna", "Elaïa", "Kelyana", "Yara", "Keren", "Tania", "Alicia", "Lydia", "Naima Nour", "Mélina B.", "Mélyna A.", "Léana", "Céline", "Haby Hawa", "Thalia F."], "prestation": "Rondades / flip / salto arrière (toutes ensemble)" }
     ],
     "Roller": [
-      { "participants": ["Thalia F.", "Naïma Nour", "Mélyna A.", "Haby", "Dina"], "prestation": "Roller" }
+      { "participants": ["Thalia F.", "Naïma Nour", "Mélyna A.", "Haby Hawa", "Dina"], "prestation": "Roller" }
     ],
     "Magie": [
       { "participants": ["Charlotte"], "prestation": "Magie" }

@@ -72,7 +72,7 @@ Giulia, Stella, Héloïse, Inès, Eileen, Lya, Lina S., Maïssa, Alya, Elena, El
 | ------------- | ---------- |
 | Giulia        | Roller     |
 | Mélyna A.     | Roller     |
-| Haby          | Roller     |
+| Haby Hawa     | Roller     |
 | Thalia F.     | Roller     |
 
 ---
