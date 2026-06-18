@@ -124,9 +124,17 @@
       --cat-main: #2b6cb0;
       --cat-alt: #4299e1;
     }
+    .cat-magie {
+      --cat-main: #7c3aed;
+      --cat-alt: #f472b6;
+    }
     .cat-chant {
       --cat-main: #b7791f;
       --cat-alt: #ecc94b;
+    }
+    .cat-chant-danse {
+      --cat-main: #be185d;
+      --cat-alt: #f59e0b;
     }
     .cat-jonglage {
       --cat-main: #2f855a;
@@ -230,7 +238,9 @@
     const iconByCat = {
       "Projet Périscolaire": "🏫",
       "Théâtre": "🎭",
+      "Magie": "🪄",
       "Chant": "🎤",
+      "Chant / Danse": "🎤",
       "Jonglage ballon de foot": "⚽",
       "Danse": "💃",
       "Gymnastique": "🤸",
@@ -250,11 +260,13 @@
       duration: scene.duration || `~${sceneDurationMin(scene)} min`
     }));
 
-    const blockOrder = ["Maternelles", "Autres projets périscolaires", "Théâtre", "Chant", "Jonglage", "Danse", "Gymnastique", "Rollers"];
+    const blockOrder = ["Maternelles", "Autres projets périscolaires", "Théâtre", "Magie", "Chant", "Chant / Danse", "Jonglage", "Danse", "Gymnastique", "Rollers"];
     const catClass = cat => ({
       "Projet Périscolaire": "cat-school",
       "Théâtre": "cat-theatre",
+      "Magie": "cat-magie",
       "Chant": "cat-chant",
+      "Chant / Danse": "cat-chant-danse",
       "Jonglage": "cat-jonglage",
       "Danse": "cat-danse",
       "Gymnastique": "cat-gym",

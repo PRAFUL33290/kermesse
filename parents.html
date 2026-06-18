@@ -77,14 +77,16 @@
   <script>
     const toggle=document.getElementById('navToggle'); const links=document.getElementById('navLinks'); toggle.addEventListener('click',()=>{const open=links.classList.toggle('open'); toggle.setAttribute('aria-expanded',open);});
     const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
-    const schoolTimes=['18h00','18h05','18h10','18h15','18h20'];
-    const freeTimes=['18h35','18h45','18h55','19h00','19h05','19h15'];
+    const schedule=computeSchedule();
+    const schoolTimes=SCHOOL_PROJECTS.map(p=>(schedule.running.find(s=>s.project===p.name)||{}).time||'');
+    const freeTimes=FREE_CATEGORIES.map(c=>schedule.blockStart.get(c.name)||'');
     const palette=['#b8860b','#2b6cb0','#2f855a','#c05621','#805ad5','#c53030','#3182ce','#dd6b20'];
     const colorFor=i=>palette[i%palette.length];
     const kidsOfProject=p=>p.languages?p.languages.map(l=>`${l.flag} ${esc(l.country)} — ${esc(l.lang)} : ${l.kids.map(esc).join(', ')}`).join('<br>'):p.kids.map(esc).join(', ');
+    const iconLabel=icon=>({theatre:'🎭',magic:'🪄',mic:'🎤',football:'⚽',dance:'💃',gym:'🤸',roller:'🛼'}[icon]||icon);
     const row=(color,icon,name,content,time)=>`<tr class="scene-row" style="--row:${color};--row-bg:${color}14"><td><div class="cat-block"><span class="cat-icon">${icon}</span><span class="cat-name">${name}</span></div></td><td><div class="scene-content">${content}</div></td><td><div class="time-cell"><span class="time">vers ${time}</span><span class="small">horaire approximatif</span></div></td></tr>`;
     document.getElementById('schoolScenes').innerHTML=`<div class="table-wrap"><table class="scene-table"><thead><tr><th>Catégorie</th><th>Enfants / groupes</th><th>Horaire</th></tr></thead><tbody>${SCHOOL_PROJECTS.map((p,i)=>row(colorFor(i),'🎓',esc(p.name),`<div class="kids">${kidsOfProject(p)}</div><div class="scene-name">${esc(p.note||'Projet Périscolaire')}</div>`,schoolTimes[i]||'18h25')).join('')}</tbody></table></div>`;
-    document.getElementById('freeScenes').innerHTML=`<div class="table-wrap"><table class="scene-table"><thead><tr><th>Catégorie</th><th>Enfants / scènes</th><th>Horaire</th></tr></thead><tbody>${FREE_CATEGORIES.map((c,i)=>row(colorFor(i+2),c.icon,esc(c.name),c.scenes.map(s=>`<div class="scene-item"><div class="kids">${s.who.map(esc).join(' + ')}</div><div class="scene-name">${esc(s.scene)}${s.duration ? ` · ${esc(s.duration)}` : ''}</div></div>`).join(''),freeTimes[i]||'19h20')).join('')}</tbody></table></div>`;
+    document.getElementById('freeScenes').innerHTML=`<div class="table-wrap"><table class="scene-table"><thead><tr><th>Catégorie</th><th>Enfants / scènes</th><th>Horaire</th></tr></thead><tbody>${FREE_CATEGORIES.map((c,i)=>row(colorFor(i+2),iconLabel(c.icon),esc(c.name),c.scenes.map(s=>`<div class="scene-item"><div class="kids">${s.who.map(esc).join(' + ')}</div><div class="scene-name">${esc(s.scene)}${s.duration ? ` · ${esc(s.duration)}` : ''}</div></div>`).join(''),freeTimes[i]||'19h20')).join('')}</tbody></table></div>`;
   </script>
 </body>
 </html>

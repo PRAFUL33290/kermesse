@@ -43,7 +43,9 @@
     .stay-note strong { display:block; margin-bottom:2px; }
     .handoff-card.school .handoff-time { background:linear-gradient(135deg,var(--gold),#d4a017); }
     .handoff-card.theatre .handoff-time { background:linear-gradient(135deg,#2b6cb0,#4299e1); }
+    .handoff-card.magie .handoff-time { background:linear-gradient(135deg,#7c3aed,#f472b6); }
     .handoff-card.chant .handoff-time { background:linear-gradient(135deg,#b7791f,#ecc94b); }
+    .handoff-card.chant-danse .handoff-time { background:linear-gradient(135deg,#be185d,#f59e0b); }
     .handoff-card.jonglage .handoff-time { background:linear-gradient(135deg,#2f855a,#48bb78); }
     .handoff-card.danse .handoff-time { background:linear-gradient(135deg,#c53030,#fc8181); }
     .handoff-card.gym .handoff-time { background:linear-gradient(135deg,#6b46c1,#b794f4); }
@@ -83,7 +85,7 @@
       Si un enfant ne souhaite finalement plus participer, passe à la scène suivante sans insister.
       Pendant ce temps, continue à faire venir les autres enfants prévus.<br><br>
       Les maternelles de Virginie ne sont pas à prendre en charge par Nico : Virginie les accompagne.
-      La Capoeira est affichée comme repère pour Nico, sans cases à cocher.
+      La Capoeira est à cocher comme les autres groupes pris en charge par Nico.
       Le carnaval maternelle passe juste après les maternelles et reste sans ramassage Nico : Déborah s'en charge.<br><br>
       Les enfants restent sous la responsabilité de leurs parents pendant toute la durée de l'événement.
     </div>
@@ -116,9 +118,11 @@
 
     const handoffBlocks=[
       {cls:'school',time:bt('maternelles'),title:'Maternelles de Virginie',note:"Virginie s'en occupe : Nico ne les ramasse pas.",noChecklist:true,projects:[{name:'Maternelles de Virginie',kids:projectKids('Maternelles de Virginie'),scenes:projectScenes('Maternelles de Virginie'),noPickup:true,manager:'Virginie'}]},
-      {cls:'school',time:bt('projets'),title:'Autres projets périscolaires',note:'Projets dans l’ordre du déroulé. Carnaval géré par Déborah ; Capoeira sert de repère sans cases.',projects:[{name:'Carnaval',kids:projectKids('Carnaval'),scenes:projectScenes('Carnaval'),noPickup:true,manager:'Déborah'},{name:'Capoeira',kids:projectKids('Capoeira'),scenes:projectScenes('Capoeira'),referenceOnly:true},{name:'Oh Mama Tetema + Freestyle',kids:projectKids('Oh Mama Tetema + Freestyle'),scenes:projectScenes('Oh Mama Tetema + Freestyle')},{name:"Quinzaine de l'égalité",kids:quinzaineKids,scenes:projectScenes("Quinzaine de l'égalité")}]},
+      {cls:'school',time:bt('projets'),title:'Autres projets périscolaires',note:'Projets dans l’ordre du déroulé. Carnaval géré par Déborah ; Capoeira est à cocher par Nico.',projects:[{name:'Carnaval',kids:projectKids('Carnaval'),scenes:projectScenes('Carnaval'),noPickup:true,manager:'Déborah'},{name:'Capoeira',kids:projectKids('Capoeira'),scenes:projectScenes('Capoeira')},{name:'Oh Mama Tetema + Freestyle',kids:projectKids('Oh Mama Tetema + Freestyle'),scenes:projectScenes('Oh Mama Tetema + Freestyle')},{name:"Quinzaine de l'égalité",kids:quinzaineKids,scenes:projectScenes("Quinzaine de l'égalité")}]},
       {cls:'theatre',time:bt('Théâtre'),title:'Théâtre',note:'Après les projets, rassembler tous les groupes théâtre.',kids:categoryKids('Théâtre'),scenes:categoryScenes('Théâtre')},
-      {cls:'chant',time:bt('Chant'),title:'Chant',note:'Les chanteurs passent après le théâtre. Bloc d’une dizaine d’enfants (~30 min).',kids:categoryKids('Chant'),scenes:categoryScenes('Chant')},
+      {cls:'magie',time:bt('Magie'),title:'Magie',note:'Charlotte passe juste après le théâtre.',kids:categoryKids('Magie'),scenes:categoryScenes('Magie')},
+      {cls:'chant',time:bt('Chant'),title:'Chant',note:'Les chanteurs passent après la magie. Bloc d’une dizaine d’enfants (~30 min).',kids:categoryKids('Chant'),scenes:categoryScenes('Chant')},
+      {cls:'chant-danse',time:bt('Chant / Danse'),title:'Chant / Danse',note:'Bloc exceptionnel pour Parisienne : Céline et Emy chantent ; Jasmine et Léa S. dansent.',kids:categoryKids('Chant / Danse'),scenes:categoryScenes('Chant / Danse')},
       {cls:'jonglage',time:bt('Jonglage ballon de foot'),title:'Jonglage',note:'Petit bloc juste avant la danse.',kids:categoryKids('Jonglage ballon de foot'),scenes:categoryScenes('Jonglage ballon de foot')},
       {cls:'danse',time:bt('Danse'),title:'Danse',note:'Gros bloc : prévoir ~35 à 40 min.',kids:categoryKids('Danse'),scenes:categoryScenes('Danse')},
       {cls:'gym',time:bt('Gymnastique'),title:'Gymnastique',note:'À amener en bloc après la danse.',kids:categoryKids('Gymnastique'),scenes:categoryScenes('Gymnastique')},
