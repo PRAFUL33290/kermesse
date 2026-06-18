@@ -43,11 +43,9 @@
       if(s.cat==='Danse' && kids==='Mamy Kadiatou') return "Je ne sais pas si elle le fait toujours.";
       if(s.cat==='Danse' && kids==='Divine · Lydia') return "Je ne sais pas si elles le font toujours.";
       if(s.cat==='Danse' && kids==='Lina S. · Maïssa') return "Il me faut la musique.";
-      if(s.cat==='Danse' && kids==='Héloïse · Juliette · Loïcia') return "Je ne sais pas sur quelle musique.";
       if(s.cat==='Gymnastique' && kids==='Mélina B.' && s.name==='Solo gymnastique') return 'Je lui ai mis "Dai dai".';
       if(s.cat==='Gymnastique' && kids==='Giulia · Héloïse · Stella') return "Je ne sais pas sur quelle musique.";
       if(s.cat==='Gymnastique' && kids==='Lina S. · Maïssa') return "Je ne sais pas sur quelle musique.";
-      if(s.cat==='Gymnastique' && kids==='Camille · Héloïse') return "Je ne sais pas sur quelle musique.";
       return "";
     };
     const running=schedule.running.filter(s=>!hiddenFromOrga(s)).map((s,index)=>({...s,num:index+1,duration:s.duration||`~${sceneDurationMin(s)} min`,orgaNote:orgaNote(s)}));

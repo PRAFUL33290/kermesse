@@ -7,7 +7,7 @@ const SCHOOL_PROJECTS = [
   {
     name: "Maternelles de Virginie",
     note: "Les pouvoirs des fleurs — Les Kids United",
-    kids: ["Lina", "Tiamo", "Nael (maternelle)", "Ambre", "Eva", "Anaelle", "Charlotte (maternelle)", "Maylis", "Emmy (maternelle)", "Adrien maternelle", "Isaure", "Alma", "Raphaël", "Léa", "Charlie", "Andréa", "Appoline"]
+    kids: ["Lina maternelle", "Tiamo", "Nael (maternelle)", "Ambre", "Eva", "Anaelle", "Charlotte (maternelle)", "Maylis", "Emmy (maternelle)", "Adrien maternelle", "Isaure", "Alma", "Raphaël", "Léa", "Charlie", "Andréa", "Appoline"]
   },
   {
     name: "Carnaval",
@@ -17,9 +17,9 @@ const SCHOOL_PROJECTS = [
     kids: ["Elly","Robin","Saliou","Sacha","Abass","Adam","Unaï","Yessin","Mayssan","Léna M.Z","Flore","Matia","Lya (maternelle)","Shaden","Jade","Maïa","Naya","Alice C.","Luna","Palmer","Louise C.","Meï"]
   },
   {
-    name: "Capoeira",
+    name: "Annonce Capoeira",
     note: "Le spectacle se déroulera le 25 Juin",
-    infoOnly: true,
+    duration: "~30 sec",
     noPickup: true,
     kids: []
   },
@@ -54,11 +54,11 @@ const SCHOOL_PROJECTS = [
 const FREE_CATEGORIES = [
   { name: "Théâtre", icon: "theatre", scenes: [ { who: ["Nolan","Adrien élémentaire"], scene: "Minecraft" }, { who: ["Ryma","Clara"], scene: "Mortelle Adèle" }, { who: ["Charlotte"], scene: "Théâtre" }, { who: ["Souleyman","Timéo"], scene: "Théâtre à 2" }, { who: ["Lilly","Shyne"], scene: "Les Martiens — bruit de moteur + musique" }, { who: ["Mélina B.","Lya"], scene: "Théâtre" }, { who: ["Eileen","Léana","Lina M."], scene: "Théâtre — APC mardi/jeudi avec Eileen" }, { who: ["Céline","Emy O."], scene: "Théâtre" } ] },
   { name: "Magie", icon: "magic", scenes: [ { who: ["Charlotte"], scene: "Tour de magie" } ] },
-  { name: "Chant", icon: "mic", scenes: [ { who: ["Ibrahim","Lilly"], scene: "Ciel - Maitre Gims" }, { who: ["Mélina B.","Lya"], scene: "Ninao - Maitre Gims" }, { who: ["Eileen","Léana"], scene: "Je veux m’envoler" }, { who: ["Lina M."], scene: "Appelle ta copine - Maitre Gims" }, { who: ["Céline","Emy O."], scene: "Parisienne - Maitre Gims" }, { who: ["Keren"], scene: "Chant" }, { who: ["Maïmouna"], scene: "Chant" }, { who: ["Jumana"], scene: "À confirmer" }, { who: ["Youga"], scene: "Rnboi - Mon bébé" }, { who: ["Jasmine","Léa S."], scene: "Lush Life" } ] },
-  { name: "Chant / Danse", icon: "mic", scenes: [ { who: ["Céline","Emy O.","Jasmine","Léa S."], scene: "Parisienne - Maitre Gims — chant : Céline + Emy O. / danse : Jasmine + Léa S." } ] },
+  { name: "Chant", icon: "mic", scenes: [ { who: ["Ibrahim","Lilly"], scene: "Ciel - Maitre Gims" }, { who: ["Mélina B.","Lya"], scene: "Ninao - Maitre Gims" }, { who: ["Eileen","Léana"], scene: "Je veux m’envoler" }, { who: ["Lina M."], scene: "Appelle ta copine - Maitre Gims" }, { who: ["Keren"], scene: "Chant" }, { who: ["Youga"], scene: "Rnboi - Mon bébé" }, { who: ["Jasmine","Léa S."], scene: "Lush Life" } ] },
+  { name: "Chant / Danse", icon: "mic", scenes: [ { who: ["Céline","Emy O.","Jasmine","Léa S."], scene: "Parisienne - Maître Gims — chant : Céline + Emy O. / danse : Jasmine + Léa S." } ] },
   { name: "Jonglage ballon de foot", icon: "football", scenes: [ { who: ["Courage","Eliam"], scene: "Jonglage" } ] },
   { name: "Danse", icon: "dance", scenes: [ { who: ["Kaylan","Elvin","Arthur","Alioun"], scene: "Astronomia", duration: "~3 min" }, { who: ["Clara"], scene: "Thriller", duration: "~1 min" }, { who: ["Jasmine","Léa S."], scene: "Gozalo", duration: "~3 min" }, { who: ["Lydia","Yara"], scene: "Pilé", duration: "~3 min" }, { who: ["Mamy Kadiatou","Lina S.","Maïssa"], scene: "Samba du Brésil", duration: "~3 min" }, { who: ["Alya CM2","Elenna","Kelyana"], scene: "Spa", duration: "~2 à 3 min" }, { who: ["Alya CM2","Elenna","Elaïa","Kelyana"], scene: "Danse / gym — Lush Life", duration: "~3 min max" }, { who: ["Giulia","Heloise"], scene: "Gabriela", duration: "à confirmer" }, { who: ["Stella","Giulia","Heloise"], scene: "21 Reasons", duration: "à confirmer" }, { who: ["Camille","Heloise","Juliette","Loicia"], scene: "21 Reasons", duration: "à confirmer" } ] },
-  { name: "Gymnastique", icon: "gym", scenes: [ { who: ["Alya CM2","Elaïa"], scene: "GRS — Taki Taki", duration: "~3 min" }, { who: ["Mélina B."], scene: "Solo gymnastique" }, { who: ["Giulia","Stella","Héloïse","Eileen","Lya","Lina S.","Maïssa","Alya CP","Alya CM2","Elenna","Elaïa","Kelyana","Yara","Keren","Tania","Alicia","Lydia","Naima Nour","Mélina B.","Mélyna A.","Léana","Céline","Idrissa","Haby","Hawa","Thalia F."], scene: "Rondades / flip / salto arrière (toutes ensemble)" }, { who: ["Giulia","Stella","Héloïse"], scene: "Gym groupe" }, { who: ["Lina S.","Maïssa"], scene: "Gym duo" }, { who: ["Camille","Héloïse"], scene: "No batidao (version instrumentale)" } ] },
+  { name: "Gymnastique", icon: "gym", scenes: [ { who: ["Alya CM2","Elaïa"], scene: "GRS — Taki Taki", duration: "~3 min" }, { who: ["Mélina B."], scene: "Solo gymnastique" }, { who: ["Giulia","Stella","Héloïse","Eileen","Lya","Lina S.","Maïssa","Alya CP","Alya CM2","Elenna","Elaïa","Kelyana","Yara","Keren","Tania","Alicia","Lydia","Naima Nour","Mélina B.","Mélyna A.","Léana","Céline","Idrissa","Haby","Hawa","Thalia F."], scene: "Rondades / flip / salto arrière (toutes ensemble)" }, { who: ["Giulia","Stella","Héloïse"], scene: "Gym groupe" }, { who: ["Lina S.","Maïssa"], scene: "Gym duo" }, { who: ["Camille","Héloïse"], scene: "No batidao (version instrumentale)", duration: "~3 min" } ] },
   { name: "Roller", icon: "roller", scenes: [ { who: ["Thalia F.","Naïma Nour","Mélyna A.","Haby","Dina"], scene: "Roller — Thalia entre seule puis sort ; Naïma Nour, Mélyna A. et Haby ensemble puis sortent ; Dina finit", duration: "~5 à 7 min" } ] }
 ];
 
@@ -87,12 +87,16 @@ function computeStats() {
 }
 
 const SHOW_START_MIN = 17 * 60 + 45;
-function fmtTime(min) { return `${String(Math.floor(min / 60)).padStart(2, "0")}h${String(min % 60).padStart(2, "0")}`; }
+function fmtTime(min) {
+  const rounded = Math.round(min);
+  return `${String(Math.floor(rounded / 60)).padStart(2, "0")}h${String(rounded % 60).padStart(2, "0")}`;
+}
 
 /* Durée (minutes) d'une scène : projet à langues 8, autre projet école 5,
    scène libre « 5 à 7 min » (roller) 6, autre scène libre 3 */
 function sceneDurationMin(scene) {
   if (scene.infoOnly) return 0;
+  if (scene.duration && scene.duration.includes("30 sec")) return 0.5;
   if (scene.type === "school") return scene.languages ? 8 : 5;
   return (scene.duration && scene.duration.includes("5 à 7")) ? 6 : 3;
 }
@@ -103,7 +107,7 @@ function computeSchedule() {
   const uniqueKids = list => [...new Map(list.map(k => [normKey(canonical(k)), canonical(k)])).values()].sort((a, b) => a.localeCompare(b, "fr", { sensitivity: "base" }));
   const schoolScenes = SCHOOL_PROJECTS.map((p, i) => ({
     num: i + 1, type: "school", cat: "Projet Périscolaire", project: p.name,
-    name: p.name, note: p.note || "", languages: !!p.languages, infoOnly: !!p.infoOnly,
+    name: p.name, note: p.note || "", languages: !!p.languages, infoOnly: !!p.infoOnly, duration: p.duration || "",
     kids: uniqueKids(p.kids ? p.kids : p.languages.flatMap(l => l.kids))
   }));
   let n = schoolScenes.length;
