@@ -58,21 +58,20 @@ Keren, Divine, Grace, Maimouna, Tania, Orianne
 | 5 | Maïssa, Lina M. | Afro / rondade / salto | 2 |
 | 6 | Grace | Danse | 1 |
 | 7 | Lina S., Maïssa | Duo (Brésil) | 2 |
-| 8 | Giulia, Héloïse | Gabriela | 2 |
+| 8 | Giulia, Héloïse, Stella | Gabriela | 3 |
 | 9 | Stella, Giulia | 21 Reasons | 2 |
 | 10 | Héloïse, Juliette, Loïcia | Danse | 3 |
 
-### 🤸 Gymnastique — 4 passages
+### 🤸 Gymnastique — 3 passages
 
 > **Principe :** toutes les gymnastes passent ensemble pour les **rondades / flip / salto arrière**.
-> En plus, 3 sous-groupes font un passage séparé.
+> En plus, 2 sous-groupes font un passage séparé.
 
 | # | Participants | Prestation | Nb |
 |---|---|---|---|
 | 1 | Giulia, Stella, Héloïse, Inès, Eileen, Lya, Lina S., Maïssa, Alya, Elena, Elaïa, Kelyana, Yara, Keren, Tania, Housna, Alicia, Lydia, Naima Nour, Mélina B., Mélyna A., Leana, Céline | Rondades / flip / salto arrière (toutes ensemble) | 23 |
-| 2 | Giulia, Stella, Héloïse | Gym groupe | 3 |
-| 3 | Inès, Eileen, Lya | Gym groupe | 3 |
-| 4 | Lina S., Maïssa | Gym duo | 2 |
+| 2 | Inès, Eileen, Lya | Gym groupe | 3 |
+| 3 | Lina S., Maïssa | Gym duo | 2 |
 
 > Note : Alya + Elena + Elaïa + Kelyana font une scène "Danse / gym" propre (Lush Life), comptée en Danse, + participent aux rondades.
 
@@ -144,7 +143,7 @@ L'ordre est pensé pour :
 | N° | Scène | Participants | Catégorie | Durée est. |
 |---|---|---|---|---|
 | **3** | 💃 Danse / gym — Lush Life | Alya, Elena, Elaïa, Kelyana | Danse | ~3 min |
-| **4** | 💃 Danse — Gabriela | Giulia, Héloïse | Danse | ~3 min |
+| **4** | 💃 Danse — Gabriela | Giulia, Héloïse, Stella | Danse | ~3 min |
 | **6** | 💃 Gozalo | Jasmine, Léa, Lina M. | Danse | ~3 min |
 | **7** | 🪄 Holla Up | Charlotte | Magie | ~3 min |
 
@@ -168,10 +167,9 @@ L'ordre est pensé pour :
 
 | N° | Scène | Participants | Catégorie | Durée est. |
 |---|---|---|---|---|
-| **16** | 🤸 Gym groupe | Giulia, Stella, Héloïse | Gym (sous-groupe) | ~3 min |
-| **17** | 🤸 Gym groupe | Inès, Eileen, Lya | Gym (sous-groupe) | ~3 min |
-| **18** | 🤸 Gym duo | Lina S., Maïssa | Gym (sous-groupe) | ~3 min |
-| **19** | 🤸 **Rondades / flip / salto** | Toutes ensemble (22 filles) | Gym (toutes) | ~5 min |
+| **16** | 🤸 Gym groupe | Inès, Eileen, Lya | Gym (sous-groupe) | ~3 min |
+| **17** | 🤸 Gym duo | Lina S., Maïssa | Gym (sous-groupe) | ~3 min |
+| **18** | 🤸 **Rondades / flip / salto** | Toutes ensemble (22 filles) | Gym (toutes) | ~5 min |
 
 ---
 
@@ -232,7 +230,7 @@ L'ordre est pensé pour :
 | Lush Life | Danse / gym (Alya, Elena, Elaïa, Kelyana) | ✅ Prête |
 | Gozalo | Danse (Jasmine, Léa, Lina M.) | ✅ Prête |
 | Astronomia | Danse (Kaylan, Elvin, Arthur, Alioun) | ✅ Prête |
-| Gabriela | Danse (Giulia, Héloïse) | ✅ Prête |
+| Gabriela | Danse (Giulia, Héloïse, Stella) | ✅ Prête |
 | 21 Reasons | Danse (Stella, Giulia) | ✅ Prête |
 | Kakalika | Danse (Clara, Lydia, Divine, Ryma, Yara) | ✅ Prête |
 | Spark Car | Danse (Kelyana, Elenna) — à confirmer | ⚠️ À confirmer |

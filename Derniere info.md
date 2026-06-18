@@ -12,7 +12,7 @@
 | Clara + Lydia + Divine + Ryma + Yara | Danse                | **Kakalika**   |
 | Maïssa + Lina M.                 | Danse                   | À définir      |
 | Grace                            | Danse                   | À définir      |
-| Giulia + Héloïse                 | Danse                   | **Gabriela**   |
+| Giulia + Héloïse + Stella        | Danse                   | **Gabriela**   |
 | Stella + Giulia                  | Danse                   | **21 Reasons**  |
 | Héloïse + Juliette + Loïcia      | Danse                   | À définir      |
 
@@ -28,7 +28,6 @@ Giulia, Stella, Héloïse, Inès, Eileen, Lya, Lina S., Maïssa, Alya, Elena, El
 
 | Participants                    | Prestation  |
 | ------------------------------- | ----------- |
-| Giulia + Stella + Héloïse       | Gym groupe  |
 | Inès + Eileen + Lya             | Gym groupe  |
 | Lina S. + Maïssa                | Gym duo     |
 | Alya + Elena + Elaïa + Kelyana  | Danse / gym (scène propre — Lush Life) |
@@ -135,7 +134,6 @@ Toutes les filles passent ensemble pour les rondades / flip / salto arrière.
 
 ### Sous-groupes (passages séparés)
 
-* **Giulia + Stella + Héloïse** — Gym groupe
 * **Inès + Eileen + Lya** — Gym groupe
 * **Lina S. + Maïssa** — Gym duo
 * **Alya + Elena + Elaïa + Kelyana** — Danse / gym (Lush Life)
