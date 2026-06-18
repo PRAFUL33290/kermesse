@@ -27,11 +27,11 @@
     const uniqueNames=names=>{const seen=new Map();names.forEach(name=>{const display=canonical(name);const key=norm(display);if(!seen.has(key))seen.set(key,display);});return [...seen.values()].sort((a,b)=>a.localeCompare(b,'fr',{sensitivity:'base'}));};
     const categoryKids=name=>uniqueNames(FREE_CATEGORIES.find(c=>c.name===name).scenes.flatMap(s=>s.who));
     const schoolKids=name=>{const p=SCHOOL_PROJECTS.find(p=>p.name===name);const names=[];if(p.kids)names.push(...p.kids);if(p.languages)p.languages.forEach(l=>names.push(...l.kids));return uniqueNames(names);};
-    const sceneKids=scene=>scene.type==='school'?schoolKids(scene.source):categoryKids(scene.source);
+    const sceneKids=scene=>scene.kids?uniqueNames(scene.kids):(scene.type==='school'?schoolKids(scene.source):categoryKids(scene.source));
     const schedule=[
       {day:'Lundi',scenes:[{label:"Quinzaine de l'égalité",source:"Quinzaine de l'égalité",type:'school'},{label:'Oh Mama Tetema',source:'Oh Mama Tetema + Freestyle',type:'school'}],note:'Journée projets périscolaires : langues, micro et chorégraphie.'},
       {day:'Mardi',scenes:[{label:'Théâtre',source:'Théâtre',type:'category'},{label:'Chant - passage 1',source:'Chant',type:'category'},{label:'Chant - passage 2',source:'Chant',type:'category'},{label:'Carnaval',source:'Carnaval',type:'school'}],note:'Répétition théâtre, chant et Carnaval. Les chants passent deux fois pour mieux mémoriser.'},
-      {day:'Jeudi',scenes:[{label:'Danse',source:'Danse',type:'category'},{label:'Capoeira',source:'Capoeira',type:'school'}],note:'Répétition danse et Capoeira : espace dégagé, placements et enchaînements.'},
+      {day:'Jeudi',scenes:[{label:'Danse',source:'Danse',type:'category'},{label:'GRS - Taki Taki',kids:['Alya CM2','Elaïa'],type:'category'},{label:'Capoeira',source:'Capoeira',type:'school'}],note:'Répétition danse, GRS et Capoeira : espace dégagé, placements et enchaînements.'},
       {day:'Vendredi',scenes:[{label:'Jonglage ballon de foot',source:'Jonglage ballon de foot',type:'category'},{label:'Rollers',source:'Roller',type:'category'}],note:'Journée précision et déplacements : vérifier le sol et la sécurité.'}
     ].map(item=>{const scenes=item.scenes.map(scene=>({...scene,kids:sceneKids(scene)}));return {...item,scenes,canteenKids:uniqueNames(scenes.flatMap(scene=>scene.kids))};});
     const total=schedule.reduce((n,d)=>n+d.canteenKids.length,0);const maxDay=Math.max(...schedule.map(d=>d.canteenKids.length));const schoolCount=schedule.flatMap(d=>d.scenes).filter(s=>s.type==='school').length;const catCount=schedule.flatMap(d=>d.scenes).filter(s=>s.type==='category').length;
