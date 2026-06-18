@@ -19,14 +19,13 @@ const SCHOOL_PROJECTS = [
   },
   {
     name: "Capoeira",
-    note: "",
-    kids: ["Clara", "Anna", "Lydia", "Ryma", "Calie", "Divine", "Keren",
-           "Charlotte", "Orianne", "Shyne", "Maimouna", "Grace", "Tania"]
+    note: "Le spectacle se déroulera le 25 juin.",
+    kids: []
   },
   {
     name: "Oh Mama Tetema + Freestyle",
     note: "Chorégraphie",
-    kids: ["Keren", "Divine", "Grace", "Maimouna", "Tania", "Orianne", "Husna", "Alicia", "Asma"]
+    kids: ["Keren", "Divine", "Grace", "Maimouna", "Tania", "Orianne", "Husna", "Alicia", "Asma", "Lydia"]
   },
   {
     name: "Quinzaine de l'égalité",
@@ -50,17 +49,63 @@ const SCHOOL_PROJECTS = [
 ];
 
 /* Scènes libres */
-/* Ordre de ramassage : Théâtre → Chant → Jonglage → Danse → Gym → Roller */
+/* Ordre de ramassage : Théâtre → Chant → Chant / Danse → Jonglage → Danse → Gym → Roller → Magie */
 const FREE_CATEGORIES = [
-  { name: "Théâtre", icon: "theatre", scenes: [ { who: ["Nolan","Adrien élémentaire"], scene: "Minecraft" }, { who: ["Ryma","Clara"], scene: "Mortelle Adèle" }, { who: ["Charlotte"], scene: "Théâtre" }, { who: ["Souleyman","Juliette","Timéo","Loïcia"], scene: "Théâtre à 4" }, { who: ["Lilly","Shyne"], scene: "Les Martiens — bruit de moteur + musique" }, { who: ["Mélina B.","Lya"], scene: "Théâtre" }, { who: ["Eileen","Léana","Lina M."], scene: "Théâtre — APC mardi/jeudi avec Eileen" }, { who: ["Céline","Emy O."], scene: "Théâtre" } ] },
-  { name: "Chant", icon: "mic", scenes: [ { who: ["Ibrahim","Lilly"], scene: "Ciel - Maitre Gims" }, { who: ["Mélina B.","Lya"], scene: "Ninao - Maitre Gims" }, { who: ["Eileen","Léana"], scene: "Je veux m’envoler" }, { who: ["Lina M."], scene: "Appelle ta copine - Maitre Gims" }, { who: ["Céline","Emy O.","Jasmine","Léa S."], scene: "Parisienne - Maitre Gims" }, { who: ["Charlotte"], scene: "Chant" }, { who: ["Keren"], scene: "Chant" }, { who: ["Maïmouna"], scene: "Chant" }, { who: ["Jumana"], scene: "À confirmer" }, { who: ["Youga"], scene: "Rnboi - Mon bébé" }, { who: ["Jasmine","Léa S."], scene: "Lush Life" } ] },
-  { name: "Jonglage ballon de foot", icon: "football", scenes: [ { who: ["Courage","Eliam"], scene: "Jonglage" } ] },
-  { name: "Danse", icon: "dance", scenes: [ { who: ["Kaylan","Elvin","Arthur","Alioun"], scene: "Astronomia", duration: "~3 min" }, { who: ["Clara"], scene: "Thriller", duration: "~1 min" }, { who: ["Grace"], scene: "Solo danse — musique à voir", duration: "~1 à 2 min" }, { who: ["Mamy Kadiatou"], scene: "Solo afro", duration: "à confirmer" }, { who: ["Jasmine","Léa S."], scene: "Gozalo", duration: "~3 min" }, { who: ["Lydia","Divine"], scene: "Danse — à confirmer", duration: "à confirmer" }, { who: ["Lina S.","Maïssa"], scene: "Danse Brésil — musique à confirmer", duration: "~3 min" }, { who: ["Alya CM2","Elenna","Kelyana"], scene: "Spa", duration: "~2 à 3 min" }, { who: ["Alya CM2","Elenna","Elaïa","Kelyana"], scene: "Danse / gym — Lush Life", duration: "~3 min max" }, { who: ["Giulia","Heloise"], scene: "Gabriela", duration: "à confirmer" }, { who: ["Stella","Giulia"], scene: "21 Reasons", duration: "à confirmer" }, { who: ["Heloise","Juliette","Loicia"], scene: "Danse", duration: "à confirmer" } ] },
-  { name: "Gymnastique", icon: "gym", scenes: [ { who: ["Alya CM2","Elaïa"], scene: "GRS — Taki Taki", duration: "~3 min" }, { who: ["Mélina B."], scene: "Solo gymnastique" }, { who: ["Giulia","Stella","Héloïse","Eileen","Lya","Lina S.","Maïssa","Alya CP","Alya CM2","Elenna","Elaïa","Kelyana","Yara","Keren","Tania","Husna","Alicia","Lydia","Naima Nour","Mélina B.","Mélyna A.","Léana","Céline","Idrissa"], scene: "Rondades / flip / salto arrière (toutes ensemble)" }, { who: ["Giulia","Stella","Héloïse"], scene: "Gym groupe" }, { who: ["Lina S.","Maïssa"], scene: "Gym duo" }, { who: ["Camille","Héloïse"], scene: "Gym duo" } ] },
-  { name: "Roller", icon: "roller", scenes: [ { who: ["Thalia F.","Naïma Nour","Mélyna A.","Haby","Dina"], scene: "Roller — Thalia entre seule puis sort ; Naïma Nour, Mélyna A. et Haby ensemble puis sortent ; Dina finit", duration: "~5 à 7 min" } ] }
+  { name: "Théâtre", icon: "theatre", scenes: [
+    { who: ["Nolan","Adrien élémentaire"], scene: "Minecraft" },
+    { who: ["Ryma","Clara"], scene: "Mortelle Adèle" },
+    { who: ["Souleyman","Timéo"], scene: "Théâtre" },
+    { who: ["Lilly","Shyne"], scene: "Les Martiens — bruit de moteur + musique" },
+    { who: ["Mélina B.","Lya"], scene: "Théâtre" },
+    { who: ["Eileen","Léana","Lina M."], scene: "Théâtre — APC mardi/jeudi avec Eileen" },
+    { who: ["Céline","Emy O."], scene: "Théâtre" }
+  ] },
+  { name: "Chant", icon: "mic", scenes: [
+    { who: ["Ibrahim","Lilly"], scene: "Ciel - Maitre Gims" },
+    { who: ["Mélina B.","Lya"], scene: "Ninao - Maitre Gims" },
+    { who: ["Eileen","Léana"], scene: "Je veux m’envoler" },
+    { who: ["Lina M."], scene: "Appelle ta copine - Maitre Gims" },
+    { who: ["Céline","Emy O."], scene: "Parisienne - Maitre Gims" },
+    { who: ["Keren"], scene: "Chant" },
+    { who: ["Maïmouna"], scene: "Chant" },
+    { who: ["Jumana"], scene: "À confirmer" },
+    { who: ["Youga"], scene: "Rnboi - Mon bébé" }
+  ] },
+  { name: "Chant / Danse", icon: "mic", scenes: [
+    { who: ["Jasmine","Léa S."], scene: "Parisienne - Maitre Gims", note: "Exceptionnel : Chant / Danse" }
+  ] },
+  { name: "Jonglage ballon de foot", icon: "football", scenes: [
+    { who: ["Courage","Eliam"], scene: "Jonglage" }
+  ] },
+  { name: "Danse", icon: "dance", scenes: [
+    { who: ["Kaylan","Elvin","Arthur","Alioun"], scene: "Astronomia", duration: "~3 min" },
+    { who: ["Clara"], scene: "Thriller", duration: "~1 min" },
+    { who: ["Jasmine","Léa S."], scene: "Gozalo", duration: "~3 min" },
+    { who: ["Lydia","Yara"], scene: "Pilé", duration: "~3 min" },
+    { who: ["Mamy Kadiatou","Lina S.","Maïssa"], scene: "Samba du Brésil", duration: "~3 min" },
+    { who: ["Alya CM2","Elenna","Kelyana"], scene: "Spa", duration: "~2 à 3 min" },
+    { who: ["Alya CM2","Elenna","Elaïa","Kelyana"], scene: "Danse / gym — Lush Life", duration: "~3 min max" },
+    { who: ["Giulia","Héloïse"], scene: "Gabriela", duration: "à confirmer" },
+    { who: ["Camille","Héloïse","Juliette","Loïcia"], scene: "21 Reasons", duration: "à confirmer" },
+    { who: ["Héloïse","Camille"], scene: "No Batidão — version instrumentale", duration: "à confirmer" }
+  ] },
+  { name: "Gymnastique", icon: "gym", scenes: [
+    { who: ["Alya CM2","Elaïa"], scene: "GRS — Taki Taki", duration: "~3 min" },
+    { who: ["Mélina B."], scene: "Solo gymnastique" },
+    { who: ["Giulia","Stella","Héloïse","Eileen","Lya","Lina S.","Maïssa","Alya CP","Alya CM2","Elenna","Elaïa","Kelyana","Yara","Keren","Tania","Alicia","Lydia","Naima Nour","Mélina B.","Mélyna A.","Léana","Céline","Idrissa","Haby","Hawa","Thalia F."], scene: "Rondades / flip / salto arrière (toutes ensemble)" },
+    { who: ["Giulia","Stella","Héloïse"], scene: "Gym groupe" },
+    { who: ["Lina S.","Maïssa"], scene: "Gym duo" },
+    { who: ["Camille","Héloïse"], scene: "Gym duo" }
+  ] },
+  { name: "Roller", icon: "roller", scenes: [
+    { who: ["Thalia F.","Naïma Nour","Mélyna A.","Haby","Dina"], scene: "Roller — Thalia entre seule puis sort ; Naïma Nour, Mélyna A. et Haby ensemble puis sortent ; Dina finit", duration: "~5 à 7 min" }
+  ] },
+  { name: "Magie", icon: "magic", scenes: [
+    { who: ["Charlotte"], scene: "Magie" }
+  ] }
 ];
 
-const NAME_ALIASES = { "mayssae": "Maïssa", "maissae": "Maïssa", "guillia": "Giulia", "elenna": "Elenna", "elena": "Elenna", "elaia": "Elaïa", "shine": "Shyne", "lina m": "Lina M.", "maimouna": "Maimouna", "heloise": "Héloïse", "leana": "Léana", "lily": "Lilly", "loicia": "Loïcia", "maissa": "Maïssa", "chahd": "Cheid", "naima nour": "Naïma Nour", "housna": "Husna", "melyna b": "Mélina B.", "melyna b.": "Mélina B.", "melina b": "Mélina B.", "melina b.": "Mélina B.", "mélina b": "Mélina B.", "mélina b.": "Mélina B.", "melyna adenet": "Mélyna A.", "melina adenet": "Mélyna A.", "mélina adenet": "Mélyna A.", "melyna a": "Mélyna A.", "melyna a.": "Mélyna A.", "mélyna a": "Mélyna A.", "mélyna a.": "Mélyna A.", "melina": "Melyna", "mélina": "Melyna" };
+const NAME_ALIASES = { "mayssae": "Maïssa", "maissae": "Maïssa", "guillia": "Giulia", "elenna": "Elenna", "elena": "Elenna", "elaia": "Elaïa", "shine": "Shyne", "lina m": "Lina M.", "lina": "Lina S.", "maimouna": "Maimouna", "heloise": "Héloïse", "leana": "Léana", "lily": "Lilly", "loicia": "Loïcia", "maissa": "Maïssa", "chahd": "Cheid", "naima nour": "Naïma Nour", "housna": "Husna", "husna": "Husna", "melyna b": "Mélina B.", "melyna b.": "Mélina B.", "melina b": "Mélina B.", "melina b.": "Mélina B.", "mélina b": "Mélina B.", "mélina b.": "Mélina B.", "melyna adenet": "Mélyna A.", "melina adenet": "Mélyna A.", "mélina adenet": "Mélyna A.", "melyna a": "Mélyna A.", "melyna a.": "Mélyna A.", "mélyna a": "Mélyna A.", "mélyna a.": "Mélyna A.", "melina": "Melyna", "mélina": "Melyna" };
 function normKey(name) { return name.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/\./g, "").trim(); }
 function canonical(name) { const k = normKey(name); if (NAME_ALIASES[k]) return NAME_ALIASES[k]; return name.trim(); }
 function computeStats() {
