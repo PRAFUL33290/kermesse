@@ -91,9 +91,8 @@
     "Gymnastique": [
       { "participants": ["Alya CM2", "Elaïa"], "prestation": "GRS — Taki Taki" },
       { "participants": ["Mélina B."], "prestation": "Solo gymnastique" },
-      { "participants": ["Giulia", "Stella", "Héloïse", "Eileen", "Lya", "Lina S.", "Maïssa", "Alya CP", "Alya CM2", "Elenna", "Elaïa", "Kelyana", "Yara", "Keren", "Tania", "Alicia", "Lydia", "Naima Nour", "Mélina B.", "Mélyna A.", "Léana", "Céline", "Haby", "Hawa", "Thalia F."], "prestation": "Rondades / flip / salto arrière (toutes ensemble)" },
       { "participants": ["Lina S.", "Maïssa"], "prestation": "Gym duo" },
-      { "participants": ["Camille", "Héloïse"], "prestation": "Gym duo" }
+      { "participants": ["Giulia", "Stella", "Héloïse", "Eileen", "Lya", "Lina S.", "Maïssa", "Alya CP", "Alya CM2", "Elenna", "Elaïa", "Kelyana", "Yara", "Keren", "Tania", "Alicia", "Lydia", "Naima Nour", "Mélina B.", "Mélyna A.", "Léana", "Céline", "Haby", "Hawa", "Thalia F."], "prestation": "Rondades / flip / salto arrière (toutes ensemble)" }
     ],
     "Roller": [
       { "participants": ["Thalia F.", "Naïma Nour", "Mélyna A.", "Haby", "Dina"], "prestation": "Roller" }
