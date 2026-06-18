@@ -50,7 +50,7 @@ const SCHOOL_PROJECTS = [
 ];
 
 /* Scènes libres */
-/* Ordre de ramassage : Théâtre → Magie → Chant → Chant/Danse → Jonglage → Danse → Gym → Roller */
+/* Ordre d'appel : Théâtre → Magie → Chant → Chant/Danse → Jonglage → Danse → Gym → Roller */
 const FREE_CATEGORIES = [
   { name: "Théâtre", icon: "theatre", scenes: [ { who: ["Nolan","Adrien élémentaire"], scene: "Minecraft" }, { who: ["Ryma","Clara"], scene: "Mortelle Adèle" }, { who: ["Souleyman","Timéo"], scene: "Théâtre à 2" }, { who: ["Lilly","Shyne"], scene: "Les Martiens — bruit de moteur + musique" }, { who: ["Mélina B.","Lya"], scene: "Théâtre" }, { who: ["Eileen","Léana","Lina M."], scene: "Théâtre — APC mardi/jeudi avec Eileen" }, { who: ["Céline","Emy O."], scene: "Théâtre" } ] },
   { name: "Magie", icon: "magic", scenes: [ { who: ["Charlotte"], scene: "Tour de magie" } ] },

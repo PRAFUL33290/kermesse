@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nico · Ramassage des enfants — Scène des Talents</title>
+  <title>Nico · Appel des enfants — Scène des Talents</title>
   <link rel="stylesheet" href="styles.css">
   <style>
     .nico-note { border-left-color: var(--green); font-size: 1rem; }
@@ -73,7 +73,7 @@
 
   <div class="wrap">
     <header class="page-head">
-      <p class="kicker">Planning de ramassage</p>
+      <p class="kicker">Planning d'appel</p>
       <h1>Nico</h1>
       <p class="meta">Animation à 17h45 · Scènes affichées dans l'ordre du déroulé</p>
     </header>
@@ -85,8 +85,8 @@
       Si un enfant ne souhaite finalement plus participer, passe à la scène suivante sans insister.
       Pendant ce temps, continue à faire venir les autres enfants prévus.<br><br>
       Les maternelles de Virginie ne sont pas à prendre en charge par Nico : Virginie les accompagne.
-      L'annonce Capoeira est un passage rapide sans ramassage Nico.
-      Le carnaval maternelle passe juste après les maternelles et reste sans ramassage Nico : Déborah s'en charge.<br><br>
+      L'annonce Capoeira est un passage rapide sans appel Nico.
+      Le carnaval maternelle passe juste après les maternelles et reste sans appel Nico : Déborah s'en charge.<br><br>
       Les enfants restent sous la responsabilité de leurs parents pendant toute la durée de l'événement.
     </div>
 
@@ -117,8 +117,8 @@
     const categoryScenes=name=>schedule.running.filter(s=>s.cat===name);
 
     const handoffBlocks=[
-      {cls:'school',time:bt('maternelles'),title:'Maternelles de Virginie',note:"Virginie s'en occupe : Nico ne les ramasse pas.",noChecklist:true,projects:[{name:'Maternelles de Virginie',kids:projectKids('Maternelles de Virginie'),scenes:projectScenes('Maternelles de Virginie'),noPickup:true,manager:'Virginie'}]},
-      {cls:'school',time:bt('projets'),title:'Autres projets périscolaires',note:'Projets dans l’ordre du déroulé. Carnaval géré par Déborah ; annonce Capoeira sans ramassage Nico.',projects:[{name:'Carnaval',kids:projectKids('Carnaval'),scenes:projectScenes('Carnaval'),noPickup:true,manager:'Déborah'},{name:'Annonce Capoeira',kids:projectKids('Annonce Capoeira'),scenes:projectScenes('Annonce Capoeira'),noPickup:true,manager:'Annonce'},{name:'Oh Mama Tetema + Freestyle',kids:projectKids('Oh Mama Tetema + Freestyle'),scenes:projectScenes('Oh Mama Tetema + Freestyle')},{name:"Quinzaine de l'égalité",kids:quinzaineKids,scenes:projectScenes("Quinzaine de l'égalité")}]},
+      {cls:'school',time:bt('maternelles'),title:'Maternelles de Virginie',note:"Virginie s'en occupe : Nico ne les appelle pas.",noChecklist:true,projects:[{name:'Maternelles de Virginie',kids:projectKids('Maternelles de Virginie'),scenes:projectScenes('Maternelles de Virginie'),noPickup:true,manager:'Virginie'}]},
+      {cls:'school',time:bt('projets'),title:'Autres projets périscolaires',note:'Projets dans l’ordre du déroulé. Carnaval géré par Déborah ; annonce Capoeira sans appel Nico.',projects:[{name:'Carnaval',kids:projectKids('Carnaval'),scenes:projectScenes('Carnaval'),noPickup:true,manager:'Déborah'},{name:'Annonce Capoeira',kids:projectKids('Annonce Capoeira'),scenes:projectScenes('Annonce Capoeira'),noPickup:true,manager:'Annonce'},{name:'Oh Mama Tetema + Freestyle',kids:projectKids('Oh Mama Tetema + Freestyle'),scenes:projectScenes('Oh Mama Tetema + Freestyle')},{name:"Quinzaine de l'égalité",kids:quinzaineKids,scenes:projectScenes("Quinzaine de l'égalité")}]},
       {cls:'theatre',time:bt('Théâtre'),title:'Théâtre',note:'Après les projets, rassembler tous les groupes théâtre.',kids:categoryKids('Théâtre'),scenes:categoryScenes('Théâtre')},
       {cls:'magie',time:bt('Magie'),title:'Magie',note:'Charlotte passe juste après le théâtre.',kids:categoryKids('Magie'),scenes:categoryScenes('Magie')},
       {cls:'chant',time:bt('Chant'),title:'Chant',note:'Les chanteurs passent après la magie. Bloc d’une dizaine d’enfants (~30 min).',kids:categoryKids('Chant'),scenes:categoryScenes('Chant')},
@@ -149,7 +149,7 @@
     const renderKids=(kids,marks)=>`<ul class="handoff-kids">${kids.map(k=>`<li${kidClass(k,marks)}><input type="checkbox" aria-label="${esc(k)}"><span class="kid-name">${esc(k)}</span>${kidTag(k,marks)}</li>`).join('')}</ul>`;
     const renderPlainKids=(kids,marks)=>`<ul class="handoff-kids">${kids.map(k=>`<li class="no-check ${kidClassName(k,marks)}"><span class="kid-name">${esc(k)}</span>${kidTag(k,marks)}</li>`).join('')}</ul>`;
     const renderStayNote=(current,next,index)=>{if(!next)return '';const nextKids=kidKeySet(blockKids(next));const staying=blockKids(current).filter(k=>nextKids.has(kidKey(k)));if(!staying.length)return '';return `<div class="stay-note"><strong>Ne les fais pas repartir : ils enchaînent.</strong>${staying.map(k=>`${esc(k)} : ${chainLabel(nextSceneForKid(k,index+1))}`).join(' · ')}</div>`;};
-    const renderProjects=(block,marks)=>`<div class="project-lines">${block.projects.map(p=>{const source=project(p.name)||{};const noPickup=block.noChecklist||p.noPickup||source.noPickup;const referenceOnly=p.referenceOnly||source.referenceOnly;const manager=p.manager||source.manager||(block.noChecklist?'Virginie':'Déborah');const meta=referenceOnly?'Liste de repère pour Nico : pas de cases à cocher.':(noPickup?`${esc(manager)} s'en charge : Nico ne les coche pas et ne les ramasse pas.`:'À cocher au fur et à mesure du ramassage.');return `<div class="project-line"><strong>${esc(p.name)} · ${p.kids.length} enfant${p.kids.length>1?'s':''}</strong>${renderSceneList(p.scenes)}<div class="project-meta">${meta}</div>${noPickup||referenceOnly?renderPlainKids(p.kids,marks):renderKids(p.kids,marks)}</div>`;}).join('')}</div>`;
+    const renderProjects=(block,marks)=>`<div class="project-lines">${block.projects.map(p=>{const source=project(p.name)||{};const noPickup=block.noChecklist||p.noPickup||source.noPickup;const referenceOnly=p.referenceOnly||source.referenceOnly;const manager=p.manager||source.manager||(block.noChecklist?'Virginie':'Déborah');const meta=referenceOnly?'Liste de repère pour Nico : pas de cases à cocher.':(noPickup?`${esc(manager)} s'en charge : Nico ne les coche pas et ne les appelle pas.`:"À cocher au fur et à mesure de l'appel.");return `<div class="project-line"><strong>${esc(p.name)} · ${p.kids.length} enfant${p.kids.length>1?'s':''}</strong>${renderSceneList(p.scenes)}<div class="project-meta">${meta}</div>${noPickup||referenceOnly?renderPlainKids(p.kids,marks):renderKids(p.kids,marks)}</div>`;}).join('')}</div>`;
 
     document.getElementById('handoffList').innerHTML=handoffBlocks.map((block,index)=>{const count=blockKids(block).length;const previousBlock=handoffBlocks[index-1];const nextBlock=handoffBlocks[index+1];const marks={keepClose:markNext(block,nextBlock,index),alreadyClose:markPrevious(block,previousBlock),returnsLater:markReturnsLater(block,index)};return `<section class="handoff-card ${block.cls}"><div class="handoff-head"><div class="handoff-time">${esc(block.time)}</div><div class="handoff-title">${esc(block.title)}<small>${esc(block.note)}</small></div><div class="handoff-count">${count} enfant${count>1?'s':''}</div></div><div class="handoff-body">${block.projects?renderProjects(block,marks):renderSceneList(block.scenes)+renderKids(block.kids,marks)}${renderStayNote(block,nextBlock,index)}</div></section>`;}).join('');
   </script>
