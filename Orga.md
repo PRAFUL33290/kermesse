@@ -75,16 +75,15 @@ Keren, Divine, Grace, Maimouna, Tania, Orianne
 
 > Note : Alya + Elena + Elaïa + Kelyana font une scène "Danse / gym" propre (Lush Life), comptée en Danse, + participent aux rondades.
 
-### 🎭 Théâtre — 6 scènes
+### 🎭 Théâtre — 5 scènes
 
 | # | Participants | Prestation | Nb |
 |---|---|---|---|
 | 1 | Lilly, Shine, Divine | Théâtre | 3 |
 | 2 | Ryma, Divine, Clara | Mortelle Adèle | 3 |
 | 3 | Nayana | Théâtre | 1 |
-| 4 | Charlotte | Théâtre | 1 |
-| 5 | Eileen, Leana, Lina M. | Théâtre | 3 |
-| 6 | Souleyman, Juliette, Timéo, Loïcia | Théâtre à 4 | 4 |
+| 4 | Eileen, Leana, Lina M. | Théâtre | 3 |
+| 5 | Souleyman, Juliette, Timéo, Loïcia | Théâtre à 4 | 4 |
 
 ### 🎤 Chant — 5 scènes
 
@@ -191,7 +190,6 @@ L'ordre est pensé pour :
 | N° | Scène | Participants | Catégorie | Durée est. |
 |---|---|---|---|---|
 | **26** | 💃 Danse — Kakalika | Clara, Lydia, Divine, Ryma, Yara | Danse | ~3 min |
-| **27** | 🎭 Théâtre | Charlotte | Théâtre | ~4 min |
 | **28** | 💃 Danse — 21 Reasons | Stella, Giulia | Danse | ~3 min |
 | **29** | 💃 Afro / rondade / salto | Maïssa, Lina M. | Danse | ~3 min |
 | **30** | 🎭 Théâtre | Eileen, Leana, Lina M. | Théâtre | ~5 min |

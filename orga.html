@@ -34,7 +34,6 @@
     );
     const orgaNote=s=>{
       const kids=s.kids.join(' · ');
-      if(s.cat==='Théâtre' && kids==='Charlotte') return "Charlotte = Pas sûr qu'elle le fasse.";
       if(s.cat==='Chant' && kids==='Ibrahim · Lilly') return "Ibrahim à voir s'il veut toujours le faire.";
       if(s.cat==='Chant' && kids==='Charlotte') return "Je ne sais pas si elle veut le faire et sur quelle musique.";
       if(s.cat==='Danse' && kids==='Clara' && s.name.includes('Thriller')) return "Je ne sais pas si elle veut le faire... tout dépend des copains.";

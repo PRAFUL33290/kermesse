@@ -41,7 +41,6 @@ Giulia, Stella, Héloïse, Inès, Eileen, Lya, Lina S., Maïssa, Alya, Elena, El
 | Lilly + Giulia        | **Les Martiens** | Musique à un moment précis + bruit de moteur |
 | Ryma + Divine + Clara | Théâtre          | À définir                                    |
 | Nayana                | Théâtre          | À définir                                    |
-| Charlotte             | Théâtre          | À définir                                    |
 | Eileen + Leana + Lina | Théâtre          | À définir                                    |
 | Souleyman + Juliette + Timéo + Loïcia | Théâtre | À définir                                    |
 

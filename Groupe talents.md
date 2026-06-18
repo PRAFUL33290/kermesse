@@ -36,7 +36,6 @@ Voici **tous les groupes des scènes libres uniquement**, donc **sans Quinzaine 
 | **Lilly + Shine + Divine** | Théâtre                  |
 | **Ryma + Divine + Clara**  | Théâtre — Mortelle Adèle |
 | **Nayana**                 | Théâtre                  |
-| **Charlotte**              | Théâtre                  |
 | **Eileen + Leana + Lina**  | Théâtre                  |
 
 ## Chant
