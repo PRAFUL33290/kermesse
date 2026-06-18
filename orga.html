@@ -30,7 +30,7 @@
       s.type==='free' &&
       s.cat==='Chant' &&
       s.kids.length===1 &&
-      s.kids[0]==='Jumana'
+      (s.kids[0]==='Maimouna' || s.kids[0]==='Jumana')
     );
     const orgaNote=s=>{
       const kids=s.kids.join(' · ');
@@ -38,7 +38,6 @@
       if(s.num===13) return "Ibrahim à voir s'il veut toujours le faire.";
       if(s.num===18) return "Je ne sais pas si elle veut le faire et sur quelle musique.";
       if(s.num===19) return "Elle chante mais je ne sais pas sur quelle musique.";
-      if(s.num===20) return "Je ne sais pas du tout si elle le fait.";
       if(s.cat==='Danse' && kids==='Clara' && s.name.includes('Thriller')) return "Je ne sais pas si elle veut le faire... tout dépend des copains.";
       if(s.cat==='Danse' && kids==='Grace') return "Je ne sais pas si elle le fait toujours.";
       if(s.cat==='Danse' && kids==='Mamy Kadiatou') return "Je ne sais pas si elle le fait toujours.";
@@ -51,7 +50,7 @@
       if(s.cat==='Gymnastique' && kids==='Camille · Héloïse') return "Je ne sais pas sur quelle musique.";
       return "";
     };
-    const running=schedule.running.filter(s=>!hiddenFromOrga(s)).map(s=>({...s,duration:s.duration||`~${sceneDurationMin(s)} min`,orgaNote:orgaNote(s)}));
+    const running=schedule.running.filter(s=>!hiddenFromOrga(s)).map((s,index)=>({...s,num:index+1,duration:s.duration||`~${sceneDurationMin(s)} min`,orgaNote:orgaNote(s)}));
     const sceneParts=name=>{const parts=String(name).split(' — ');return parts.length>1?{title:parts[0],info:parts.slice(1).join(' — ')}:{title:name,info:''};};
     const card=s=>{const parts=sceneParts(s.name);const info=[parts.info,s.note,s.orgaNote].filter(Boolean).join(' · ');return `<article class="order-card ${s.type==='school'?'school':''}"><div class="order-head"><span class="order-num">scène ${s.num}</span><span class="order-arrow">→</span><div class="order-kids">${s.kids.map(esc).join(' · ')}</div></div><div class="order-title">${esc(parts.title)}</div><div class="order-meta">${esc(s.cat)} · ${esc(s.duration||'')}</div><span class="order-time">vers ${esc(s.time)}</span>${info?`<div class="order-info">${esc(info)}</div>`:''}</article>`;};
     document.getElementById('runningOrder').innerHTML=running.map(card).join('');
