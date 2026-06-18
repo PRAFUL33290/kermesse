@@ -29,7 +29,8 @@
     const hiddenFromOrga=s=>(
       s.type==='free' &&
       s.cat==='Chant' &&
-      ((s.kids.length===1 && s.kids[0]==='Maimouna') || (s.kids.length===1 && s.kids[0]==='Jumana'))
+      s.kids.length===1 &&
+      s.kids[0]==='Jumana'
     );
     const orgaNote=s=>{
       const kids=s.kids.join(' · ');
@@ -37,6 +38,7 @@
       if(s.num===13) return "Ibrahim à voir s'il veut toujours le faire.";
       if(s.num===18) return "Je ne sais pas si elle veut le faire et sur quelle musique.";
       if(s.num===19) return "Elle chante mais je ne sais pas sur quelle musique.";
+      if(s.num===20) return "Je ne sais pas du tout si elle le fait.";
       if(s.cat==='Danse' && kids==='Clara' && s.name.includes('Thriller')) return "Je ne sais pas si elle veut le faire... tout dépend des copains.";
       if(s.cat==='Danse' && kids==='Grace') return "Je ne sais pas si elle le fait toujours.";
       if(s.cat==='Danse' && kids==='Mamy Kadiatou') return "Je ne sais pas si elle le fait toujours.";
