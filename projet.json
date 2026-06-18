@@ -24,7 +24,10 @@
     "Husna est supprimée de la gymnastique.",
     "Léa S. et Jasmine passent en Chant / Danse exceptionnel sur Parisienne.",
     "Céline et Emy O. chantent Parisienne.",
-    "Souleyman et Timéo font leur scène de théâtre seuls ; Juliette et Loïcia sont retirées de cette scène."
+    "Souleyman et Timéo font leur scène de théâtre seuls ; Juliette et Loïcia sont retirées de cette scène.",
+    "Stella est ajoutée à Gabriela.",
+    "La scène de chant de Keren est supprimée.",
+    "La scène Gym groupe Giulia, Stella, Héloïse est supprimée."
   ],
   "projetsPeriscolaires": [
     {
@@ -64,7 +67,6 @@
       { "participants": ["Eileen", "Léana"], "prestation": "Je veux m’envoler" },
       { "participants": ["Lina M."], "prestation": "Appelle ta copine - Maitre Gims" },
       { "participants": ["Céline", "Emy O."], "prestation": "Parisienne - Maitre Gims" },
-      { "participants": ["Keren"], "prestation": "Chant" },
       { "participants": ["Maïmouna"], "prestation": "Chant" },
       { "participants": ["Jumana"], "prestation": "À confirmer" },
       { "participants": ["Youga"], "prestation": "Rnboi - Mon bébé" }
@@ -83,7 +85,7 @@
       { "participants": ["Mamy Kadiatou", "Lina S.", "Maïssa"], "prestation": "Samba du Brésil" },
       { "participants": ["Alya CM2", "Elenna", "Kelyana"], "prestation": "Spa" },
       { "participants": ["Alya CM2", "Elenna", "Elaïa", "Kelyana"], "prestation": "Danse / gym — Lush Life" },
-      { "participants": ["Giulia", "Héloïse"], "prestation": "Gabriela" },
+      { "participants": ["Giulia", "Héloïse", "Stella"], "prestation": "Gabriela" },
       { "participants": ["Camille", "Héloïse", "Juliette", "Loïcia"], "prestation": "21 Reasons" },
       { "participants": ["Héloïse", "Camille"], "prestation": "No Batidão — version instrumentale" }
     ],
@@ -91,7 +93,6 @@
       { "participants": ["Alya CM2", "Elaïa"], "prestation": "GRS — Taki Taki" },
       { "participants": ["Mélina B."], "prestation": "Solo gymnastique" },
       { "participants": ["Giulia", "Stella", "Héloïse", "Eileen", "Lya", "Lina S.", "Maïssa", "Alya CP", "Alya CM2", "Elenna", "Elaïa", "Kelyana", "Yara", "Keren", "Tania", "Alicia", "Lydia", "Naima Nour", "Mélina B.", "Mélyna A.", "Léana", "Céline", "Idrissa", "Haby", "Hawa", "Thalia F."], "prestation": "Rondades / flip / salto arrière (toutes ensemble)" },
-      { "participants": ["Giulia", "Stella", "Héloïse"], "prestation": "Gym groupe" },
       { "participants": ["Lina S.", "Maïssa"], "prestation": "Gym duo" },
       { "participants": ["Camille", "Héloïse"], "prestation": "Gym duo" }
     ],
