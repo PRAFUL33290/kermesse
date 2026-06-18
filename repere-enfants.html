@@ -56,6 +56,27 @@
       font-size: 1.1rem;
       font-weight: 850;
     }
+    .repere-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+    .repere-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 36px;
+      height: 32px;
+      padding: 0 8px;
+      border-radius: 9px;
+      background: var(--accent);
+      color: #fff;
+      font-size: .86rem;
+      font-weight: 950;
+      line-height: 1;
+      white-space: nowrap;
+    }
     .repere-count {
       padding: 3px 10px;
       border-radius: 999px;
@@ -175,6 +196,12 @@
       color: var(--muted);
     }
     @media (max-width: 760px) {
+      .repere-head {
+        align-items: flex-start;
+      }
+      .repere-title {
+        align-items: flex-start;
+      }
       .flow-line {
         grid-template-columns: 1fr;
         gap: 10px;
@@ -330,12 +357,16 @@
 
     const allChildren = [...childMap.values()]
       .map(child => ({ ...child, passages: child.passages.sort((a, b) => a.num - b.num) }))
-      .sort((a, b) => a.display.localeCompare(b.display, 'fr', { sensitivity: 'base' }));
+      .sort((a, b) => a.display.localeCompare(b.display, 'fr', { sensitivity: 'base' }))
+      .map((child, index) => ({ ...child, number: index + 1 }));
 
     const renderChild = child => `
       <section class="repere-card" data-name="${esc(key(child.display))}">
         <div class="repere-head">
-          <div class="repere-name">${esc(child.display)}</div>
+          <div class="repere-title">
+            <span class="repere-num">N° ${child.number}</span>
+            <div class="repere-name">${esc(child.display)}</div>
+          </div>
           <div class="repere-count">${child.passages.length} passage${child.passages.length > 1 ? 's' : ''}</div>
         </div>
         <div class="flow-lines">
