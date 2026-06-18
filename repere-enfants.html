@@ -71,7 +71,7 @@
     }
     .flow-line {
       display: grid;
-      grid-template-columns: 70px 1fr 220px;
+      grid-template-columns: 128px minmax(0, 1fr) 220px;
       gap: 14px;
       padding: 14px 18px;
       border-bottom: 1px solid var(--line);
@@ -81,11 +81,14 @@
     .scene-pill {
       display: inline-grid;
       place-items: center;
-      min-width: 54px;
-      height: 34px;
+      min-width: 112px;
+      min-height: 38px;
+      padding: 0 12px;
       border-radius: 9px;
       color: #fff;
       font-weight: 850;
+      line-height: 1;
+      white-space: nowrap;
       background: linear-gradient(135deg, var(--cat-main), var(--cat-alt));
     }
     .flow-main {
@@ -167,6 +170,9 @@
       .flow-line {
         grid-template-columns: 1fr;
         gap: 10px;
+      }
+      .scene-pill {
+        min-width: 96px;
       }
       .flow-next {
         border-left-width: 0;
