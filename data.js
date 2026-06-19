@@ -26,13 +26,13 @@ const SCHOOL_PROJECTS = [
   {
     name: "Oh Mama Tetema + Freestyle",
     note: "Chorégraphie",
-    kids: ["Keren", "Divine", "Grace", "Maimouna", "Tania", "Orianne", "Husna", "Alicia", "Asma", "Lydia"]
+    kids: ["Keren", "Divine", "Grace", "Maimouna", "Tania", "Orianne", "Husna", "Alicia", "Asma", "Lydia", "Shyne"]
   },
   {
     name: "Quinzaine de l'égalité",
     note: "Nos artistes en herbe — par pays et langue",
     languages: [
-      { flag: "France", country: "France", lang: "Français", kids: ["Lilly","Lydia","Myla","Kelyana","Elaia","Juliette","Ilona","Jasmine","Guillia","Elenna","Mia","Alya CM2","Divine","Lina M.","Alicia","Eileen","Léana","Céline","Cheid","Asma","Lina E."] },
+      { flag: "France", country: "France", lang: "Français", kids: ["Lilly","Lydia","Myla","Kelyana","Elaia","Juliette","Ilona","Jasmine","Guillia","Elenna","Mia","Alya CM2","Divine","Lina M.","Alicia","Eileen","Léana","Céline","Cheid","Asma","Lina E.","Clara","Emy O."] },
       { flag: "Angleterre", country: "Angleterre", lang: "Anglais", kids: ["Juliette"] },
       { flag: "Espagne", country: "Espagne", lang: "Espagnol", kids: ["Myla","Kelyana","Elaia","Elenna","Mia","Shyne","Alya CM2","Lina M.","Alicia","Mila","Zia","Cheid"] },
       { flag: "Portugal", country: "Portugal", lang: "Portugais", kids: ["Kelyana","Ilona","Alya CM2","Lina M."] },
@@ -52,7 +52,7 @@ const SCHOOL_PROJECTS = [
 /* Scènes libres */
 /* Ordre d'appel : Théâtre → Magie → Chant → Chant/Danse → Jonglage → Danse → Gym → Roller */
 const FREE_CATEGORIES = [
-  { name: "Théâtre", icon: "theatre", scenes: [ { who: ["Nolan","Adrien élémentaire"], scene: "Minecraft" }, { who: ["Ryma","Clara"], scene: "Mortelle Adèle" }, { who: ["Souleyman","Timéo"], scene: "Théâtre à 2" }, { who: ["Lilly","Shyne"], scene: "Les Martiens — bruit de moteur + musique" }, { who: ["Mélina B.","Lya"], scene: "Théâtre" }, { who: ["Eileen","Léana","Lina M."], scene: "Théâtre — APC mardi/jeudi avec Eileen" }, { who: ["Céline","Emy O."], scene: "Théâtre" } ] },
+  { name: "Théâtre", icon: "theatre", scenes: [ { who: ["Nolan","Adrien élémentaire"], scene: "Minecraft" }, { who: ["Ryma","Clara"], scene: "Mortelle Adèle" }, { who: ["Souleyman","Timéo"], scene: "Théâtre à 2" }, { who: ["Lilly","Shyne"], scene: "Les Martiens — bruit de moteur + musique" }, { who: ["Mélina B.","Lya"], scene: "Théâtre" }, { who: ["Eileen","Léana","Lina M."], scene: "Théâtre — APC mardi/jeudi avec Eileen" }, { who: ["Céline","Emy O."], scene: "Théâtre" }, { who: ["Camille","Juliette","Loïcia"], scene: "Improvisation" } ] },
   { name: "Magie", icon: "magic", scenes: [ { who: ["Charlotte"], scene: "Tour de magie" } ] },
   { name: "Chant", icon: "mic", scenes: [ { who: ["Ibrahim","Lilly"], scene: "Ciel - Maitre Gims" }, { who: ["Mélina B.","Lya"], scene: "Ninao - Maitre Gims" }, { who: ["Eileen","Léana"], scene: "Je veux m’envoler" }, { who: ["Lina M."], scene: "Appelle ta copine - Maitre Gims" }, { who: ["Youga"], scene: "Rnboi - Mon bébé" }, { who: ["Jasmine","Léa S."], scene: "Lush Life" } ] },
   { name: "Chant / Danse", icon: "mic", scenes: [ { who: ["Céline","Emy O.","Jasmine","Léa S."], scene: "Parisienne - Maître Gims — chant : Céline + Emy O. / danse : Jasmine + Léa S." } ] },
